@@ -18,6 +18,11 @@ class ServiceController extends Controller
         return view('services',compact('services'));
     }
 
+    public function booking(Service $service)
+    {
+        return view('booking',compact('service'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
