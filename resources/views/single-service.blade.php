@@ -63,9 +63,9 @@
 		<div class="row">
 			<div class="col-lg-8">
 				<div class="department-content mt-5">
-					<h3 class="text-md">Medecine and Health</h3>
+					<h3 class="text-md">{{$service['service']}}</h3>
 					<div class="divider my-4"></div>
-					<p class="lead">Age forming covered you entered the examine. Blessing scarcely confined her contempt wondered shy. Dashwoods contented sportsmen at up no convinced cordially affection.</p>
+					<p class="lead">{{$service['description']}}</p>
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum recusandae dolor autem laudantium, quaerat vel dignissimos. Magnam sint suscipit omnis eaque unde eos aliquam distinctio, quisquam iste, itaque possimus . Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet alias modi eaque, ratione recusandae cupiditate dolorum repellendus iure eius rerum hic minus ipsa at, corporis nesciunt tempore vero voluptas. Tempore.</p>
 
 
@@ -79,8 +79,7 @@
 						<li><i class="icofont-check mr-2"></i>Critical Care Medicine Specialists</li>
 						<li><i class="icofont-check mr-2"></i>Emergency Assistance</li>
 					</ul>
-
-					<a href="appoinment.html" class="btn btn-main-2 btn-round-full">Make an Appoinment<i class="icofont-simple-right ml-2  "></i></a>
+					<a href="{{route('booking',$service->id)}}" class="btn btn-main-2 btn-round-full">Make an Appoinment<i class="icofont-simple-right ml-2  "></i></a>
 				</div>
 			</div>
 
@@ -105,7 +104,7 @@
 
 					<div class="sidebar-contatct-info mt-4">
 						<p class="mb-0">Need Urgent Help?</p>
-						<h3>+23-4565-65768</h3>
+						<h3><a href="tel:+23-4565-65768">+23-4565-65768</a></h3>
 					</div>
 				</div>
 			</div>

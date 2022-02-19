@@ -29,7 +29,7 @@
 	
 
 
-<section class="page-title bg-1">
+{{-- <section class="page-title bg-1">
   <div class="overlay"></div>
   <div class="container">
     <div class="row">
@@ -47,7 +47,7 @@
       </div>
     </div>
   </div>
-</section>
+</section> --}}
 
 <section class="appoinment section">
   <div class="container">
@@ -68,61 +68,48 @@
             <p class="mb-4">Mollitia dicta commodi est recusandae iste, natus eum asperiores corrupti qui velit . Iste dolorum atque similique praesentium soluta.</p>
                <form id="#" class="appoinment-form" method="POST" action="{{route('store')}}">
                 @csrf
+                <input type="hidden" name="id" value="{{$user->id}}">
                     <div class="row">
+                      <div class="col-lg-6">
+                        <div class="form-group">
+                          <label for="name">Full Name</label>
+                            <input name="name" id="name" type="text" class="form-control" placeholder="Lorem Ipsum" value="{{$user->name}}" required>
+                        </div>
+                    </div>
                          <div class="col-lg-6">
                             <div class="form-group">
-                                <select class="form-control" id="exampleFormControlSelect1">
-                                  <option>Choose Department</option>
-                                  <option>Software Design</option>
-                                  <option>Development cycle</option>
-                                  <option>Software Development</option>
-                                  <option>Maintenance</option>
-                                  <option>Process Query</option>
-                                  <option>Cost and Duration</option>
-                                  <option>Modal Delivery</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <select class="form-control" id="exampleFormControlSelect2">
-                                  <option>Select Doctors</option>
-                                  <option>Software Design</option>
-                                  <option>Development cycle</option>
-                                  <option>Software Development</option>
-                                  <option>Maintenance</option>
-                                  <option>Process Query</option>
-                                  <option>Cost and Duration</option>
-                                  <option>Modal Delivery</option>
+                              <label for="test">Test Name</label>
+                                <select class="form-control" name="service_id" required id="test">
+                                  @foreach ($services as $item)
+                                    <option value="{{$item['id']}}" {{$item['id']==$service['id']?'selected':''}} >{{$item['service']}}</option>
+                                  @endforeach
                                 </select>
                             </div>
                         </div>
 
                          <div class="col-lg-6">
                             <div class="form-group">
-                                <input name="date" id="date" type="text" class="form-control" placeholder="dd/mm/yyyy">
+                              <label for="date">Test Date</label>
+                                <input name="date" id="date" type="date" min="{{$date}}" class="form-control" value="{{$date}}" required>
                             </div>
                         </div>
 
-                        <div class="col-lg-6">
+                        {{-- <div class="col-lg-6">
                             <div class="form-group">
                                 <input name="time" id="time" type="text" class="form-control" placeholder="Time">
                             </div>
-                        </div>
-                         <div class="col-lg-6">
-                            <div class="form-group">
-                                <input name="name" id="name" type="text" class="form-control" placeholder="Full Name">
-                            </div>
-                        </div>
+                        </div> --}}
 
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <input name="phone" id="phone" type="Number" class="form-control" placeholder="Phone Number">
+                              <label for="phone">Phone Number</label>
+                                <input name="phone" id="phone" type="Number" class="form-control" placeholder="07XXXXXXXX" required minlength="10">
                             </div>
                         </div>
                     </div>
                     <div class="form-group-2 mb-4">
-                        <textarea name="message" id="message" class="form-control" rows="6" placeholder="Your Message"></textarea>
+                      <label for="location">Location</label>
+                        <textarea name="location" id="location" class="form-control" rows="6" required placeholder="Tell me your location..."></textarea>
                     </div>
 
                     <button type="submit" class="btn btn-main btn-round-full">Make Appoinment<i class="icofont-simple-right ml-2"></i></button>

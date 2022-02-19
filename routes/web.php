@@ -30,6 +30,10 @@ Route::get('/about-us',function(){return view('about');})->name('about-us');
 Route::get('/contact-us',function(){return view('contact');})->name('contact-us');
 Route::get('/services',[ServiceController::class,'index'])->name('services');
 Route::get('/services/{service}',[ServiceController::class,'show'])->name('single-service');
-Route::get('/services/{service}/booking',[ServiceController::class,'booking'])->name('booking');
-Route::post('/done',[BookingController::class,'store'])->name('store');
-// Route::post('/services/{service}/booking',[BookingController::class,'store'])->name('storeBooking');
+Route::group(['middleware'=>['auth']],function(){
+    Route::get('/services/{service}/booking',[ServiceController::class,'booking'])->name('booking');
+    Route::post('/done',[BookingController::class,'store'])->name('store');
+});
+Route::group(['middleware'=>['auth','isAdmin']],function(){
+    Route::get('/admin',function(){return view('admin.admin');})->name('admin');
+});

@@ -14,6 +14,7 @@ class Booking extends Model
         'location',
         'date',
         'user_id',
+        'phone'
     ];
 
     public function services ()

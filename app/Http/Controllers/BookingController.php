@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Booking;
+use App\Models\User;
+use Faker\Core\Number;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BookingController extends Controller
 {
@@ -31,12 +34,31 @@ class BookingController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Response5
      */
     public function store(Request $request)
     {
         //
-        dd($request);
+        // dd($request);
+        $request->validate([
+            'id'=>'required',
+           'name'=>['required','max:30'],
+           'date'=>['required','max:30'],
+           'service_id'=>'required',
+           'phone'=>['required','max:15','min:9'],
+           'location'=>['required','min:5']
+        ]);
+        $user = Auth::user()->id;
+        if($user!=$request['id'])
+            return redirect('/');
+        Booking::create([
+            'service_id'=>$request['service_id'],
+            'location'=>$request['location'],
+            'date'=>$request['date'],
+            'user_id'=>$request['id'],
+            'phone'=>$request['phone']
+        ]);
+        return view('confirm');
     }
 
     /**

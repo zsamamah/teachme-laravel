@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Service;
+use Carbon\Carbon;
+use Carbon\CarbonInterval;
+use DateTime;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ServiceController extends Controller
 {
@@ -20,7 +24,11 @@ class ServiceController extends Controller
 
     public function booking(Service $service)
     {
-        return view('booking',compact('service'));
+        $services = Service::all();
+        $date = date('Y-m-d');
+        // dd($date);
+        $user = Auth::user();
+        return view('booking',compact('service','services','date','user'));
     }
 
     /**
