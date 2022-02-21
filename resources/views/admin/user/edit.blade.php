@@ -30,10 +30,6 @@
                         <input id="add-rpassword" type="password" class="form-control" name="rpassword">
                         <hr>
                     </div>
-                    <div class="col-md-12 mb-3" >
-                        <label for="">Admin</label>
-                        <input  type="checkbox" name="role_as">
-                    </div>
                     <div class="col-mid-12">
                         <button type="submit" class="btn btn-primary">Add User</button>
                     </div>

@@ -29,9 +29,40 @@ class AdminController extends Controller
         return view('admin.services.index',compact('services'));
     }
 
-    public function editService()
+    public function editService(Service $service)
     {
-        return view('admin.services.edit');
+        // dd($service);
+        $single_service = Service::all()->where('id',$service['id']);
+        // dd($single_service);
+        return view('admin.services.edit',compact('single_service'));
+    }
+
+    public function createService(Request $request)
+    {
+        Service::create([
+            'service'=>$request['service'],
+            'price'=>$request['price'],
+            'service_image'=>$request['service_image'],
+            'description'=>$request['description']
+        ]);
+        return redirect('admin-dashboard');
+    }
+
+    public function storeService(Request $request,Service $service)
+    {
+        $service->update([
+            'service'=>$request['name'],
+            'price'=>$request['price'],
+            'service_image'=>$request['service_image'],
+            'description'=>$request['description']
+        ]);
+        return redirect('services-dashboard');
+    }
+
+    public function deleteService(Service $service)
+    {
+        $service->deleteOrFail();
+        return redirect('dashboard');
     }
     /**
      * Show the form for creating a new resource.
@@ -52,6 +83,7 @@ class AdminController extends Controller
     public function store(Request $request)
     {
         //
+        dd($request);
     }
 
     /**

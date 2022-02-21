@@ -1,35 +1,36 @@
 @extends('layouts.admin')
 
 @section('content')
+@foreach ($single_service as $service)
     <div class="card">
         <div class="card-header">
-            <h4>Edit country</h4>
+            <h4>Edit {{$service->service}}</h4>
         </div>
         <div class="card-body">
-            <form action="{{ url('update-country/',$country->id) }}" method="POST" enctype="multipart/form-data">
-                @csrf
+            <form action="{{route('store-service',$service->id)}}" method="POST" enctype="multipart/form-data">
                 @method('PUT')
-                <div class="row">
+                @csrf
                     <div class="col-md-6 mb-3" >
-                        <label for="">Name</label>
-                        <input value="{{$country->name}}" type="text" class="form-control" name="name">
+                        <label for="name">Name</label>
+                        <input value="{{$service->service}}" id="name" type="text" name="name">
                     </div>
-                    @if($country->image)
-                        <div class="col-mid-3 mb-3" >
-                            <label for="">Image</label>
-                            <img class="w-15" src="{{ asset('assets/uploads/country/'.$country->image) }}" alt="cat_img" />
+                    <div class="col-md-6 mb-3" >
+                        <label for="price">Price</label>
+                        <input value="{{$service->price}}" id="price" type="text" name="price">
+                    </div>
+                        <div class="col-mid-6 mb-3" >
+                            <label for="image">Image</label>
+                            <input type="text" id='image' value="{{$service['service_image']}}" name="service_image">
                         </div>
-                    @endif
+                        <div class="col-mid-12">
+                            <label for="description">Description</label>
+                            <textarea id="description" rows="3" name="description" class="form-control">{{$service['description']}}</textarea>
+                        </div>
                     <div class="col-mid-12">
-                        <input value="{{ asset('assets/uploads/country/'.$country->image) }}" type="file" name="image" class="form-control">
+                        <button type="submit" class="btn btn-primary">Edit Service</button>
                     </div>
-                    <div class="col-mid-12">
-                        <button type="submit" class="btn btn-primary">Edit Country</button>
-                    </div>
-
-
-                </div>
             </form>
         </div>
     </div>
+    @endforeach
 @endsection

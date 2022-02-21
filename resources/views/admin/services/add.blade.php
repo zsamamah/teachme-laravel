@@ -3,27 +3,29 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            <h4>Add Country</h4>
+            <h4>Add New Service</h4>
         </div>
         <div class="card-body">
-            <form action="{{ url('insert-country') }}" method="POST" enctype="multipart/form-data">
+            <form method="POST" action="">
                 @csrf
-                <div class="row">
-                    <div class="col-md-6 mb-3" >
-                        <label for="">Name</label>
-                        <input type="text" class="form-control" name="name">
-                    </div>
-                    <div class="col-mid-6">
-                        <input type="file" name="image" class="form-control">
-                        <br>
-                    </div>
-                    <div class="col-mid-12">
-                        <button type="submit" class="btn btn-primary">Add Country</button>
-                    </div>
-
-
+                <div class="form-group">
+                  <label for="service">Test Name</label>
+                  <input type="text" id="service" name="service" aria-describedby="emailHelp" placeholder="Corona Test">
                 </div>
-            </form>
+                <div class="form-group">
+                  <label for="price">Price</label>
+                  <input type="number" name="price" id="price" placeholder="50">
+                </div>
+                <div class="form-group">
+                  <label for="service_image">Service Image</label>
+                  <input type="text" name="service_image" id="service_image" placeholder="http://----">
+                </div>
+                <div class="form-group">
+                    <label for="description">Example textarea</label>
+                    <textarea id="description" name="description" rows="3" placeholder="talk about this test"></textarea>
+                  </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
         </div>
     </div>
 @endsection

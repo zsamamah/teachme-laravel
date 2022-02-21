@@ -18,7 +18,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white {{ Request::is('services') ? 'active' : ''; }} " href="{{ url('countries') }}">
+          <a class="nav-link text-white {{ Request::is('services-dashboard') ? 'active' : ''; }} " href="/services-dashboard">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">category</i>
             </div>
@@ -34,7 +34,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white {{ Request::is('orders') ? 'active' : ''; }} " href="{{ url('reservations') }}">
+          <a class="nav-link text-white {{ Request::is('contacts-dashboard') ? 'active' : ''; }} " href="{{route('contacts-dashboard')}}">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">fact_check</i>
             </div>
@@ -43,7 +43,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link text-white {{ Request::is('users') ? 'active' : ''; }} " href="users">
+          <a class="nav-link text-white {{ Request::is('users-dashboard') ? 'active' : ''; }} " href="users-dashboard">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">person</i>
             </div>

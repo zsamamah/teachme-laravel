@@ -30,10 +30,15 @@
                         <td>{{ $item->id }}</td>
                         <td>{{ $item->email }}</td>
                         <td >{{ $item->name }}</td>
-                        <td>{{ $item->role_as == 1 ? 'Admin' : 'User'}}</td>
+                        <td>{{ $item->email == 'admin@admin.com' ? 'Admin' : 'User'}}</td>
                         <td>
-                            <a href="{{ url('edit-user/'.$item->id) }}" class="btn btn-primary">Edit</a>
-                            <a href="{{ url('delete-user/'.$item->id) }}" class="btn btn-danger">Delete</a>
+                            <a href="{{ route('users-edit',$item->id) }}" class="btn btn-primary">Edit</a>
+                            {{-- replace anchor with form which method is delete --}}
+                            <form method="POST" action="{{ route('delete-user',$item->id) }}">
+                                @csrf
+                                @method('delete')
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach

@@ -37,7 +37,7 @@ class ServiceSeeder extends Seeder
             ],
             [
                 'service'=>'Liver Test',
-                'description'=>'The liver function test is done by taking a blood sample for laboratory examination.',
+                'description'=>'The liver function test is done by taking a blood sample for lorem ipsum laboratory examination.',
                 'price'=>'30',
                 'service_image'=>'https://onthewards.org/wp-content/uploads/2015/09/751247477e5533e6df81a9b3698f719b.jpg'
             ],

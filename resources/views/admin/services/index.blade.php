@@ -9,7 +9,7 @@
     <div class="card">
         <div class="card-header">
             <h1>Services Page</h1>
-            <a href="{{ url('add-country') }}" class="btn btn-primary">Add Country!</a>
+            <a href="/services-dashboard/create" class="btn btn-primary">Add New Test!</a>
             <hr>
         </div>
         <div class="card-body">
@@ -28,7 +28,11 @@
                         <td >{{ $item->service }}</td>
                         <td>
                             <a href="{{ route('editService',$item->id) }}" class="btn btn-primary">Edit</a>
-                            <a href="{{ url('delete-country/'.$item->id) }}" class="btn btn-danger">Delete</a>
+                            <form method="POST" action="{{route('delete-service',$item->id)}}">
+                                @csrf
+                                @method('delete')
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach

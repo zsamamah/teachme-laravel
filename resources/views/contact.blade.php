@@ -27,9 +27,6 @@
 
 @include('nav')
 
-
-
-
 <!-- contact form start -->
 
 <section class="section contact-info pb-0">
@@ -73,16 +70,8 @@
         </div>
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12">
-                <form id="contact-form" class="contact__form " method="post" action="mail.php">
-                 <!-- form message -->
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="alert alert-success contact__msg" style="display: none" role="alert">
-                                Your message was sent successfully.
-                            </div>
-                        </div>
-                    </div>
-
+                <form method="POST" action="{{route('store-msg')}}">
+                    @csrf
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group">
@@ -112,7 +101,7 @@
                     </div>
 
                     <div class="text-center">
-                        <input class="btn btn-main btn-round-full" name="submit" type="submit" value="Send Messege"></input>
+                        <button type="submit" class="btn btn-main btn-round-full">Send Message</button>
                     </div>
                 </form>
             </div>
