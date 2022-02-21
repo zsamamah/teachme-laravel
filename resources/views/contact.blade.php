@@ -26,28 +26,10 @@
 <body id="top">
 
 @include('nav')
-	
 
 
-<section class="page-title bg-1">
-  <div class="overlay"></div>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="block text-center">
-          <span class="text-white">Contact Us</span>
-          <h1 class="text-capitalize mb-5 text-lg">Get in Touch</h1>
 
-          <!-- <ul class="list-inline breadcumb-nav">
-            <li class="list-inline-item"><a href="index.html" class="text-white">Home</a></li>
-            <li class="list-inline-item"><span class="text-white">/</span></li>
-            <li class="list-inline-item"><a href="#" class="text-white-50">Contact Us</a></li>
-          </ul> -->
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+
 <!-- contact form start -->
 
 <section class="section contact-info pb-0">
@@ -139,17 +121,15 @@
 </section>
 
 
- <div class="google-map ">
-    <div id="map"></div>
-</div>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d433870.8268005289!2d35.66743926786468!3d31.835453331226823!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151b5fb85d7981af%3A0x631c30c0f8dc65e8!2sAmman!5e0!3m2!1sen!2sjo!4v1645441925752!5m2!1sen!2sjo" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
 @include('footer')
-   
 
-    <!-- 
+
+    <!--
     Essential Scripts
     =====================================-->
 
-    
+
     <!-- Main jQuery -->
     <script src="plugins/jquery/jquery.js"></script>
     <!-- Bootstrap 4.3.2 -->
@@ -160,13 +140,13 @@
     <script src="plugins/slick-carousel/slick/slick.min.js"></script>
     <!-- Counterup -->
     <script src="plugins/counterup/jquery.waypoints.min.js"></script>
-    
+
     <script src="plugins/shuffle/shuffle.min.js"></script>
     <script src="plugins/counterup/jquery.counterup.min.js"></script>
     <!-- Google Map -->
     <script src="plugins/google-map/map.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA&callback=initMap"></script>    
-    
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA&callback=initMap"></script>
+
     <script src="js/script.js"></script>
     <script src="js/contact.js"></script>
 

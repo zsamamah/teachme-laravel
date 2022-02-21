@@ -1,0 +1,53 @@
+.profile form {
+    margin-top: 35px;
+}
+
+.profile form input {
+    text-align: left;
+    cursor: pointer;
+    border: 1px solid rgb(231, 231, 231);
+    margin: 5px;
+}
+.profile form button {
+    margin: 5px;
+}
+
+.profile img {
+    width: 200px;
+    border-radius: 50%;
+    border: 2px solid #000;
+    padding: 10px 20px;
+}
+
+.profile table {
+    width: 100%;
+}
+
+.profile table:first-child{
+    margin-top: 50px;
+}
+
+.profile table th {
+    background-color: rgb(231, 231, 231);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.profile table td {
+    padding: 5px;
+    color: black;
+}
+
+.service-block img {
+/*     max-width: 250px;
+    min-width: 250px; */
+    border: 1px solid rgb(231, 231, 231);
+    height: 150px;
+    border-radius: 5px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+ .service-block:hover h4 {
+    color: #e12454 !important;
+}

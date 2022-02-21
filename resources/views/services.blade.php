@@ -20,34 +20,16 @@
 
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/custom.css">
 
 </head>
 
 <body id="top">
 
 @include('nav')
-	
 
 
-<section class="page-title bg-1">
-  <div class="overlay"></div>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="block text-center">
-          <span class="text-white">Our services</span>
-          <h1 class="text-capitalize mb-5 text-lg">What We Do</h1>
 
-          <!-- <ul class="list-inline breadcumb-nav">
-            <li class="list-inline-item"><a href="index.html" class="text-white">Home</a></li>
-            <li class="list-inline-item"><span class="text-white">/</span></li>
-            <li class="list-inline-item"><a href="#" class="text-white-50">Our services</a></li>
-          </ul> -->
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 
 <section class="section service-2">
@@ -57,8 +39,8 @@
 			<div class="col-lg-4 col-md-6 col-sm-6">
         <a href="{{route('single-service',$service->id)}}">
 				<div class="service-block mb-5">
-					<img src="{{$service['service_image']}}" alt="{{$service['service']}}" class="img-fluid">
-					<div class="content">
+                    <div class="content">
+                        <img src="{{$service['service_image']}}" alt="{{$service['service']}}" class="img-fluid">
 						<h4 class="mt-4 mb-2 title-color">{{$service['service']}}</h4>
 						<p>Price : {{$service['price']}} JD</p>
 						<p class="mb-4">{{$service['description']}}</p>
@@ -85,13 +67,13 @@
 </section>
 
 @include('footer')
-   
 
-    <!-- 
+
+    <!--
     Essential Scripts
     =====================================-->
 
-    
+
     <!-- Main jQuery -->
     <script src="plugins/jquery/jquery.js"></script>
     <!-- Bootstrap 4.3.2 -->
@@ -102,13 +84,13 @@
     <script src="plugins/slick-carousel/slick/slick.min.js"></script>
     <!-- Counterup -->
     <script src="plugins/counterup/jquery.waypoints.min.js"></script>
-    
+
     <script src="plugins/shuffle/shuffle.min.js"></script>
     <script src="plugins/counterup/jquery.counterup.min.js"></script>
     <!-- Google Map -->
     <script src="plugins/google-map/map.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA&callback=initMap"></script>    
-    
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA&callback=initMap"></script>
+
     <script src="js/script.js"></script>
     <script src="js/contact.js"></script>
 

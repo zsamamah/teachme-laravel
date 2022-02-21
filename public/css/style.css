@@ -465,7 +465,7 @@ a:focus {
   position: relative;
   overflow: hidden;
   background: #fff;
-  background: url("../images/bg/slider-bg-1.jpg") no-repeat;
+  background: url("https://demo.themefisher.com/novena/images/bg/slider-bg-1.jpg") no-repeat;
   background-size: cover;
   min-height: 550px;
 }
@@ -868,7 +868,7 @@ a:focus {
   left: 0px;
   position: absolute;
   content: "";
-  background: url("../images/bg/bg-2.jpg") no-repeat 50% 50%;
+  background: url("https://demo.themefisher.com/novena/images/bg/bg-2.jpg") no-repeat 50% 50%;
 }
 
 .testimonial .slick-dots {

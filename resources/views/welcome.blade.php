@@ -20,35 +20,15 @@
 
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="./appt.css">
 
 </head>
 
 <body id="top">
 
-<header>
-	<div class="header-top-bar">
-		<div class="container">
-			<div class="row align-items-center">
-				<div class="col-lg-6">
-					<ul class="top-bar-info list-inline-item pl-0 mb-0">
-						<li class="list-inline-item"><a href="mailto:support@gmail.com"><i class="icofont-support-faq mr-2"></i>support@novena.com</a></li>
-						<li class="list-inline-item"><i class="icofont-location-pin mr-2"></i>Address Ta-134/A, New York, USA </li>
-					</ul>
-				</div>
-				<div class="col-lg-6">
-					<div class="text-lg-right top-right-bar mt-2 mt-lg-0">
-						<a href="tel:+23-345-67890" >
-							<span>Call Now : </span>
-							<span class="h4">823-4565-13456</span>
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	@include('nav')
-</header>
-	
+
+@include('nav')
+
 
 
 
@@ -61,7 +41,7 @@
 					<div class="divider mb-3"></div>
 					<span class="text-uppercase text-sm letter-spacing ">Total Health care solution</span>
 					<h1 class="mb-3 mt-3">Your most trusted health partner</h1>
-					
+
 					<p class="mb-4 pr-5">A repudiandae ipsam labore ipsa voluptatum quidem quae laudantium quisquam aperiam maiores sunt fugit, deserunt rem suscipit placeat.</p>
 					<div class="btn-container ">
 						<a href="appoinment.html" target="_blank" class="btn btn-main-2 btn-icon btn-round-full">Make appoinment <i class="icofont-simple-right ml-2  "></i></a>
@@ -76,7 +56,7 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="feature-block d-lg-flex">
-					<div class="feature-item mb-5 mb-lg-0">
+					<div class="feature-item mb-5 mb-lg-0" style="z-index:99">
 						<div class="feature-icon mb-4">
 							<i class="icofont-surgeon-alt"></i>
 						</div>
@@ -85,8 +65,8 @@
 						<p class="mb-4">Get ALl time support for emergency.We have introduced the principle of family medicine.</p>
 						<a href="appoinment.html" class="btn btn-main btn-round-full">Make a appoinment</a>
 					</div>
-				
-					<div class="feature-item mb-5 mb-lg-0">
+
+					<div class="feature-item mb-5 mb-lg-0" style="z-index:99">
 						<div class="feature-icon mb-4">
 							<i class="icofont-ui-clock"></i>
 						</div>
@@ -98,8 +78,8 @@
 		                    <li class="d-flex justify-content-between">Sat - sun : <span>10:00 - 17:00</span></li>
 		                </ul>
 					</div>
-				
-					<div class="feature-item mb-5 mb-lg-0">
+
+					<div class="feature-item mb-5 mb-lg-0" style="z-index:99">
 						<div class="feature-icon mb-4">
 							<i class="icofont-support"></i>
 						</div>
@@ -119,13 +99,13 @@
 		<div class="row align-items-center">
 			<div class="col-lg-4 col-sm-6">
 				<div class="about-img">
-					<img src="images/about/img-1.jpg" alt="" class="img-fluid">
-					<img src="images/about/img-2.jpg" alt="" class="img-fluid mt-4">
+					<img src="https://demo.themefisher.com/novena/images/about/img-1.jpg" alt="" class="img-fluid">
+					<img src="https://demo.themefisher.com/novena/images/about/img-2.jpg" alt="" class="img-fluid mt-4">
 				</div>
 			</div>
 			<div class="col-lg-4 col-sm-6">
 				<div class="about-img mt-4 mt-lg-0">
-					<img src="images/about/img-3.jpg" alt="" class="img-fluid">
+					<img src="https://demo.themefisher.com/novena/images/about/img-3.jpg" alt="" class="img-fluid">
 				</div>
 			</div>
 			<div class="col-lg-4">
@@ -157,7 +137,7 @@
 						<p>Surgery Comepleted</p>
 					</div>
 				</div>
-				
+
 				<div class="col-lg-3 col-md-6 col-sm-6">
 					<div class="counter-stat">
 						<i class="icofont-badge"></i>
@@ -176,7 +156,7 @@
 		</div>
 	</div>
 </section>
-<section class="section service gray-bg">
+{{-- <section class="section service gray-bg">
 	<div class="container">
 		<div class="row justify-content-center">
 			<div class="col-lg-7 text-center">
@@ -213,7 +193,7 @@
 					</div>
 				</div>
 			</div>
-			
+
 			<div class="col-lg-4 col-md-6 col-sm-6">
 				<div class="service-item mb-4">
 					<div class="icon d-flex align-items-center">
@@ -251,7 +231,7 @@
 					</div>
 				</div>
 			</div>
-			
+
 			<div class="col-lg-4 col-md-6 col-sm-6">
 				<div class="service-item mb-4">
 					<div class="icon d-flex align-items-center">
@@ -265,13 +245,13 @@
 			</div>
 		</div>
 	</div>
-</section>
-<section class="section appoinment">
+</section> --}}
+{{-- <section class="section appoinment">
 	<div class="container">
 		<div class="row align-items-center">
 			<div class="col-lg-6 ">
 				<div class="appoinment-content">
-					<img src="images/about/img-3.jpg" alt="" class="img-fluid">
+					<img src="https://demo.themefisher.com/novena/images/about/img-3.jpg" alt="" class="img-fluid">
 					<div class="emergency">
 						<h2 class="text-lg"><i class="icofont-phone-circle text-lg"></i>+23 345 67980</h2>
 					</div>
@@ -345,7 +325,7 @@
 			</div>
 		</div>
 	</div>
-</section>
+</section> --}}
 <section class="section testimonial-2 gray-bg">
 	<div class="container">
 		<div class="row justify-content-center">
@@ -366,12 +346,12 @@
 					<i class="icofont-quote-right"></i>
 
 					<div class="testimonial-thumb">
-						<img src="images/team/test-thumb1.jpg" alt="" class="img-fluid">
+						<img src="https://scontent.famm2-3.fna.fbcdn.net/v/t1.6435-9/208580737_4034675353307101_4143241799240029301_n.jpg?_nc_cat=104&ccb=1-5&_nc_sid=09cbfe&_nc_eui2=AeEu6mH5_MeLJK8_C5LYxVDsmkaeAexHia6aRp4B7EeJrolJvK5yJVhLX9QqC3wJVFDo5lY0qYePSeLQ-wfMQDG2&_nc_ohc=EmnmPhrayM4AX-7ubco&_nc_oc=AQnBui8Y_6Rk9fokvyIyZgf_w1UQ69F-tU8CYz9H0NY85Yv1xk6Mwn3v-uTrq4nXfH8&_nc_ht=scontent.famm2-3.fna&oh=00_AT9BVR8Fik2xrN3FIIg8JXICf9Z7wVvntp7Hf5wV--Dusg&oe=62393728" alt="" class="img-fluid">
 					</div>
 
 					<div class="client-info ">
 						<h4>Amazing service!</h4>
-						<span>John Partho</span>
+						<span>Mahdi Suleiman</span>
 						<p>
 							They provide great service facilty consectetur adipisicing elit. Itaque rem, praesentium, iure, ipsum magnam deleniti a vel eos adipisci suscipit fugit placeat.
 						</p>
@@ -380,44 +360,44 @@
 
 				<div class="testimonial-block style-2  gray-bg">
 					<div class="testimonial-thumb">
-						<img src="images/team/test-thumb2.jpg" alt="" class="img-fluid">
+						<img src="https://avatars.githubusercontent.com/u/90185617?v=4" alt="" class="img-fluid">
 					</div>
 
 					<div class="client-info">
 						<h4>Expert doctors!</h4>
-						<span>Mullar Sarth</span>
+						<span>Ghassan Dabak</span>
 						<p>
 							They provide great service facilty consectetur adipisicing elit. Itaque rem, praesentium, iure, ipsum magnam deleniti a vel eos adipisci suscipit fugit placeat.
 						</p>
 					</div>
-					
+
 					<i class="icofont-quote-right"></i>
 				</div>
 
 				<div class="testimonial-block style-2  gray-bg">
 					<div class="testimonial-thumb">
-						<img src="images/team/test-thumb3.jpg" alt="" class="img-fluid">
+						<img src="https://trello.com/1/cards/61cc1588f20d1b1ddd29dad4/attachments/61cc50974321474ac11bea1d/previews/61cc50974321474ac11bea2d/download/profile-picture.jpg" alt="" class="img-fluid">
 					</div>
 
 					<div class="client-info">
 						<h4>Good Support!</h4>
-						<span>Kolis Mullar</span>
+						<span>Abdullah Marei</span>
 						<p>
 							They provide great service facilty consectetur adipisicing elit. Itaque rem, praesentium, iure, ipsum magnam deleniti a vel eos adipisci suscipit fugit placeat.
 						</p>
 					</div>
-					
+
 					<i class="icofont-quote-right"></i>
 				</div>
 
 				<div class="testimonial-block style-2  gray-bg">
 					<div class="testimonial-thumb">
-						<img src="images/team/test-thumb4.jpg" alt="" class="img-fluid">
+						<img src="https://trello.com/1/cards/61cc17246d52bd6af186b433/attachments/61cc2e519733c760c7c06c40/previews/61cc2e529733c760c7c06d5a/download/DSC_0097.JPG.jpg" alt="" class="img-fluid">
 					</div>
 
 					<div class="client-info">
 						<h4>Nice Environment!</h4>
-						<span>Partho Sarothi</span>
+						<span>Azoz</span>
 						<p class="mt-4">
 							They provide great service facilty consectetur adipisicing elit. Itaque rem, praesentium, iure, ipsum magnam deleniti a vel eos adipisci suscipit fugit placeat.
 						</p>
@@ -425,20 +405,7 @@
 					<i class="icofont-quote-right"></i>
 				</div>
 
-				<div class="testimonial-block style-2  gray-bg">
-					<div class="testimonial-thumb">
-						<img src="images/team/test-thumb1.jpg" alt="" class="img-fluid">
-					</div>
 
-					<div class="client-info">
-						<h4>Modern Service!</h4>
-						<span>Kolis Mullar</span>
-						<p>
-							They provide great service facilty consectetur adipisicing elit. Itaque rem, praesentium, iure, ipsum magnam deleniti a vel eos adipisci suscipit fugit placeat.
-						</p>
-					</div>
-					<i class="icofont-quote-right"></i>
-				</div>
 			</div>
 		</div>
 	</div>
@@ -513,13 +480,13 @@
 </section>
 @include('footer')
 
-   
 
-    <!-- 
+
+    <!--
     Essential Scripts
     =====================================-->
 
-    
+
     <!-- Main jQuery -->
     <script src="plugins/jquery/jquery.js"></script>
     <!-- Bootstrap 4.3.2 -->
@@ -528,16 +495,15 @@
     <script src="plugins/slick-carousel/slick/slick.min.js"></script>
     <!-- Counterup -->
     <script src="plugins/counterup/jquery.waypoints.min.js"></script>
-    
+
     <script src="plugins/shuffle/shuffle.min.js"></script>
     <script src="plugins/counterup/jquery.counterup.min.js"></script>
     <!-- Google Map -->
     <script src="plugins/google-map/map.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA&callback=initMap"></script>    
-    
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA&callback=initMap"></script>
+
     <script src="js/script.js"></script>
     <script src="js/contact.js"></script>
 
   </body>
   </html>
-   
