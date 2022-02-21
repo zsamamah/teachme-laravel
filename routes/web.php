@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ServiceController;
@@ -35,5 +36,7 @@ Route::group(['middleware'=>['auth']],function(){
     Route::post('/done',[BookingController::class,'store'])->name('store');
 });
 Route::group(['middleware'=>['auth','isAdmin']],function(){
-    Route::get('/admin',function(){return view('admin.admin');})->name('admin');
+    Route::get('/dashboard',[AdminController::class,'index'])->name('admin-dashboard');
+    Route::get('/services-dashboard',[AdminController::class,'showServices'])->name('services-admin');
+    Route::get('/services-dashboard/{service}',[AdminController::class,'editService'])->name('editService');
 });
