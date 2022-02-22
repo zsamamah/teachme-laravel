@@ -7,6 +7,8 @@ use App\Models\User;
 use Faker\Core\Number;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+
 
 class BookingController extends Controller
 {
@@ -17,7 +19,13 @@ class BookingController extends Controller
      */
     public function index()
     {
-        //
+        $bookings = DB::table('bookings')
+        ->join('users', 'users.id', '=', 'bookings.user_id')
+        ->join('services', 'services.id', '=', 'bookings.service_id')
+        ->select('bookings.*', 'services.service', 'users.name')
+        ->get();
+
+        return view('admin.booking.index', compact('bookings'));
     }
 
     /**
@@ -78,9 +86,10 @@ class BookingController extends Controller
      * @param  \App\Models\Booking  $booking
      * @return \Illuminate\Http\Response
      */
-    public function edit(Booking $booking)
+    public function edit($id)
     {
-        //
+        $booking = Booking::find($id);
+        return view("admin.booking.edit",compact("booking"));
     }
 
     /**
@@ -90,9 +99,12 @@ class BookingController extends Controller
      * @param  \App\Models\Booking  $booking
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Booking $booking)
+    public function update(Request $request, $id)
     {
-        //
+        $booking = Booking::find($id);
+        $booking->result = $request->input('result');
+        $booking->update();
+        return redirect("/bookings");
     }
 
     /**
@@ -101,8 +113,10 @@ class BookingController extends Controller
      * @param  \App\Models\Booking  $booking
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Booking $booking)
+    public function destroy($id)
     {
-        //
+        $booking = Booking::find($id);
+        $booking->delete();
+        return redirect("/bookings");
     }
 }

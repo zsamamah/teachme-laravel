@@ -29,10 +29,10 @@ class AdminController extends Controller
         return view('admin.services.index',compact('services'));
     }
 
-    public function editService(Service $service)
+    public function editService($name)
     {
         // dd($service);
-        $single_service = Service::all()->where('id',$service['id']);
+        $single_service = Service::where("service","=",$name)->get();
         // dd($single_service);
         return view('admin.services.edit',compact('single_service'));
     }

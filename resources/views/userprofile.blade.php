@@ -66,32 +66,22 @@
                     <table>
                         <tr>
                             <th>Name</th>
+                            <th>Service</th>
                             <th>Date</th>
                             <th>Phone</th>
                             <th>Location</th>
+                            <th>result</th>
                         </tr>
+                        @foreach($bookings as $item)
                         <tr>
-                            <td>Ghassan</td>
-                            <td>2022/12/6</td>
-                            <td>0785459856</td>
-                            <td>Amman</td>
+                            <td>{{$item->name}}</td>
+                            <td>{{$item->service}}</td>
+                            <td>{{$item->date}}</td>
+                            <td>{{$item->phone}}</td>
+                            <td>{{$item->location}}</td>
+                            <td>{{$item->result}}</td>
                         </tr>
-                    </table>
-                </div>
-                <div class="col-12">
-                    <table>
-                        <tr>
-                            <th>name</th>
-                            <th>Nate</th>
-                            <th>Phone</th>
-                            <th>Location</th>
-                        </tr>
-                        <tr>
-                            <td>Ghassan</td>
-                            <td>2022/12/6</td>
-                            <td>0785459856</td>
-                            <td>Amman</td>
-                        </tr>
+                        @endforeach
                     </table>
                 </div>
             </div>

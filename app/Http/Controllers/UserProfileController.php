@@ -4,12 +4,19 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class UserProfileController extends Controller
 {
     public function index()
     {
-        return view('userprofile');
+        $id = Auth::user()->id;
+        $bookings = DB::table('bookings')
+        ->join('users', 'users.id', '=', 'bookings.user_id')
+        ->join('services', 'services.id', '=', 'bookings.service_id')
+        ->select('bookings.*', 'services.service', 'users.name')->where("bookings.user_id","=",$id)->get();
+        return view('userprofile',compact('bookings'));
     }
     public function showUsers()
     {

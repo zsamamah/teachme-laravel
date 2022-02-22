@@ -27,7 +27,7 @@
                         <td>{{ $item->id }}</td>
                         <td >{{ $item->service }}</td>
                         <td>
-                            <a href="{{ route('editService',$item->id) }}" class="btn btn-primary">Edit</a>
+                            <a href="{{ route('editService',$item->service) }}" class="btn btn-primary">Edit</a>
                             <form method="POST" action="{{route('delete-service',$item->id)}}">
                                 @csrf
                                 @method('delete')
