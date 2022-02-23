@@ -19,8 +19,9 @@ class AdminController extends Controller
         //
         $user = User::all();
         $services = Service::all();
-        $bookings = Booking::all();
-        return view('admin.index',compact('user','services','bookings'));
+        $bookings = Booking::where('done','=','0');
+        $done = Booking::where('done','!=','0')->get();
+        return view('admin.index',compact('user','services','bookings','done'));
     }
 
     public function showServices()

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Booking;
+use App\Models\Service;
 use App\Models\User;
 use Faker\Core\Number;
 use Illuminate\Http\Request;
@@ -23,8 +24,20 @@ class BookingController extends Controller
         ->join('users', 'users.id', '=', 'bookings.user_id')
         ->join('services', 'services.id', '=', 'bookings.service_id')
         ->select('bookings.*', 'services.service', 'users.name')
+        ->where('done','=','0')
         ->get();
 
+        return view('admin.booking.index', compact('bookings'));
+    }
+
+    public function done()
+    {
+        $bookings = DB::table('bookings')
+        ->join('users', 'users.id', '=', 'bookings.user_id')
+        ->join('services', 'services.id', '=', 'bookings.service_id')
+        ->select('bookings.*', 'services.service', 'users.name')
+        ->where('done','!=','0')
+        ->get();
         return view('admin.booking.index', compact('bookings'));
     }
 
@@ -103,6 +116,7 @@ class BookingController extends Controller
     {
         $booking = Booking::find($id);
         $booking->result = $request->input('result');
+        $booking->done = 1;
         $booking->update();
         return redirect("/bookings");
     }

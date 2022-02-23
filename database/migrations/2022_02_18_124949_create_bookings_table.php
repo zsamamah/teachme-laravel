@@ -22,7 +22,8 @@ return new class extends Migration
             $table->string('phone');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('result')->default('No result yet');
+            $table->boolean('done')->default('0');
+            $table->text('result')->default('No result yet');
             $table->timestamps();
         });
     }

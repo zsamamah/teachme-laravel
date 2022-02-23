@@ -27,7 +27,7 @@
         <a href="{{ url('bookings') }}">
             <div class="card">
                 <div class="card-head">
-                    <h4>Bookings</h4>
+                    <h4>New Bookings</h4>
                     <p>{{$bookings->count()}}</p>
                 </div>
             </div>
@@ -35,14 +35,14 @@
         <hr>
         <br>
 
-        {{-- <a href="{{ url('reservations') }}">
+        <a href="{{ url('done-bookings') }}">
             <div class="card">
                 <div class="card-head">
-                    <h4>Reservations</h4>
-                    <p>{{$reservation->count()}}</p>
+                    <h4>Done Bookings</h4>
+                    <p>{{$done->count()}}</p>
                 </div>
             </div>
-        </a> --}}
+        </a>
     </div>
 </div>
 @endsection
