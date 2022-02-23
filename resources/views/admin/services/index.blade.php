@@ -37,8 +37,10 @@
                 </tr>
                 @endforeach
             </tbody>
-
         </table>
+        <div class="d-flex justify-content-center">
+            {{$services->links()}}
+        </div> 
     </div>
 </div>
 @endsection

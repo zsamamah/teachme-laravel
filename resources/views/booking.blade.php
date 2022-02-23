@@ -5,7 +5,8 @@
   <meta name="description" content="Orbitor,business,company,agency,modern,bootstrap4,tech,software">
   <meta name="author" content="themefisher.com">
 
-  <title>Novena- Health & Care Medical template</title>
+  <title>Novena - Booking</title>
+  <link rel="icon" href="/favicon.ico" type="image/icon type">
 
   <!-- Favicon -->
   <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico" />

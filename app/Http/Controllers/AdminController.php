@@ -25,7 +25,8 @@ class AdminController extends Controller
 
     public function showServices()
     {
-        $services = Service::all();
+        $services = Service::paginate(10);
+        // dd($services->links());
         return view('admin.services.index',compact('services'));
     }
 

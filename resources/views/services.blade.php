@@ -5,10 +5,11 @@
   <meta name="description" content="Orbitor,business,company,agency,modern,bootstrap4,tech,software">
   <meta name="author" content="themefisher.com">
 
-  <title>Novena- Health & Care Medical template</title>
+  <title>Novena - Tests</title>
+  <link rel="icon" href="/favicon.ico" type="image/icon type">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
 
   <!-- bootstrap.min css -->
   <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
