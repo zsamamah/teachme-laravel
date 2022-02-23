@@ -45,7 +45,7 @@ class AdminController extends Controller
             'service_image'=>$request['service_image'],
             'description'=>$request['description']
         ]);
-        return redirect('admin-dashboard');
+        return redirect('/dashboard');
     }
 
     public function storeService(Request $request,Service $service)

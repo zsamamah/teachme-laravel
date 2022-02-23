@@ -3,8 +3,8 @@
 @section('content')
 <div class="card">
     <div class="card-body">
-        <h1>Welcome !</h1>
-        <a href="{{ url('users') }}">
+        <h1>Hello Admin !</h1>
+        <a href="{{ url('users-dashboard') }}">
             <div class="card">
                 <div class="card-head">
                     <h4>Users Registerd</h4>
@@ -14,7 +14,7 @@
         </a>
         <hr>
         <br>
-        <a href="{{ url('countries') }}">
+        <a href="{{ url('services-dashboard') }}">
             <div class="card">
                 <div class="card-head">
                     <h4>Services</h4>
@@ -24,7 +24,7 @@
         </a>
         <hr>
         <br>
-        <a href="{{ url('trips') }}">
+        <a href="{{ url('bookings') }}">
             <div class="card">
                 <div class="card-head">
                     <h4>Bookings</h4>

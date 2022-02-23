@@ -29,10 +29,6 @@
 
     @include('nav')
 
-
-
-
-
     <section class="profile">
         <div class="container my-5">
             <div class="row">
@@ -61,26 +57,35 @@
                     </div>
                 </div>
             </div>
+            <?php $counter=0; ?>
             <div class="row">
                 <div class="col-12">
-                    <table>
-                        <tr>
-                            <th>Name</th>
-                            <th>Service</th>
-                            <th>Date</th>
-                            <th>Phone</th>
-                            <th>Location</th>
-                            <th>result</th>
-                        </tr>
+                    <table class="table table-striped" style="@if ($bookings->isEmpty())
+                        display:none
+                    @endif">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Service</th>
+                                <th>Date</th>
+                                <th>Phone</th>
+                                <th>Location</th>
+                                <th>result</th>
+                            </tr>
+                        </thead>
                         @foreach($bookings as $item)
-                        <tr>
-                            <td>{{$item->name}}</td>
-                            <td>{{$item->service}}</td>
-                            <td>{{$item->date}}</td>
-                            <td>{{$item->phone}}</td>
-                            <td>{{$item->location}}</td>
-                            <td>{{$item->result}}</td>
-                        </tr>
+                        <tbody>
+                            <tr>
+                                <td>{{++$counter}}</td>
+                                <td>{{$item->name}}</td>
+                                <td>{{$item->service}}</td>
+                                <td>{{$item->date}}</td>
+                                <td>{{$item->phone}}</td>
+                                <td>{{$item->location}}</td>
+                                <td>{{$item->result}}</td>
+                            </tr>
+                        </tbody>
                         @endforeach
                     </table>
                 </div>
