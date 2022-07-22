@@ -34,7 +34,7 @@ class AdminController extends Controller
     public function editService($name)
     {
         // dd($service);
-        $single_service = Service::where("service","=",$name)->get();
+        $single_service = Service::where("id","=",$name)->get();
         // dd($single_service);
         return view('admin.services.edit',compact('single_service'));
     }
