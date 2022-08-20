@@ -5,7 +5,7 @@
   <meta name="description" content="Orbitor,business,company,agency,modern,bootstrap4,tech,software">
   <meta name="author" content="themefisher.com">
 
-  <title>Novena - Home</title>
+  <title>LifeLabs - Home</title>
   <link rel="icon" href="/favicon.ico" type="image/icon type">
 
   <!-- Favicon -->
@@ -43,7 +43,7 @@
 					<span class="text-uppercase text-sm letter-spacing ">Total Health care solution</span>
 					<h1 class="mb-3 mt-3">Your most trusted health partner</h1>
 
-					<p class="mb-4 pr-5">A repudiandae ipsam labore ipsa voluptatum quidem quae laudantium quisquam aperiam maiores sunt fugit, deserunt rem suscipit placeat.</p>
+					<p class="mb-4 pr-5">The best health center for all medical examinations and the best specialists with the latest and newest equipments , try and tell us about your experiment.</p>
 					<div class="btn-container ">
 						<a href="/services" class="btn btn-main-2 btn-icon btn-round-full">Make appoinment <i class="icofont-simple-right ml-2  "></i></a>
 					</div>
@@ -112,7 +112,7 @@
 			<div class="col-lg-4">
 				<div class="about-content pl-4 mt-4 mt-lg-0">
 					<h2 class="title-color">Personal care <br>& healthy living</h2>
-					<p class="mt-4 mb-5">We provide best leading medicle service Nulla perferendis veniam deleniti ipsum officia dolores repellat laudantium obcaecati neque.</p>
+					<p class="mt-4 mb-5">We provide best leading medicle services With the best specialists, with the latest equipments and devices, and speed in showing results.</p>
 
 					<a href="/services" class="btn btn-main-2 btn-round-full btn-icon">Services<i class="icofont-simple-right ml-3"></i></a>
 				</div>
@@ -334,7 +334,7 @@
 				<div class="section-title text-center">
 					<h2>We served over 5000+ Patients</h2>
 					<div class="divider mx-auto my-4"></div>
-					<p>Lets know moreel necessitatibus dolor asperiores illum possimus sint voluptates incidunt molestias nostrum laudantium. Maiores porro cumque quaerat.</p>
+					<p>Let us know what you think of our services so that we can fly our center as much as possible , we will take your response seriously.</p>
 				</div>
 			</div>
 		</div>
@@ -347,14 +347,15 @@
 					<i class="icofont-quote-right"></i>
 
 					<div class="testimonial-thumb">
-						<img src="https://scontent.famm2-3.fna.fbcdn.net/v/t1.6435-9/208580737_4034675353307101_4143241799240029301_n.jpg?_nc_cat=104&ccb=1-5&_nc_sid=09cbfe&_nc_eui2=AeEu6mH5_MeLJK8_C5LYxVDsmkaeAexHia6aRp4B7EeJrolJvK5yJVhLX9QqC3wJVFDo5lY0qYePSeLQ-wfMQDG2&_nc_ohc=EmnmPhrayM4AX-7ubco&_nc_oc=AQnBui8Y_6Rk9fokvyIyZgf_w1UQ69F-tU8CYz9H0NY85Yv1xk6Mwn3v-uTrq4nXfH8&_nc_ht=scontent.famm2-3.fna&oh=00_AT9BVR8Fik2xrN3FIIg8JXICf9Z7wVvntp7Hf5wV--Dusg&oe=62393728" alt="" class="img-fluid">
+						<img src="https://1rll9g2b46z2gn8pt3dlgaqp-wpengine.netdna-ssl.com/wp-content/uploads/2017/10/avatars_avatar2_resize-250x250.jpg" alt="" class="img-fluid">
 					</div>
 
 					<div class="client-info ">
 						<h4>Amazing service!</h4>
-						<span>Mahdi Suleiman</span>
+						<span>Mahdi Ahamd</span>
 						<p>
-							They provide great service facilty consectetur adipisicing elit. Itaque rem, praesentium, iure, ipsum magnam deleniti a vel eos adipisci suscipit fugit placeat.
+							They provide great service facilty and the bet specialists they have , i recommend to reserve your tests during this great website.<br>
+							Keep going!
 						</p>
 					</div>
 				</div>
@@ -366,9 +367,9 @@
 
 					<div class="client-info">
 						<h4>Expert doctors!</h4>
-						<span>Ghassan Dabak</span>
+						<span>Mazen Sami</span>
 						<p>
-							They provide great service facilty consectetur adipisicing elit. Itaque rem, praesentium, iure, ipsum magnam deleniti a vel eos adipisci suscipit fugit placeat.
+							The latest trends in 21st century health are in personalised medicine and treatment based on each person’s unique genetic make-up <br> Thanks Life-Lab.
 						</p>
 					</div>
 
@@ -382,9 +383,9 @@
 
 					<div class="client-info">
 						<h4>Good Support!</h4>
-						<span>Abdullah Marei</span>
+						<span>Abdullah Hosni</span>
 						<p>
-							They provide great service facilty consectetur adipisicing elit. Itaque rem, praesentium, iure, ipsum magnam deleniti a vel eos adipisci suscipit fugit placeat.
+							Thank you for the support and answering inquiries outside official working hours. You really deserve appreciation for the efforts of the specialists and workers on this site.
 						</p>
 					</div>
 
@@ -398,9 +399,9 @@
 
 					<div class="client-info">
 						<h4>Nice Environment!</h4>
-						<span>Azoz</span>
+						<span>Obada Ali</span>
 						<p class="mt-4">
-							They provide great service facilty consectetur adipisicing elit. Itaque rem, praesentium, iure, ipsum magnam deleniti a vel eos adipisci suscipit fugit placeat.
+							A good environment to communicate and deal with the best specialized people in this field, in addition to the latest technologies used and the speed in showing the results of medical examinations.
 						</p>
 					</div>
 					<i class="icofont-quote-right"></i>
@@ -418,7 +419,7 @@
 				<div class="section-title text-center">
 					<h2>Partners who support us</h2>
 					<div class="divider mx-auto my-4"></div>
-					<p>Lets know moreel necessitatibus dolor asperiores illum possimus sint voluptates incidunt molestias nostrum laudantium. Maiores porro cumque quaerat.</p>
+					<p>Get to know our partners and supporters of our successes, thank you all for appreciating the efforts .</p>
 				</div>
 			</div>
 		</div>

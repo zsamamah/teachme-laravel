@@ -5,7 +5,7 @@
   <meta name="description" content="Orbitor,business,company,agency,modern,bootstrap4,tech,software">
   <meta name="author" content="themefisher.com">
 
-  <title>Novena - Booking</title>
+  <title>LifeLabs - Booking</title>
   <link rel="icon" href="/favicon.ico" type="image/icon type">
 
   <!-- Favicon -->
@@ -66,7 +66,7 @@
       <div class="col-lg-8">
            <div class="appoinment-wrap mt-5 mt-lg-0 pl-lg-5">
             <h2 class="mb-2 title-color">Book an appoinment</h2>
-            <p class="mb-4">Mollitia dicta commodi est recusandae iste, natus eum asperiores corrupti qui velit . Iste dolorum atque similique praesentium soluta.</p>
+            {{-- <p class="mb-4">Mollitia dicta commodi est recusandae iste, natus eum asperiores corrupti qui velit . Iste dolorum atque similique praesentium soluta.</p> --}}
                <form id="#" class="appoinment-form" method="POST" action="{{route('store')}}">
                 @csrf
                 <input type="hidden" name="id" value="{{$user->id}}">
@@ -91,15 +91,9 @@
                          <div class="col-lg-6">
                             <div class="form-group">
                               <label for="date">Test Date</label>
-                                <input name="date" id="date" type="date" min="{{$date}}" class="form-control" value="{{$date}}" required>
+                              <input name="date" id="date" type="date" min="{{$date}}" class="form-control" value="{{$date}}" required>
                             </div>
-                        </div>
-
-                        {{-- <div class="col-lg-6">
-                            <div class="form-group">
-                                <input name="time" id="time" type="text" class="form-control" placeholder="Time">
-                            </div>
-                        </div> --}}
+                          </div>
 
                         <div class="col-lg-6">
                             <div class="form-group">
@@ -108,6 +102,19 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label for="payment">Payment Method</label><br>
+                        <input type="radio" id="visa" name="payment" value="visa" required>
+                        <label for="html">VISA</label>
+                        <br>
+                        <input type="radio" id="cash" name="payment" value="cash">
+                        <label for="css">Cash</label>
+                          {{-- <input name="time" id="time" type="text" class="form-control" placeholder="Time"> --}}
+                      </div>
+                  </div>
+
                     <div class="form-group-2 mb-4">
                       <label for="location">Location</label>
                         <textarea name="location" id="location" class="form-control" rows="6" required placeholder="Tell me your location..."></textarea>

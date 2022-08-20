@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Booking;
 use App\Models\Service;
 use Carbon\Carbon;
 use Carbon\CarbonInterval;
 use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+
+use function PHPUnit\Framework\returnSelf;
 
 class ServiceController extends Controller
 {
@@ -29,6 +32,23 @@ class ServiceController extends Controller
         // dd($date);
         $user = Auth::user();
         return view('booking',compact('service','services','date','user'));
+    }
+
+    public function result(Booking $booking)
+    {
+        // dd($booking);
+        $user = Auth::user();
+        $service = Service::where('id','=',$booking['service_id'])->first();
+        // dd($service);
+        if($booking['user_id']==$user['id'] || $user['email']=='admin@admin.com')
+        return view('layouts.invoice',compact('booking','user','service'));
+        else
+        return redirect('/');
+    }
+
+    public function visa(Booking $booking)
+    {
+        return view('layouts.visa',compact('booking'));
     }
 
     /**

@@ -20,7 +20,7 @@ class ServiceSeeder extends Seeder
                 'service'=>'Corona Test',
                 'description'=>'The PCR test is a test for diagnosing people with corona, and it is considered very accurate.',
                 'price'=>'15',
-                'service_image'=>'https://www.who.int/images/default-source/health-topics/coronavirus/corona-virus-getty.tmb-1200v.jpg?Culture=ar&sfvrsn=217a6a68_36'
+                'service_image'=>'https://assets.publishing.service.gov.uk/government/uploads/system/uploads/image_data/file/111450/s960_Boy_having_coronaviru_test.jpg'
             ],
             [
                 'service'=>'Blood Test',

@@ -5,7 +5,7 @@
   <meta name="description" content="Orbitor,business,company,agency,modern,bootstrap4,tech,software">
   <meta name="author" content="themefisher.com">
 
-  <title>Novena - About Us</title>
+  <title>LifeLabs - About Us</title>
   <link rel="icon" href="/favicon.ico" type="image/icon type">
 
   <!-- Favicon -->
@@ -37,7 +37,7 @@
 				<h2 class="title-color">Personal care for your healthy living</h2>
 			</div>
 			<div class="col-lg-8">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt, quod laborum alias. Vitae dolorum, officia sit! Saepe ullam facere at, consequatur incidunt, quae esse, quis ut reprehenderit dignissimos, libero delectus.</p>
+				<p>Our vision is to facilitate the medical examination by booking through the lifelab website, after booking the required examination, you will be contacted by the official, arrange your appointment and we will be waiting for you.</p>
 				<img src="images/about/sign.png" alt="" class="img-fluid">
 			</div>
 		</div>
@@ -51,28 +51,28 @@
 				<div class="about-block-item mb-5 mb-lg-0">
 					<img src="https://demo.themefisher.com/novena/images/about/about-1.jpg" alt="" class="img-fluid w-100">
 					<h4 class="mt-3">Healthcare for Kids</h4>
-					<p>Voluptate aperiam esse possimus maxime repellendus, nihil quod accusantium .</p>
+					<p>Providing health care for children through examinations .</p>
 				</div>
 			</div>
 			<div class="col-lg-3 col-md-6">
 				<div class="about-block-item mb-5 mb-lg-0">
 					<img src="https://demo.themefisher.com/novena/images/about/about-2.jpg  " alt="" class="img-fluid w-100">
 					<h4 class="mt-3">Medical Counseling</h4>
-					<p>Voluptate aperiam esse possimus maxime repellendus, nihil quod accusantium .</p>
+					<p>Providing free medical and laboratory consultations by phone .</p>
 				</div>
 			</div>
 			<div class="col-lg-3 col-md-6">
 				<div class="about-block-item mb-5 mb-lg-0">
 					<img src="https://demo.themefisher.com/novena/images/about/about-3.jpg" alt="" class="img-fluid w-100">
 					<h4 class="mt-3">Modern Equipments</h4>
-					<p>Voluptate aperiam esse possimus maxime repellendus, nihil quod accusantium .</p>
+					<p>We have the latest equipment to perform medical examinations .</p>
 				</div>
 			</div>
 			<div class="col-lg-3 col-md-6">
 				<div class="about-block-item">
 					<img src="https://demo.themefisher.com/novena/images/about/about-4.jpg" alt="" class="img-fluid w-100">
 					<h4 class="mt-3">Qualified Doctors</h4>
-					<p>Voluptate aperiam esse possimus maxime repellendus, nihil quod accusantium .</p>
+					<p>The best specialists provide the necessary care for the health condition .</p>
 				</div>
 			</div>
 		</div>
@@ -130,7 +130,7 @@
 				<div class="section-title text-center">
 					<h2 class="mb-4">Meet Our Specialist</h2>
 					<div class="divider mx-auto my-4"></div>
-					<p>Today’s users expect effortless experiences. Don’t let essential people and processes stay stuck in the past. Speed it up, skip the hassles</p>
+					<p>Today's users expect easy experiences. Don't let essential people and processes get stuck in the past. Our job is to speed up the medical examination process</p>
 				</div>
 			</div>
 		</div>
@@ -200,7 +200,7 @@
 						<span>John Partho</span>
 					</div>
 					<p>
-						They provide great service facilty consectetur adipisicing elit. Itaque rem, praesentium, iure, ipsum magnam deleniti a vel eos adipisci suscipit fugit placeat. Quibusdam laboriosam eveniet nostrum nemo commodi numquam quod.
+						They provide great service facilty and medical tests. Good service and the best specialists at Lifelab Health Center, provide you with comprehensive medical care and medical inquiries over the phone.
 					</p>
 					<i class="icofont-quote-right"></i>
 
@@ -212,7 +212,7 @@
 						<span>Mullar Sarth</span>
 					</div>
 					<p>
-						They provide great service facilty consectetur adipisicing elit. Itaque rem, praesentium, iure, ipsum magnam deleniti a vel eos adipisci suscipit fugit placeat. Quibusdam laboriosam eveniet nostrum nemo commodi numquam quod.
+						The best specialists at Lifelab Health Center, and the medical examination does not delay in showing the result, I really support lifelab Health Center, thank you for your help and efforts for specialists at Lifelab Health Center.
 					</p>
 					<i class="icofont-quote-right"></i>
 				</div>
@@ -223,12 +223,12 @@
 						<span>Kolis Mullar</span>
 					</div>
 					<p>
-						They provide great service facilty consectetur adipisicing elit. Itaque rem, praesentium, iure, ipsum magnam deleniti a vel eos adipisci suscipit fugit placeat. Quibusdam laboriosam eveniet nostrum nemo commodi numquam quod.
+						The thing I liked the most about Lifelab Health Center is the availability of experts and specialists, other than that is providing results in the fastest time and answering inquiries on the phone.
 					</p>
 					<i class="icofont-quote-right"></i>
 				</div>
 
-				<div class="testimonial-block">
+				{{-- <div class="testimonial-block">
 					<div class="client-info">
 						<h4>Nice Environment!</h4>
 						<span>Partho Sarothi</span>
@@ -248,7 +248,7 @@
 						They provide great service facilty consectetur adipisicing elit. Itaque rem, praesentium, iure, ipsum magnam deleniti a vel eos adipisci suscipit fugit placeat. Quibusdam laboriosam eveniet nostrum nemo commodi numquam quod.
 					</p>
 					<i class="icofont-quote-right"></i>
-				</div>
+				</div> --}}
 			</div>
 		</div>
 	</div>

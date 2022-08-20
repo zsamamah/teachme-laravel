@@ -6,7 +6,10 @@ use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\SubscribeController;
 use App\Http\Controllers\UserProfileController;
+use App\Http\Controllers\VisaController;
+use App\Models\Service;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -37,11 +40,16 @@ Route::get('/contact-us', [ContactController::class, 'index'])->name('contact-us
 Route::post('/contact-us', [ContactController::class, 'store'])->name('store-msg');
 Route::get('/services', [ServiceController::class, 'index'])->name('services');
 Route::get('/services/{service}', [ServiceController::class, 'show'])->name('single-service');
+Route::post('/subscribe',[SubscribeController::class,'store'])->name('subscribe');
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/profile', [UserProfileController::class, 'index'])->name('profile');
+    Route::post('/edit-profile/{user}',[UserProfileController::class,'edit'])->name('edit-profile');
     Route::get('/services/{service}/booking', [ServiceController::class, 'booking'])->name('booking');
     Route::post('/done', [BookingController::class, 'store'])->name('store');
+    Route::get('/result/{booking}',[ServiceController::class,'result'])->name('result');
+    Route::get('/visa/{booking}',[ServiceController::class,'visa'])->name('visa');
+    Route::post('/visa/{booking}',[VisaController::class,'store'])->name('save_visa');
 });
 
 Route::group(['middleware' => ['auth', 'isAdmin']], function () {

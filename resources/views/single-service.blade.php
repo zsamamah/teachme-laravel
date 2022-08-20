@@ -5,7 +5,7 @@
   <meta name="description" content="Orbitor,business,company,agency,modern,bootstrap4,tech,software">
   <meta name="author" content="themefisher.com">
 
-  <title>Novena - {{$service['service']}}</title>
+  <title>LifeLabs - {{$service['service']}}</title>
   <link rel="icon" href="/favicon.ico" type="image/icon type">
 
   <!-- Favicon -->

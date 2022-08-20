@@ -13,6 +13,8 @@ class Booking extends Model
         'service_id',
         'location',
         'date',
+        'payment',
+        'paid',
         'user_id',
         'phone'
     ];

@@ -61,6 +61,7 @@ class BookingController extends Controller
     {
         //
         // dd($request);
+        // if($request['payment']=='cash')
         $request->validate([
             'id'=>'required',
            'name'=>['required','max:30'],
@@ -72,14 +73,18 @@ class BookingController extends Controller
         $user = Auth::user()->id;
         if($user!=$request['id'])
             return redirect('/');
-        Booking::create([
+        $new = Booking::create([
             'service_id'=>$request['service_id'],
             'location'=>$request['location'],
             'date'=>$request['date'],
+            'payment'=>$request['payment'],
             'user_id'=>$request['id'],
             'phone'=>$request['phone']
         ]);
+        if($request['payment']=='cash')
         return view('confirm');
+        else
+        return redirect('/visa'.'/'.$new['id']);
     }
 
     /**
@@ -116,6 +121,7 @@ class BookingController extends Controller
     {
         $booking = Booking::find($id);
         $booking->result = $request->input('result');
+        $booking->paid = $request->paid;
         $booking->done = 1;
         $booking->update();
         return redirect("/bookings");

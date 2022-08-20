@@ -5,7 +5,7 @@
         <meta name="description" content="Orbitor,business,company,agency,modern,bootstrap4,tech,software">
         <meta name="author" content="themefisher.com">
       
-        <title>Novena - Confirmation</title>
+        <title>LifeLabs - Confirmation</title>
         <link rel="icon" href="/favicon.ico" type="image/icon type">
       
         <!-- Favicon -->

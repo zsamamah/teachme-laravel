@@ -5,7 +5,7 @@
   <meta name="description" content="Orbitor,business,company,agency,modern,bootstrap4,tech,software">
   <meta name="author" content="themefisher.com">
 
-  <title>Novena - Contact Us</title>
+  <title>LifeLabs - Contact Us</title>
   <link rel="icon" href="/favicon.ico" type="image/icon type">
 
   <!-- Favicon -->
@@ -65,7 +65,7 @@
                 <div class="section-title text-center">
                     <h2 class="text-md mb-2">Contact us</h2>
                     <div class="divider mx-auto my-4"></div>
-                    <p class="mb-5">Laboriosam exercitationem molestias beatae eos pariatur, similique, excepturi mollitia sit perferendis maiores ratione aliquam?</p>
+                    <p class="mb-5">You can contact us via the following form and we will respond to your questions during working hours or when the specialist is available .</p>
                 </div>
             </div>
         </div>

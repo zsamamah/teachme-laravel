@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use LengthException;
 
 class UserProfileController extends Controller
@@ -17,7 +18,22 @@ class UserProfileController extends Controller
         ->join('users', 'users.id', '=', 'bookings.user_id')
         ->join('services', 'services.id', '=', 'bookings.service_id')
         ->select('bookings.*', 'services.service', 'users.name')->where("bookings.user_id","=",$id)->get();
-        return view('userprofile',compact('bookings'));
+        $user = Auth::user();
+        return view('userprofile',compact('bookings','user'));
+    }
+    public function edit(Request $request,User $user)
+    {
+        // dd($request);
+        if($request['name']!=null)
+            $user->update(['name'=>$request['name']]);
+        if($request['email']!=null)
+            $user->update(['email'=>$request['email']]);
+        if($request['phone']!=null)
+            $user->update(['phone'=>$request['phone']]);
+        if($request['password']!=null && $request['password']==$request['c_password'])
+            $user->update(['password'=>Hash::make($request['password'])]);
+        return redirect(route('profile'));
+
     }
     public function showUsers()
     {

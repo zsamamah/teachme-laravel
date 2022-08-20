@@ -5,7 +5,7 @@
   <meta name="description" content="Orbitor,business,company,agency,modern,bootstrap4,tech,software">
   <meta name="author" content="themefisher.com">
 
-  <title>Novena - Tests</title>
+  <title>LifeLabs - Tests</title>
   <link rel="icon" href="/favicon.ico" type="image/icon type">
 
   <!-- Favicon -->
@@ -28,10 +28,6 @@
 <body id="top">
 
 @include('nav')
-
-
-
-
 
 <section class="section service-2">
 	<div class="container">

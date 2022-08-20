@@ -7,12 +7,12 @@
 					<div class="logo mb-4">
 						<img src="images/logo.png" alt="" class="img-fluid">
 					</div>
-					<p>Tempora dolorem voluptatum nam vero assumenda voluptate, facilis ad eos obcaecati tenetur veritatis eveniet distinctio possimus.</p>
+					<p>The best and first online medical laboratory in middle east , make your appointments now through our website to get your results as soon as possible .</p>
 
 					<ul class="list-inline footer-socials mt-4">
-						<li class="list-inline-item"><a href="https://www.facebook.com/themefisher"><i class="icofont-facebook"></i></a></li>
-						<li class="list-inline-item"><a href="https://twitter.com/themefisher"><i class="icofont-twitter"></i></a></li>
-						<li class="list-inline-item"><a href="https://www.pinterest.com/themefisher/"><i class="icofont-linkedin"></i></a></li>
+						<li class="list-inline-item"><a href="https://www.facebook.com"><i class="icofont-facebook"></i></a></li>
+						<li class="list-inline-item"><a href="https://twitter.com"><i class="icofont-twitter"></i></a></li>
+						<li class="list-inline-item"><a href="https://www.linkedin.com"><i class="icofont-linkedin"></i></a></li>
 					</ul>
 				</div>
 			</div>
@@ -23,11 +23,11 @@
 					<div class="divider mb-4"></div>
 
 					<ul class="list-unstyled footer-menu lh-35">
-						<li><a href="#">Surgery </a></li>
-						<li><a href="#">Wome's Health</a></li>
-						<li><a href="#">Radiology</a></li>
-						<li><a href="#">Cardioc</a></li>
-						<li><a href="#">Medicine</a></li>
+						<li><a href="/#top">Home</a></li>
+						<li><a href="/services">Services </a></li>
+						<li><a href="/services/1">Corona Test</a></li>
+						<li><a href="/about-us">About Us</a></li>
+						<li><a href="/contact-us">Contact Us</a></li>
 					</ul>
 				</div>
 			</div>
@@ -38,8 +38,8 @@
 					<div class="divider mb-4"></div>
 
 					<ul class="list-unstyled footer-menu lh-35">
-						<li><a href="#">Terms & Conditions</a></li>
-						<li><a href="#">Privacy Policy</a></li>
+						<li><a href="/login">Login</a></li>
+						<li><a href="/register">Register</a></li>
 						<li><a href="#">Company Support </a></li>
 						<li><a href="#">FAQuestions</a></li>
 						<li><a href="#">Company Licence</a></li>
@@ -57,7 +57,7 @@
 							<i class="icofont-email mr-3"></i>
 							<span class="h6 mb-0">Support Available for 24/7</span>
 						</div>
-						<h4 class="mt-2"><a href="tel:+23-345-67890">Support@email.com</a></h4>
+						<h4 class="mt-2"><a href="mailto:support@life-labs.com">Support@life-labs.com</a></h4>
 					</div>
 
 					<div class="footer-contact-block">
@@ -65,7 +65,7 @@
 							<i class="icofont-support mr-3"></i>
 							<span class="h6 mb-0">Mon to Fri : 08:30 - 18:00</span>
 						</div>
-						<h4 class="mt-2"><a href="tel:+23-345-67890">+23-456-6588</a></h4>
+						<h4 class="mt-2"><a href="tel:+823-4565-13456">+823-4565-13456</a></h4>
 					</div>
 				</div>
 			</div>
@@ -75,14 +75,15 @@
 			<div class="row align-items-center justify-content-between">
 				<div class="col-lg-6">
 					<div class="copyright">
-						&copy; Copyright Reserved to <span class="text-color">Novena</span> by <a href="https://themefisher.com/" target="_blank">Themefisher</a>
+						&copy; Copyright Reserved to <span class="text-color">Life Labs</span>
 					</div>
 				</div>
 				<div class="col-lg-6">
 					<div class="subscribe-form text-lg-right mt-5 mt-lg-0">
-						<form action="#" class="subscribe">
-							<input type="text" class="form-control" placeholder="Your Email address">
-							<a href="#" class="btn btn-main-2 btn-round-full">Subscribe</a>
+						<form method="POST" action="{{ route('subscribe') }}" class="subscribe">
+							@csrf
+							<input type="email" class="form-control" name="email" placeholder="Your Email address" required>
+							<button type="submit" class="btn btn-main-2 btn-round-full">Subscribe</button>
 						</form>
 					</div>
 				</div>

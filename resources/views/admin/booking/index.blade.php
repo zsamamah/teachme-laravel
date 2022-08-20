@@ -20,9 +20,9 @@
                         <th>Location</th>
                         <th>Date</th>
                         <th>Phone</th>
-
+                        <th>Paid</th>
                         <th>Username</th>
-                        <th>Result</th>
+                        {{-- <th>Result</th> --}}
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -34,10 +34,12 @@
                         <td >{{ $item->location }}</td>
                         <td >{{ $item->date }}</td>
                         <td>{{ $item->phone }}</td>
+                        <td>{{ $item->paid }} / {{$item->payment}}</td>
                         <td>{{ $item->name }}</td>
-                        <td>{{$item->result}}</td>
+                        {{-- <td>{{$item->result}}</td> --}}
                         <td>
                             {{-- <a href="{{ route('done-booking',$item->id) }}" class="btn btn-danger">Done</a> --}}
+                            <a href="{{ url('result/'.$item->id) }}" class="btn btn-success">Invoice</a>
                             <a href="{{ url('edit-booking/'.$item->id) }}" class="btn btn-primary">Edit</a>
                             <a href="{{ url('delete-booking/'.$item->id) }}" class="btn btn-danger">Delete</a>
                         </td>

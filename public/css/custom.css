@@ -51,3 +51,8 @@
  .service-block:hover h4 {
     color: #e12454 !important;
 }
+
+.inv_link{
+    color: blue;
+    text-decoration : underline,
+}

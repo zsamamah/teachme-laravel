@@ -20,6 +20,8 @@ return new class extends Migration
             $table->text('location');
             $table->string('date');
             $table->string('phone');
+            $table->enum('payment',['visa','cash']);
+            $table->enum('paid',['yes','no'])->default('no');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->boolean('done')->default('0');

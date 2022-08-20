@@ -6,7 +6,7 @@
     <meta name="description" content="Orbitor,business,company,agency,modern,bootstrap4,tech,software">
     <meta name="author" content="themefisher.com">
 
-    <title>Novena - User Profile</title>
+    <title>LifeLabs - User Profile</title>
     <link rel="icon" href="/favicon.ico" type="image/icon type">
 
     <!-- Favicon -->
@@ -23,7 +23,6 @@
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/custom.css">
-
 </head>
 
 <body id="top">
@@ -40,17 +39,18 @@
                 <div class="col-md">
                     <h3>Profile Settings</h3>
                     <div class="infoContainer">
-                        <form>
+                        <form method="POST" action="{{ route('edit-profile',$user->id) }}">
+                            @csrf
                             <div class="names">
-                                <input type="text" placeholder="Full Name" class="btn">
+                                <input type="text" placeholder="Full Name" name="name" class="btn" value="{{$user->name}}" required>
                             </div>
-                            <div class="emailAndPhone">
-                                <input type="email" placeholder="Email" class="btn">
-                                <input type="tel" placeholder="Phone Number" class="btn">
-                            </div>
+                            {{-- <div class="emailAndPhone">
+                                <input type="email" name="email" placeholder="Email" class="btn" value="{{$user->email}}" required>
+                                <input type="tel" name="phone" placeholder="Phone Number" class="btn" value="{{$user->phone}}">
+                            </div> --}}
                             <div class="passwords">
-                                <input type="password" placeholder="My Password" class="btn">
-                                <input type="password" placeholder="Confirm Password" class="btn">
+                                <input type="password" name="password" placeholder="My Password" class="btn">
+                                <input type="password" name="c_password" placeholder="Confirm Password" class="btn">
                             </div>
 
                             <button type="submit" class="btn bg-primary text-white">Submit!</button>
@@ -71,8 +71,7 @@
                                 <th>Service</th>
                                 <th>Date</th>
                                 <th>Phone</th>
-                                <th>Location</th>
-                                <th>result</th>
+                                <th>Result</th>
                             </tr>
                         </thead>
                         @foreach($bookings as $item)
@@ -83,8 +82,13 @@
                                 <td>{{$item->service}}</td>
                                 <td>{{$item->date}}</td>
                                 <td>{{$item->phone}}</td>
-                                <td>{{$item->location}}</td>
-                                <td>{{$item->result}}</td>
+                                <td>
+                                    @if ($item->paid=='yes')
+                                    <a class="inv_link" href="{{ url('result/'.$item->id) }}">Result</a>
+                                    @else
+                                        Can`t show result without pay
+                                    @endif
+                            </td>
                             </tr>
                         </tbody>
                         @endforeach
