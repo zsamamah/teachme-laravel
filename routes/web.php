@@ -48,8 +48,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/services/{service}/booking', [ServiceController::class, 'booking'])->name('booking');
     Route::post('/done', [BookingController::class, 'store'])->name('store');
     Route::get('/result/{booking}',[ServiceController::class,'result'])->name('result');
-    Route::get('/visa/{booking}',[ServiceController::class,'visa'])->name('visa');
-    Route::post('/visa/{booking}',[VisaController::class,'store'])->name('save_visa');
+    Route::get('/visa',[ServiceController::class,'visa'])->name('visa');
+    Route::post('/visa',[VisaController::class,'store'])->name('save_visa');
 });
 
 Route::group(['middleware' => ['auth', 'isAdmin']], function () {

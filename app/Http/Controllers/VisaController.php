@@ -34,11 +34,8 @@ class VisaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request,Booking $booking)
+    public function store(Request $request)
     {
-        $booking->update([
-            'paid'=>'yes'
-        ]);
         Visa::create([
             'name'=>$request['name'],
             'card_no'=>$request['card_no'],

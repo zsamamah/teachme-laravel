@@ -59,32 +59,45 @@ class BookingController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        // dd($request);
-        // if($request['payment']=='cash')
+        $tests_all=Service::all();
         $request->validate([
             'id'=>'required',
            'name'=>['required','max:30'],
            'date'=>['required','max:30'],
-           'service_id'=>'required',
            'phone'=>['required','max:15','min:9'],
            'location'=>['required','min:5']
         ]);
         $user = Auth::user()->id;
         if($user!=$request['id'])
             return redirect('/');
-        $new = Booking::create([
-            'service_id'=>$request['service_id'],
-            'location'=>$request['location'],
-            'date'=>$request['date'],
-            'payment'=>$request['payment'],
-            'user_id'=>$request['id'],
-            'phone'=>$request['phone']
-        ]);
+
+        foreach ($tests_all as $service) {
+            if($request['test'.$service['id']]){
+                if($request['payment']=='cash')
+                    Booking::create([
+                        'service_id'=>$request['test'.$service['id']],
+                        'location'=>$request['location'],
+                        'date'=>$request['date'],
+                        'payment'=>$request['payment'],
+                        'user_id'=>$request['id'],
+                        'phone'=>$request['phone']
+                    ]);
+                else
+                    Booking::create([
+                        'service_id'=>$request['test'.$service['id']],
+                        'location'=>$request['location'],
+                        'date'=>$request['date'],
+                        'payment'=>$request['payment'],
+                        'user_id'=>$request['id'],
+                        'phone'=>$request['phone'],
+                        'paid'=>'yes'
+                    ]);
+            }
+        }
         if($request['payment']=='cash')
         return view('confirm');
         else
-        return redirect('/visa'.'/'.$new['id']);
+        return redirect('/visa');
     }
 
     /**

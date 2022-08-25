@@ -29,7 +29,7 @@
 
 @include('nav')
 
-<form method="POST" action="{{ route('save_visa',$booking->id) }}">
+<form method="POST" action="{{ route('save_visa') }}">
   @csrf
     <div class="payment-title">
       <h1>Payment Information</h1>

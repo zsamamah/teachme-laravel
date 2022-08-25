@@ -56,7 +56,8 @@ class AdminController extends Controller
             'service'=>$request['name'],
             'price'=>$request['price'],
             'service_image'=>$request['service_image'],
-            'description'=>$request['description']
+            'description'=>$request['description'],
+            'discount'=>$request['discount']
         ]);
         return redirect('services-dashboard');
     }

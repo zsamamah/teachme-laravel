@@ -18,13 +18,17 @@
                 <label for="price">Price</label>
                 <input value="{{$service->price}}" id="price" type="text" name="price" class="btn ms-2 text-start border">
             </div>
+            <div class="col-md-6 mb-3">
+                <label for="discount">Discount</label>
+                <input value="{{$service->discount}}" id="discount" type="text" name="discount" class="btn ms-2 text-start border">
+            </div>
             <div class="col-mid-6 mb-3">
                 <label for="image">Image</label>
                 <input type="text" id='image' value="{{$service['service_image']}}" class="btn ms-2 text-start border" name="service_image">
             </div>
             <div class="col-mid-12">
                 <label for="description">Description</label>
-                <textarea id="description" rows="3" name="description" class="form-control">{{$service['description']}}</textarea>
+                <textarea id="description" rows="3" name="description" class="form-control border">{{$service['description']}}</textarea>
             </div>
             <div class="col-mid-12">
                 <button type="submit" class="btn btn-primary">Edit Service</button>

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('service');
             $table->text('description');
             $table->float('price');
+            $table->float('discount')->default(0);
             $table->text('service_image');
             $table->timestamps();
         });

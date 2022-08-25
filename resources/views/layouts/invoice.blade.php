@@ -113,7 +113,7 @@
               <td>{{$service['service']}}</td>
               <td>{{$booking['phone']}}</td>
               <td>{{$booking['location']}}</td>
-              <td>{{$service['price']}} JD</td>
+              <td>{{$service['price']-$service['discount']}} JD</td>
             </tr>
             </tbody>
           </table>
@@ -161,7 +161,7 @@
             <table class="table">
               <tr>
                 <th style="width:50%">Subtotal:</th>
-                <td>{{$service->price}} JD</td>
+                <td>{{$service->price-$service['discount']}} JD</td>
               </tr>
               <tr>
                 <th>Tax (16%)</th>
@@ -173,7 +173,7 @@
               </tr>
               <tr>
                 <th>Total:</th>
-                <td>{{$service->price + $service->price*0.16 + 2}}</td>
+                <td>{{$service->price-$service['discount'] + $service->price*0.16 + 2}}</td>
               </tr>
             </table>
           </div>

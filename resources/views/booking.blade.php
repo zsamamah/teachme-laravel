@@ -78,14 +78,14 @@
                         </div>
                     </div>
                          <div class="col-lg-6">
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                               <label for="test">Test Name</label>
                                 <select class="form-control" name="service_id" required id="test">
                                   @foreach ($services as $item)
                                     <option value="{{$item['id']}}" {{$item['id']==$service['id']?'selected':''}} >{{$item['service']}}</option>
                                   @endforeach
                                 </select>
-                            </div>
+                            </div> --}}
                         </div>
 
                          <div class="col-lg-6">
@@ -103,14 +103,24 @@
                         </div>
                     </div>
 
+                    <div class="form-group">
+                      <label for="test">Test Name</label><br>
+                          @foreach ($services as $item)
+                            <input type="checkbox" id="{{$item['id']}}" name="test{{$item['id']}}" value="{{$item['id']}}" @if ($item['id']==$service['id'])
+                                @checked(true)
+                            @endif >
+                            <label for="{{$item['id']}}">{{$item['service']}}</label><br>
+                          @endforeach
+                    </div>
+
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label for="payment">Payment Method</label><br>
                         <input type="radio" id="visa" name="payment" value="visa" required>
-                        <label for="html">VISA</label>
+                        <label for="visa">VISA</label>
                         <br>
                         <input type="radio" id="cash" name="payment" value="cash">
-                        <label for="css">Cash</label>
+                        <label for="cash">Cash</label>
                           {{-- <input name="time" id="time" type="text" class="form-control" placeholder="Time"> --}}
                       </div>
                   </div>

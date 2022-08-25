@@ -13,7 +13,8 @@ class Service extends Model
         'service',
         'description',
         'price',
-        'service_image'
+        'service_image',
+        'discount'
     ];
 
     public function bookings()

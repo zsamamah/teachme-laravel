@@ -39,7 +39,11 @@
                     <div class="content">
                         <img src="{{$service['service_image']}}" alt="{{$service['service']}}" class="img-fluid">
 						<h4 class="mt-4 mb-2 title-color">{{$service['service']}}</h4>
-						<p>Price : {{$service['price']}} JD</p>
+						<p>Price :
+              @if ($service['discount'])
+              <del class="text-danger">{{$service['price']}} JD</del>
+              @endif
+               {{$service['price']-$service['discount']}} JD</p>
 						<p class="mb-4">{{$service['description']}}</p>
 					</div>
 				</div>

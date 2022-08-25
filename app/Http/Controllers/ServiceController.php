@@ -48,7 +48,7 @@ class ServiceController extends Controller
 
     public function visa(Booking $booking)
     {
-        return view('layouts.visa',compact('booking'));
+        return view('layouts.visa');
     }
 
     /**
