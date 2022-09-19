@@ -94,13 +94,8 @@
                   
                   <div id="navbar-collapse" class="collapse navbar-collapse">
                       <ul class="nav navbar-nav mr-auto">
-                        <li class="nav-item dropdown active">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Home <i class="fa fa-angle-down"></i></a>
-                            <ul class="dropdown-menu" role="menu">
-                              <li class="active"><a href="index.html">Home One</a></li>
-                              <li><a href="index-2.html">Home Two</a></li>
-                            </ul>
-                        </li>
+
+                        <li class="nav-item"><a class="nav-link" href="{{ route('index') }}">Home</a></li>
   
                         <li class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Company <i class="fa fa-angle-down"></i></a>
@@ -154,7 +149,7 @@
                             </ul>
                         </li>
                 
-                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('contact.index') }}">Contact</a></li>
 
                         @auth
                         <li class="nav-item">
