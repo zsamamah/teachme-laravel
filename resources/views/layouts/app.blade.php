@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'LifeLabs') }}</title>
+    <title>{{ config('app.name', 'Tajmelna') }}</title>
     <link rel="icon" href="/favicon.ico" type="image/icon type">
 
     <!-- Scripts -->
