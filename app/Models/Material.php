@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Saloon extends Model
+class Material extends Model
 {
     use HasFactory;
 
@@ -15,17 +15,12 @@ class Saloon extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
-        'owner_id',
-        'location',
-        'phone',
-        'profile_image',
+        'm_name',
     ];
 
-    public function user()
+    public function chapters()
     {
-        return $this->belongsTo(User::class);
+        return $this->hasMany(Chapter::class);
     }
-
 
 }
