@@ -1,0 +1,4 @@
+.no-hover:hover{
+    color: white;
+    transition-duration: 0;
+}

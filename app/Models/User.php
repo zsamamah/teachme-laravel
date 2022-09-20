@@ -24,9 +24,9 @@ class User extends Authenticatable
         'password',
     ];
 
-    public function bookings()
+    public function saloons()
     {
-        return $this->hasMany(Booking::class);
+        return $this->hasMany(Saloon::class);
     }
 
     /**

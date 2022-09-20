@@ -30,5 +30,10 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/',[HomeController::class,'index'])->name('index');
+Route::get('/about-us',[HomeController::class,'about'])->name('about-us');
+
 Route::resource('contact',ContactController::class);
 Route::get('/contact-done',[ContactController::class,'done'])->name('contact-done');
+
+Route::post('/subscribe',[SubscribeController::class,'store'])->name('subscribe');
+Route::get('/subscribe-done',[SubscribeController::class,'done'])->name('subscribe-done');

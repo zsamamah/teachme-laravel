@@ -33,7 +33,7 @@
             </span>
             <div class="ts-service-box-content">
               <h4>Email Us</h4>
-              <a href="mailto:contact@tajmelna.com">contact@tajmelna.com</a>
+              <a href="mailto:contact@tajmelna.com" class="no-hover">contact@tajmelna.com</a>
             </div>
           </div>
         </div><!-- Col 2 end -->

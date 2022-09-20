@@ -17,7 +17,7 @@
 
   <!-- Favicon
 ================================================== -->
-  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico">
 
   <!-- CSS
 ================================================== -->
@@ -34,6 +34,7 @@
   <link rel="stylesheet" href="plugins/colorbox/colorbox.css">
   <!-- Template styles-->
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/custom.css">
 
 </head>
 
