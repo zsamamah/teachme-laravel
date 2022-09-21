@@ -64,21 +64,26 @@
                   <div id="navbar-collapse" class="collapse navbar-collapse">
                       <ul class="nav navbar-nav mr-auto">
 
-                        <li class="nav-item"><a class="nav-link" href="{{ route('index') }}">Home</a></li>
+                        <li class="nav-item {{ Request::is('/') ? 'active' : '' }} "><a class="nav-link" href="{{ route('index') }}">Home</a></li>
   
-                        <li class="nav-item"><a class="nav-link" href="{{ route('about-us') }}">About Us</a></li>
+                        <li class="nav-item {{ Request::is('about-us') ? 'active' : '' }} "><a class="nav-link" href="{{ route('about-us') }}">About Us</a></li>
                 
-                        <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
+                        <li class="nav-item {{ Request::is('saloons') ? 'active' : '' }} "><a class="nav-link" href="#">Saloons</a></li>
                 
-                        <li class="nav-item"><a class="nav-link" href="{{ route('contact.index') }}">Contact</a></li>
+                        <li class="nav-item {{ Request::is('contact') ? 'active' : '' }} "><a class="nav-link" href="{{ route('contact.index') }}">Contact</a></li>
 
                         @auth
+                        @if (Auth::user()->role==='admin')
+                        <li class="nav-item"><a class="nav-link" href="#">Dashboard</a></li>
+                        @endif
+                        @if (Auth::user()->role==='provider')
+                        <li class="nav-item"><a class="nav-link" href="{{ route('p_dashboard') }}">Dashboard</a></li>
+                        @endif
+                        @if (Auth::user()->role==='user')
+                        <li class="nav-item"><a class="nav-link" href="#">My Profile</a></li>
+                        @endif
                         <li class="nav-item">
-                          <a class="dropdown-item" href="{{ route('logout') }}"
-                               onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
+                          <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
 
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf
@@ -87,8 +92,8 @@
                         @endauth
 
                         @guest
-                        <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/register">Register</a></li>
+                        <li class="nav-item {{ Request::is('login') ? 'active' : '' }} "><a class="nav-link" href="/login">Login</a></li>
+                        <li class="nav-item {{ Request::is('register') ? 'active' : '' }} "><a class="nav-link" href="/register">Register</a></li>
                         @endguest
                       </ul>
                   </div>

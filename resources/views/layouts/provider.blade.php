@@ -11,15 +11,15 @@
     <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('admin/css/material-dashboard.css?v=3.0.0') }}" />
+    <link rel="stylesheet" href="{{ asset('admin/css/material-dashboard.css') }}" />
 </head>
 <body class="g-sidenav-show  bg-gray-200">
-    @include('layouts.inc.sidebar')
+    @include('layouts.p_inc.sidebar')
     <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
-        @include('layouts.inc.adminnav')
+        @include('layouts.p_inc.adminnav')
         <div class="container-fluid py-4">
             @yield('content')
-            @include('layouts.inc.adminfooter')
+            @include('layouts.p_inc.adminfooter')
         </div>
     </main>
     <!-- Scripts -->

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Saloon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SaloonController extends Controller
 {
@@ -14,7 +15,15 @@ class SaloonController extends Controller
      */
     public function index()
     {
-        //
+        $provider = Auth::user();
+        $saloons = Saloon::where('owner_id',$provider['id'])->get();
+        return view('provider.index',compact('provider','saloons'));
+    }
+
+    public function my_saloons()
+    {
+        $saloons = Saloon::where('owner_id',Auth::user()->id)->get();
+        return view('provider.saloons.index',compact('saloons'));
     }
 
     /**
@@ -24,7 +33,7 @@ class SaloonController extends Controller
      */
     public function create()
     {
-        //
+        return view('provider.saloons.add');
     }
 
     /**
@@ -35,7 +44,14 @@ class SaloonController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Saloon::create([
+            'name'=>$request['name'],
+            'owner_id'=>Auth::user()->id,
+            'phone'=>$request['phone'],
+            'location'=>$request['location'],
+            'profile_image'=>$request['profile_image']
+        ]);
+        return redirect('/my-saloons');
     }
 
     /**
