@@ -7,7 +7,7 @@
   </div>
   <div class=" row card-body">
     <div class="col-md-4">
-      <form method="POST" action="">
+      <form method="POST" action="{{ route('save-saloon') }}">
         @csrf
         <div class="form-group">
           <label for="name">Saloon Name</label>
@@ -29,7 +29,7 @@
     <div class="col-md-4">
         <div class="form-group">
           <label for="image1">Image 1</label>
-          <input type="text" id="image 1" class="btn ms-2 text-start border d-block" name="image 1" aria-describedby="emailHelp" placeholder="http://----" required>
+          <input type="text" id="image1" class="btn ms-2 text-start border d-block" name="image1" aria-describedby="emailHelp" placeholder="http://----" required>
         </div>
         <div class="form-group">
           <label for="image2">Image 2</label>

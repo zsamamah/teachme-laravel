@@ -95,7 +95,10 @@ class SaloonController extends Controller
      */
     public function edit(Saloon $saloon)
     {
-        //
+        $materials = Material::all();
+        $images = Image::where('saloon_id',$saloon->id)->get();
+        $services = Service::where('saloon_id',$saloon->id)->join('materials','services.material_id','=','materials.id')->get();
+        return view('provider.saloons.edit',compact('saloon','materials','images','services'));
     }
 
     /**
