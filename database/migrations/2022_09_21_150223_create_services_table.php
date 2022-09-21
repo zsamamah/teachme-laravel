@@ -13,13 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('reviews', function (Blueprint $table) {
+        Schema::create('services', function (Blueprint $table) {
             $table->id();
-            $table->float('range');
+            $table->unsignedBigInteger('material_id');
+            $table->foreign('material_id')->references('id')->on('materials')->onDelete('cascade');
             $table->unsignedBigInteger('saloon_id');
             $table->foreign('saloon_id')->references('id')->on('saloons')->onDelete('cascade');
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reviews');
+        Schema::dropIfExists('services');
     }
 };

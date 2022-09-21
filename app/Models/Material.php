@@ -23,4 +23,9 @@ class Material extends Model
         return $this->hasMany(Chapter::class);
     }
 
+    public function services()
+    {
+        return $this->belongsToMany(Service::class);
+    }
+
 }

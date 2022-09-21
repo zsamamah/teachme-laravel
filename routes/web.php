@@ -36,5 +36,5 @@ Route::group(['middleware'=>['auth','isProvider']],function(){
     Route::get('/my-saloons/create',[SaloonController::class,'create'])->name('create-saloon');
     Route::post('/my-saloons/create',[SaloonController::class,'store'])->name('save-saloon');
     Route::get('edit-saloon/{saloon}',[SaloonController::class,'edit'])->name('edit-saloon');
-    Route::delete('delete-saloon/{saloon}',[SaloonController::class,'delete'])->name('delete-saloon');
+    Route::delete('delete-saloon/{saloon}',[SaloonController::class,'destroy'])->name('delete-saloon');
 });

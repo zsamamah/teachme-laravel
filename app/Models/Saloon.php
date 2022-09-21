@@ -37,5 +37,9 @@ class Saloon extends Model
         return $this->hasMany(Image::class);
     }
 
+    public function services()
+    {
+        return $this->hasMany(Service::class);
+    }
 
 }

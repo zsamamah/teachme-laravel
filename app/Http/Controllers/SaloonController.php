@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Image;
+use App\Models\Material;
 use App\Models\Saloon;
+use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -33,7 +36,8 @@ class SaloonController extends Controller
      */
     public function create()
     {
-        return view('provider.saloons.add');
+        $materials = Material::all();
+        return view('provider.saloons.add',compact('materials'));
     }
 
     /**
@@ -44,13 +48,31 @@ class SaloonController extends Controller
      */
     public function store(Request $request)
     {
-        Saloon::create([
+        $saloon = Saloon::create([
             'name'=>$request['name'],
             'owner_id'=>Auth::user()->id,
             'phone'=>$request['phone'],
             'location'=>$request['location'],
             'profile_image'=>$request['profile_image']
         ]);
+
+        $mats = Material::all();
+        foreach($mats as $mat){
+            if($request['material'.$mat['id']])
+                Service::create([
+                    'material_id'=>$request['material'.$mat['id']],
+                    'saloon_id'=>$saloon['id']
+                ]);
+        }
+
+        for ($i=1; $i<=4;$i++) { 
+            if($request['image'.$i])
+                Image::create([
+                    'image'=>$request['image'.$i],
+                    'saloon_id'=>$saloon['id']
+                ]);
+        }
+
         return redirect('/my-saloons');
     }
 
@@ -96,6 +118,7 @@ class SaloonController extends Controller
      */
     public function destroy(Saloon $saloon)
     {
-        //
+        $saloon->deleteOrFail();
+        return redirect('/my-saloons');
     }
 }
