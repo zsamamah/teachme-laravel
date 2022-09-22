@@ -32,7 +32,7 @@
             @foreach ($images as $image_o)
             <div class="form-group">
                 <label for="image{{$counter+1}}">Image {{$counter+1}}</label>
-                <input type="text" id="image{{$counter+1}}" class="btn ms-2 text-start border d-block" name="image{{$counter+1}}" aria-describedby="emailHelp" placeholder="http://----" value="{{$image_o->image}}" required>
+                <input type="text" id="image{{$counter+1}}" class="btn ms-2 text-start border d-block" name="image{{$counter+1}}" placeholder="http://----" value="{{$image_o->image}}" required>
               </div>
               <?php $counter+=1 ?>
             @endforeach
@@ -42,26 +42,11 @@
                 <input type="text" name="image{{$i+1}}" class="btn ms-2 text-start border d-block" id="image{{$i+1}}" placeholder="http://----">
               </div>
             @endfor
-            {{-- <div class="form-group">
-              <label for="image1">Image 1</label>
-              <input type="text" id="image1" class="btn ms-2 text-start border d-block" name="image1" aria-describedby="emailHelp" placeholder="http://----" value="{{$images[0]->image}}" required>
-            </div>
-            <div class="form-group">
-              <label for="image2">Image 2</label>
-              <input type="text" name="image2" class="btn ms-2 text-start border d-block" id="image2" placeholder="http://----" value="{{$images[1]->image}}">
-            </div>
-            <div class="form-group">
-              <label for="image3">Image 3</label>
-              <input type="text" name="image3" class="btn ms-2 text-start border d-block" id="image3" placeholder="http://----" value="{{$images[2]->image}}">
-            </div>
-            <div class="form-group">
-              <label for="image4">Image 4</label>
-              <input type="text" name="image4" class="btn ms-2 text-start border d-block" id="image4" placeholder="http://----" value="{{$images[3]?$images[3]->image:''}}">
-            </div> --}}
           </div>
-          <div class="col-md-4">
-            ** Services Included **
+          <div class="row">
+            <h5>** Services Included **</h5>
             @foreach ($materials as $item)
+            <div class="col-md-3">
               <div class="custom-control custom-checkbox">
                 <input type="checkbox" class="custom-control-input" id="{{$item->id}}" name="material{{$item->id}}" value="{{$item->id}}"
                 @foreach ($services as $service)
@@ -72,7 +57,20 @@
                 @endforeach
                 >
                 <label class="custom-control-label" for="{{$item->id}}">{{$item->m_name}}</label>
+                <?php $flag=false ?>
+                @foreach ($services as $service)
+                    @if ($service->id == $item->id)
+                      <?php $flag=true ?>
+                      @break
+                    @endif
+                @endforeach
+                @if($flag)
+                <input type="text" name="price{{$item->id}}" class="btn ms-2 text-start border d-block" id="price{{$item->id}}" placeholder="price for {{$item->m_name}}" value="{{$service->price}}">
+                @else
+                <input type="text" name="price{{$item->id}}" class="btn ms-2 text-start border d-block" id="price{{$item->id}}" placeholder="price for {{$item->m_name}}">
+                @endif
               </div>
+            </div>
             @endforeach
           </div>
           <div class="col-md-4"></div>

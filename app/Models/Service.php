@@ -12,6 +12,7 @@ class Service extends Model
     protected $fillable = [
         'material_id',
         'saloon_id',
+        'price',
     ];
 
     public function material()

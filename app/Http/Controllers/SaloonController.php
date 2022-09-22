@@ -54,6 +54,7 @@ class SaloonController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request);
         $saloon = Saloon::create([
             'name'=>$request['name'],
             'owner_id'=>Auth::user()->id,
@@ -64,10 +65,11 @@ class SaloonController extends Controller
 
         $mats = Material::all();
         foreach($mats as $mat){
-            if($request['material'.$mat['id']])
+            if($request['material'.$mat['id']] && $request['price'.$mat['id']])
                 Service::create([
                     'material_id'=>$request['material'.$mat['id']],
-                    'saloon_id'=>$saloon['id']
+                    'saloon_id'=>$saloon['id'],
+                    'price'=>$request['price'.$mat['id']]
                 ]);
         }
 
@@ -128,10 +130,11 @@ class SaloonController extends Controller
         Service::where('saloon_id',$saloon->id)->delete();
         $mats = Material::all();
         foreach($mats as $mat){
-            if($request['material'.$mat['id']])
+            if($request['material'.$mat['id']] && $request['price'.$mat['id']])
                 Service::create([
                     'material_id'=>$request['material'.$mat['id']],
-                    'saloon_id'=>$saloon['id']
+                    'saloon_id'=>$saloon['id'],
+                    'price'=>$request['price'.$mat['id']]
                 ]);
         }
 

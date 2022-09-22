@@ -8,9 +8,9 @@
       <div class="row">
         <div class="col-lg-8">
           <div id="page-slider" class="page-slider small-bg">
-            @foreach ($images as $image)
+            @foreach ($images as $pic)
             <div class="item">
-                <img loading="lazy" class="img-fluid" src="{{$image->image}}" alt="saloon-image" />
+                <img loading="lazy" class="img-fluid" src="{{$pic->image}}" alt="saloon-image" />
               </div>
             @endforeach
           </div><!-- Page slider end -->
@@ -28,7 +28,7 @@
           <ul class="project-info list-unstyled">
             @foreach ($services as $item)
             <li>
-                <p class="project-info-label">{{$item->m_name}} - $$$
+                <p class="project-info-label">{{$item->m_name}} - {{$item->price}}
                 </p>
               </li>
             @endforeach

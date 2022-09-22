@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreign('material_id')->references('id')->on('materials')->onDelete('cascade');
             $table->unsignedBigInteger('saloon_id');
             $table->foreign('saloon_id')->references('id')->on('saloons')->onDelete('cascade');
+            $table->float('price');
             $table->timestamps();
         });
     }
