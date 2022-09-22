@@ -23,6 +23,12 @@ class SaloonController extends Controller
         return view('provider.index',compact('provider','saloons'));
     }
 
+    public function show_all()
+    {
+        $saloons = Saloon::all();
+        return view('saloons',compact('saloons'));
+    }
+
     public function my_saloons()
     {
         $saloons = Saloon::where('owner_id',Auth::user()->id)->get();
@@ -84,7 +90,9 @@ class SaloonController extends Controller
      */
     public function show(Saloon $saloon)
     {
-        //
+        $images = Image::where('saloon_id',$saloon->id)->get();
+        $services = Service::where('saloon_id',$saloon->id)->join('materials','services.material_id','=','materials.id')->get();
+        return view('single-saloon',compact('saloon','images','services'));
     }
 
     /**
@@ -110,7 +118,33 @@ class SaloonController extends Controller
      */
     public function update(Request $request, Saloon $saloon)
     {
-        //
+        $saloon->update([
+            'name'=>$request['name'],
+            'location'=>$request['location'],
+            'phone'=>$request['phone'],
+            'profile_image'=>$request['profile_image']
+        ]);
+
+        Service::where('saloon_id',$saloon->id)->delete();
+        $mats = Material::all();
+        foreach($mats as $mat){
+            if($request['material'.$mat['id']])
+                Service::create([
+                    'material_id'=>$request['material'.$mat['id']],
+                    'saloon_id'=>$saloon['id']
+                ]);
+        }
+
+        Image::where('saloon_id',$saloon->id)->delete();
+        for ($i=1; $i<=4;$i++) { 
+            if($request['image'.$i])
+                Image::create([
+                    'image'=>$request['image'.$i],
+                    'saloon_id'=>$saloon['id']
+                ]);
+        }
+        
+        return redirect('/my-saloons');
     }
 
     /**

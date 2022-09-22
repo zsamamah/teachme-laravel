@@ -7,8 +7,9 @@
     </div>
     <div class=" row card-body">
         <div class="col-md-4">
-          <form method="POST" action="{{ route('save-saloon') }}">
+          <form method="POST" action="{{ route('update-saloon',$saloon->id) }}">
             @csrf
+            @method('PUT')
             <div class="form-group">
               <label for="name">Saloon Name</label>
               <input type="text" id="name" class="btn ms-2 text-start border d-block" name="name" aria-describedby="emailHelp" placeholder="Beauty Care" value="{{$saloon->name}}" required>
@@ -62,7 +63,14 @@
             ** Services Included **
             @foreach ($materials as $item)
               <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="{{$item->id}}" name="material{{$item->id}}" value="{{$item->id}}">
+                <input type="checkbox" class="custom-control-input" id="{{$item->id}}" name="material{{$item->id}}" value="{{$item->id}}"
+                @foreach ($services as $service)
+                    @if ($service->id == $item->id)
+                        @checked(true)
+                        @break
+                    @endif
+                @endforeach
+                >
                 <label class="custom-control-label" for="{{$item->id}}">{{$item->m_name}}</label>
               </div>
             @endforeach

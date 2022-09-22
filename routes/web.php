@@ -30,6 +30,9 @@ Route::get('/contact-done',[ContactController::class,'done'])->name('contact-don
 Route::post('/subscribe',[SubscribeController::class,'store'])->name('subscribe');
 Route::get('/subscribe-done',[SubscribeController::class,'done'])->name('subscribe-done');
 
+Route::get('/saloons',[SaloonController::class,'show_all'])->name('saloons');
+Route::get('/saloons/{saloon}',[SaloonController::class,'show'])->name('single-saloon');
+
 Route::group(['middleware'=>['auth','isProvider']],function(){
     Route::get('/p_dashboard',[SaloonController::class,'index'])->name('p_dashboard');
     Route::get('/my-saloons',[SaloonController::class,'my_saloons'])->name('my-saloons');

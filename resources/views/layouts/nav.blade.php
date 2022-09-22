@@ -7,7 +7,7 @@
             <div class="row align-items-center">
               <div class="logo text-center text-lg-left mb-3 mb-md-5 mb-lg-0">
                   <a class="d-block" href="index.html">
-                    <img loading="lazy" src="logo-w.png" alt="Constra">
+                    <img loading="lazy" src="{{ asset('logo-w.png') }}" alt="Constra">
                   </a>
               </div><!-- logo end -->
     
@@ -68,7 +68,7 @@
   
                         <li class="nav-item {{ Request::is('about-us') ? 'active' : '' }} "><a class="nav-link" href="{{ route('about-us') }}">About Us</a></li>
                 
-                        <li class="nav-item {{ Request::is('saloons') ? 'active' : '' }} "><a class="nav-link" href="#">Saloons</a></li>
+                        <li class="nav-item {{ Request::is('saloons') ? 'active' : '' }} "><a class="nav-link" href="{{ route('saloons') }}">Saloons</a></li>
                 
                         <li class="nav-item {{ Request::is('contact') ? 'active' : '' }} "><a class="nav-link" href="{{ route('contact.index') }}">Contact</a></li>
 
