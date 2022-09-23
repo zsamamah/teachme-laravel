@@ -19,7 +19,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UserSeeder::class,
             MaterialSeeder::class,
-            ChapterSeeder::class
+            ChapterSeeder::class,
+            SaloonSeeder::class
         ]);
     }
 }

@@ -25,6 +25,7 @@
   <link rel="stylesheet" href="{{ asset('plugins/bootstrap/bootstrap.min.css') }}">
   <!-- FontAwesome -->
   <link rel="stylesheet" href="{{ asset('plugins/fontawesome/css/all.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css') }}" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- Animation -->
   <link rel="stylesheet" href="{{ asset('plugins/animate-css/animate.css') }}">
   <!-- slick Carousel -->
@@ -70,5 +71,7 @@
   <script src="{{ asset('plugins/google-map/map.js') }}" defer></script>
   <!-- Template custom -->
   <script src="{{ asset('js/script.js') }}"></script>
+
+  @yield('scripts')
 
 </html>

@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Review;
-use App\Models\Saloon;
+use App\Models\Order;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class ReviewController extends Controller
+class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -35,32 +33,18 @@ class ReviewController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request,Saloon $saloon)
+    public function store(Request $request)
     {
-        $reviews = Review::where('saloon_id',$saloon->id)->where('user_id',Auth::user()->id)->first();
-        // dd($reviews);
-        if($reviews && $request['range']!=$reviews['range']){
-            $reviews->update([
-                'range'=>$request['range'],
-            ]);
-        }
-        else if(!$reviews){
-            Review::create([
-                'range'=>$request['range'],
-                'saloon_id'=>$saloon->id,
-                'user_id'=>Auth::user()->id,
-            ]);
-        }
-        return redirect('/saloons'.'/'.$saloon->id);
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Review  $review
+     * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function show(Review $review)
+    public function show(Order $order)
     {
         //
     }
@@ -68,10 +52,10 @@ class ReviewController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Review  $review
+     * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function edit(Review $review)
+    public function edit(Order $order)
     {
         //
     }
@@ -80,10 +64,10 @@ class ReviewController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Review  $review
+     * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Review $review)
+    public function update(Request $request, Order $order)
     {
         //
     }
@@ -91,10 +75,10 @@ class ReviewController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Review  $review
+     * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Review $review)
+    public function destroy(Order $order)
     {
         //
     }

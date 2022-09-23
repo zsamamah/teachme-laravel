@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\SaloonController;
 use App\Http\Controllers\SubscribeController;
 use Illuminate\Support\Facades\Auth;
@@ -41,4 +42,9 @@ Route::group(['middleware'=>['auth','isProvider']],function(){
     Route::get('/edit-saloon/{saloon}',[SaloonController::class,'edit'])->name('edit-saloon');
     Route::put('/edit-saloon/{saloon}',[SaloonController::class,'update'])->name('update-saloon');
     Route::delete('delete-saloon/{saloon}',[SaloonController::class,'destroy'])->name('delete-saloon');
+});
+
+Route::group(['middleware'=>['auth']],function(){
+    Route::post('/review/{saloon}',[ReviewController::class,'store'])->name('review.store');
+    // Route::get('/saloons/{saloon}/order')
 });

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Image;
 use App\Models\Material;
+use App\Models\Review;
 use App\Models\Saloon;
 use App\Models\Service;
 use Illuminate\Http\Request;
@@ -94,7 +95,8 @@ class SaloonController extends Controller
     {
         $images = Image::where('saloon_id',$saloon->id)->get();
         $services = Service::where('saloon_id',$saloon->id)->join('materials','services.material_id','=','materials.id')->get();
-        return view('single-saloon',compact('saloon','images','services'));
+        $reviews = Review::where('saloon_id',$saloon->id)->select('range')->get();
+        return view('single-saloon',compact('saloon','images','services','reviews'));
     }
 
     /**
