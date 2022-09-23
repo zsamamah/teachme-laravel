@@ -19,6 +19,12 @@ return new class extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedBigInteger('saloon_id');
             $table->foreign('saloon_id')->references('id')->on('saloons');
+            $table->string('u_phone');
+            $table->enum('s_provider',['male','female']);
+            $table->text('notes')->nullable();
+            $table->enum('paid',['yes','no']);
+            $table->enum('payment',['cash','visa']);
+            $table->boolean('done')->default(0);
             $table->timestamps();
         });
     }

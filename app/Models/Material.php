@@ -28,4 +28,10 @@ class Material extends Model
         return $this->belongsToMany(Service::class);
     }
 
+    public function details()
+    {
+        return $this->belongsToMany(Detail::class);
+    }
+    
+
 }

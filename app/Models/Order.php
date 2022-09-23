@@ -12,6 +12,12 @@ class Order extends Model
     protected $fillable = [
         'user_id',
         'saloon_id',
+        'u_phone',
+        's_provider',
+        'notes',
+        'paid',
+        'payment',
+        'done'
     ];
 
     public function user()
@@ -22,5 +28,15 @@ class Order extends Model
     public function saloon()
     {
         return $this->belongsTo(Saloon::class);
+    }
+
+    public function details()
+    {
+        return $this->hasMany(Detail::class);
+    }
+
+    public function visa()
+    {
+        return $this->hasOne(Visa::class);
     }
 }

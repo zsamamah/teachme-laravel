@@ -5,14 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Detail extends Model
+class Visa extends Model
 {
     use HasFactory;
 
     protected $fillable = [
+        'c_name',
+        'exp',
+        'cvv',
         'order_id',
-        'material_id',
-        'chapter_id',
+        'user_id'
     ];
 
     public function order()
@@ -20,14 +22,9 @@ class Detail extends Model
         return $this->belongsTo(Order::class);
     }
 
-    public function material()
+    public function user()
     {
-        return $this->hasOne(Material::class);
-    }
-
-    public function chapter()
-    {
-        return $this->hasOne(Chapter::class);
+        return $this->belongsTo(User::class);
     }
 
 }

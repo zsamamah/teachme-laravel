@@ -13,14 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('details', function (Blueprint $table) {
+        Schema::create('visas', function (Blueprint $table) {
             $table->id();
+            $table->string('c_name');
+            $table->string('exp');
+            $table->string('cvv');
             $table->unsignedBigInteger('order_id');
-            $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
-            $table->unsignedBigInteger('material_id');
-            $table->foreign('material_id')->references('id')->on('materials');
-            $table->unsignedBigInteger('chapter_id');
-            $table->foreign('chapter_id')->references('id')->on('chapters');
+            $table->foreign('order_id')->references('id')->on('orders');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
@@ -32,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('details');
+        Schema::dropIfExists('visas');
     }
 };

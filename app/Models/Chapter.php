@@ -19,4 +19,9 @@ class Chapter extends Model
         return $this->belongsTo(Material::class);
     }
 
+    public function details()
+    {
+        return $this->belongsToMany(Detail::class);
+    }
+
 }

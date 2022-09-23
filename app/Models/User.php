@@ -39,6 +39,11 @@ class User extends Authenticatable
         return $this->hasMany(Order::class);
     }
 
+    public function visas()
+    {
+        return $this->hasMany(Visa::class);
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *
