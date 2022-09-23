@@ -33,6 +33,8 @@
               </li>
             @endforeach
           </ul>
+
+          <a href="{{ route('create-order',$saloon->id) }}" class="btn btn-primary">Book Now</a>
   
         </div><!-- Content col end -->
   

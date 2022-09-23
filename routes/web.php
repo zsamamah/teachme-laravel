@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\SaloonController;
 use App\Http\Controllers\SubscribeController;
@@ -46,5 +47,8 @@ Route::group(['middleware'=>['auth','isProvider']],function(){
 
 Route::group(['middleware'=>['auth']],function(){
     Route::post('/review/{saloon}',[ReviewController::class,'store'])->name('review.store');
-    // Route::get('/saloons/{saloon}/order')
+});
+
+Route::group(['middleware'=>['auth','isUser']],function(){
+    Route::get('/booking/{saloon}',[OrderController::class,'create'])->name('create-order');
 });

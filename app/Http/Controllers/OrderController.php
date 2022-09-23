@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\Saloon;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -22,9 +23,9 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Saloon $saloon)
     {
-        //
+        return view('order');
     }
 
     /**
