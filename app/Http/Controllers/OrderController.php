@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Chapter;
+use App\Models\Material;
 use App\Models\Order;
 use App\Models\Saloon;
+use App\Models\Service;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -25,7 +28,9 @@ class OrderController extends Controller
      */
     public function create(Saloon $saloon)
     {
-        return view('order');
+        $mats = Service::where('saloon_id',$saloon->id)->join('materials','materials.id','=','services.id')->get();
+        $chapters = Chapter::all();
+        return view('order',compact('saloon','mats','chapters'));
     }
 
     /**
@@ -34,9 +39,9 @@ class OrderController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,Saloon $saloon)
     {
-        //
+        dd($request,$saloon);
     }
 
     /**

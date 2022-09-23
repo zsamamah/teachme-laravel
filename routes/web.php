@@ -6,6 +6,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\SaloonController;
 use App\Http\Controllers\SubscribeController;
+use App\Models\Order;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -51,4 +52,5 @@ Route::group(['middleware'=>['auth']],function(){
 
 Route::group(['middleware'=>['auth','isUser']],function(){
     Route::get('/booking/{saloon}',[OrderController::class,'create'])->name('create-order');
+    Route::post('/booking/{saloon}',[OrderController::class,'store'])->name('store-order');
 });
