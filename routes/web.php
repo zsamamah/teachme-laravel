@@ -6,6 +6,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\SaloonController;
 use App\Http\Controllers\SubscribeController;
+use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\VisaController;
 use App\Models\Order;
 use Illuminate\Support\Facades\Auth;
@@ -60,4 +61,5 @@ Route::group(['middleware'=>['auth','isUser']],function(){
     Route::get('/visa/{order}',[VisaController::class,'index'])->name('show-visa');
     Route::post('/visa/{order}',[VisaController::class,'store'])->name('save-visa');
     Route::get('/done-booking',[OrderController::class,'done'])->name('order-done');
+    Route::get('/profile',[UserProfileController::class,'index'])->name('profile');
 });

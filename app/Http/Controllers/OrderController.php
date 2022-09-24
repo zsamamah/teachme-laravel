@@ -55,7 +55,7 @@ class OrderController extends Controller
      */
     public function create(Saloon $saloon)
     {
-        $mats = Service::where('saloon_id',$saloon->id)->join('materials','materials.id','=','services.id')->get();
+        $mats = Service::where('saloon_id',$saloon->id)->join('materials','services.material_id','=','materials.id')->get();
         $chapters = Chapter::all();
         $now = Carbon::now()->toDateTimeString();
         return view('order',compact('saloon','mats','chapters','now'));

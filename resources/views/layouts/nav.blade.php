@@ -80,7 +80,7 @@
                         <li class="nav-item"><a class="nav-link" href="{{ route('p_dashboard') }}">Dashboard</a></li>
                         @endif
                         @if (Auth::user()->role==='user')
-                        <li class="nav-item"><a class="nav-link" href="#">My Profile</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('profile') }}">My Profile</a></li>
                         @endif
                         <li class="nav-item">
                           <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
