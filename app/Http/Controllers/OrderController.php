@@ -8,6 +8,7 @@ use App\Models\Material;
 use App\Models\Order;
 use App\Models\Saloon;
 use App\Models\Service;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -22,7 +23,8 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        $orders= Order::where('saloon_owner',Auth::user()->id)->where('status','pending')->join('users','users.id','orders.user_id')->join('saloons','saloons.id','orders.saloon_id')->select('orders.*','users.name as name','saloons.name as s_name')->get();
+        return view('provider.orders.index',compact('orders'));
     }
 
     /**
@@ -45,9 +47,11 @@ class OrderController extends Controller
      */
     public function store(Request $request,Saloon $saloon)
     {
+        $owner = User::where('id',$saloon->owner_id)->first();
         $order = Order::create([
             'user_id'=>Auth::user()->id,
             'saloon_id'=>$saloon->id,
+            'saloon_owner'=>$owner->id,
             'u_phone'=>$request['u_phone'],
             's_provider'=>$request['s_provider'],
             'notes'=>$request['notes'],

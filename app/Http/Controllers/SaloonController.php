@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Image;
 use App\Models\Material;
+use App\Models\Order;
 use App\Models\Review;
 use App\Models\Saloon;
 use App\Models\Service;
@@ -21,7 +22,9 @@ class SaloonController extends Controller
     {
         $provider = Auth::user();
         $saloons = Saloon::where('owner_id',$provider['id'])->get();
-        return view('provider.index',compact('provider','saloons'));
+        $orders= Order::where('saloon_owner',$provider->id)->where('status','pending')->get();
+        $done_orders= Order::where('saloon_owner',$provider->id)->where('status','done')->get();
+        return view('provider.index',compact('provider','saloons','orders','done_orders'));
     }
 
     public function show_all()

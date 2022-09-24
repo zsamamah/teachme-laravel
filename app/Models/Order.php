@@ -12,6 +12,7 @@ class Order extends Model
     protected $fillable = [
         'user_id',
         'saloon_id',
+        'saloon_owner',
         'u_phone',
         's_provider',
         'notes',
@@ -28,6 +29,11 @@ class Order extends Model
     public function saloon()
     {
         return $this->belongsTo(Saloon::class);
+    }
+
+    public function owner()
+    {
+        return $this->belongsTo(User::class);
     }
 
     public function details()

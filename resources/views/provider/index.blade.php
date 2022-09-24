@@ -14,11 +14,11 @@
         </a>
         <hr>
         <br>
-        <a href="#">
+        <a href="{{ route('new-orders') }}">
             <div class="card">
                 <div class="card-head">
                     <h4>New Bookings</h4>
-                    {{-- <p>{{$bookings->count()}}</p> --}}
+                    <p>{{$orders->count()}}</p>
                 </div>
             </div>
         </a>
@@ -29,7 +29,7 @@
             <div class="card">
                 <div class="card-head">
                     <h4>Done Bookings</h4>
-                    {{-- <p>{{$done->count()}}</p> --}}
+                    <p>{{$done_orders->count()}}</p>
                 </div>
             </div>
         </a>

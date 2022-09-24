@@ -19,6 +19,8 @@ return new class extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedBigInteger('saloon_id');
             $table->foreign('saloon_id')->references('id')->on('saloons');
+            $table->unsignedBigInteger('saloon_owner');
+            $table->foreign('saloon_owner')->references('id')->on('users');
             $table->string('u_phone');
             $table->enum('s_provider',['male','female']);
             $table->text('notes')->nullable();

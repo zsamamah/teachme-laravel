@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.provider')
 
 @section('content')
 @if ($message = session('success'))
@@ -16,8 +16,8 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Service Name</th>
-                        <th>Location</th>
+                        <th>Name</th>
+                        <th>Saloon</th>
                         <th>Date</th>
                         <th>Phone</th>
                         <th>Paid</th>
@@ -27,13 +27,13 @@
                     </tr>
                 </thead>
                 <tbody >
-                    @foreach($bookings as $item)
+                    @foreach($orders as $item)
                     <tr class="border">
                         <td>{{ $item->id }}</td>
-                        <td >{{ $item->service }}</td>
-                        <td >{{ $item->location }}</td>
+                        <td >{{ $item->name }}</td>
+                        <td >{{ $item->s_name }}</td>
                         <td >{{ $item->date }}</td>
-                        <td>{{ $item->phone }}</td>
+                        <td>{{ $item->u_phone }}</td>
                         <td>{{ $item->paid }} / {{$item->payment}}</td>
                         <td>{{ $item->name }}</td>
                         {{-- <td>{{$item->result}}</td> --}}

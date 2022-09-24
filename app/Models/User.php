@@ -29,6 +29,11 @@ class User extends Authenticatable
         return $this->hasMany(Saloon::class);
     }
 
+    public function own()
+    {
+        return $this->hasMany(Saloon::class);
+    }
+
     public function reviews()
     {
         return $this->hasMany(Review::class);
