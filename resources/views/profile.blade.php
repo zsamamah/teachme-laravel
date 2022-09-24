@@ -13,6 +13,7 @@
                   <th>Saloon</th>
                   <th>Phone</th>
                   <th>Date</th>
+                  <th>Status</th>
                   <th>Actions</th>
                 </tr>
                 </thead>
@@ -23,6 +24,7 @@
                     <td>{{$order['s_name']}}</td>
                     <td>{{$order['s_phone']}}</td>
                     <td>{{$order['date']}}</td>
+                    <td>{{$order['status']}}</td>
                     <td><a href="{{ route('invoice',$order->id) }}" class="btn btn-primary">Invoice</a></td>
                   </tr>
                   @endforeach
