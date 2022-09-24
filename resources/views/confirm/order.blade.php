@@ -11,9 +11,8 @@
           <div class="error-page text-center">
             <div class="error-code">
                 <img src="./images/confirm.png" alt="confirm">
-              <h2><strong><i class="fa-solid fa-badge-check"></i></strong></h2>
             </div>
-            <div class="error-message">
+            <div class="error-message mt-3">
               <h3>Order Sent Successfully!</h3>
             </div>
             <div class="error-body">

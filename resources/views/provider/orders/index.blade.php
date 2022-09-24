@@ -33,7 +33,7 @@
                         <td >{{ $item->name }}</td>
                         <td >{{ $item->s_name }}</td>
                         <td >{{ $item->date }}</td>
-                        <td>{{ $item->u_phone }}</td>
+                        <td><a href="tel:{{ $item->u_phone }}">{{ $item->u_phone }}</a></td>
                         <td>{{ $item->paid }} / {{$item->payment}}</td>
                         <td>{{ $item->name }}</td>
                         {{-- <td>{{$item->result}}</td> --}}

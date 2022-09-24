@@ -27,6 +27,12 @@ class OrderController extends Controller
         return view('provider.orders.index',compact('orders'));
     }
 
+    public function done_orders()
+    {
+        $orders= Order::where('saloon_owner',Auth::user()->id)->where('status','done')->join('users','users.id','orders.user_id')->join('saloons','saloons.id','orders.saloon_id')->select('orders.*','users.name as name','saloons.name as s_name')->get();
+        return view('provider.orders.index',compact('orders'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

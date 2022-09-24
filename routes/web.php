@@ -46,6 +46,7 @@ Route::group(['middleware'=>['auth','isProvider']],function(){
     Route::put('/edit-saloon/{saloon}',[SaloonController::class,'update'])->name('update-saloon');
     Route::delete('delete-saloon/{saloon}',[SaloonController::class,'destroy'])->name('delete-saloon');
     Route::get('/new-orders',[OrderController::class,'index'])->name('new-orders');
+    Route::get('/done-orders',[OrderController::class,'done_orders'])->name('done-orders');
 });
 
 Route::group(['middleware'=>['auth']],function(){

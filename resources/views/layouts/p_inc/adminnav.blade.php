@@ -3,7 +3,7 @@
       <div class="container-fluid py-1 px-3">
         <nav aria-label="breadcrumb" class="text-dark">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5 text-center">
-            <li class=" text-sm"><a class="text-center" href="/dashboard">Pages</a></li>
+            <li class=" text-sm">Pages</li>
             <li class="breadcrumb-item text-sm active text-center" aria-current="page">
             @php
             $_SERVER['REQUEST_URI'][1] = strtoupper($_SERVER['REQUEST_URI'][1]);
