@@ -17,7 +17,7 @@ class Order extends Model
         'notes',
         'paid',
         'payment',
-        'done'
+        'status'
     ];
 
     public function user()

@@ -24,7 +24,7 @@ return new class extends Migration
             $table->text('notes')->nullable();
             $table->enum('paid',['yes','no']);
             $table->enum('payment',['cash','visa']);
-            $table->boolean('done')->default(0);
+            $table->enum('status',['rejected','pending','done'])->default('pending');
             $table->timestamps();
         });
     }
