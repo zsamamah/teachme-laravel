@@ -6,6 +6,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\SaloonController;
 use App\Http\Controllers\SubscribeController;
+use App\Http\Controllers\VisaController;
 use App\Models\Order;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -53,4 +54,7 @@ Route::group(['middleware'=>['auth']],function(){
 Route::group(['middleware'=>['auth','isUser']],function(){
     Route::get('/booking/{saloon}',[OrderController::class,'create'])->name('create-order');
     Route::post('/booking/{saloon}',[OrderController::class,'store'])->name('store-order');
+    Route::get('/visa/{order}',[VisaController::class,'index'])->name('show-visa');
+    Route::post('/visa/{order}',[VisaController::class,'store'])->name('save-visa');
+    Route::get('/done-booking',[OrderController::class,'done'])->name('order-done');
 });

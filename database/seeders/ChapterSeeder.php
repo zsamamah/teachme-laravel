@@ -81,10 +81,6 @@ class ChapterSeeder extends Seeder
                 'm_id'=>'3'
             ],
             [
-                'c_name'=>'Bridal Hairstyle',
-                'm_id'=>'3'
-            ],
-            [
                 'c_name'=>'High Hairstyle',
                 'm_id'=>'3'
             ],

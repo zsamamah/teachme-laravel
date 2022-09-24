@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
+use App\Models\Saloon;
 use App\Models\Visa;
 use Illuminate\Http\Request;
 
@@ -12,9 +14,9 @@ class VisaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Order $order)
     {
-        //
+        return view('visa',compact('order'));
     }
 
     /**
@@ -33,7 +35,7 @@ class VisaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,Order $order)
     {
         //
     }

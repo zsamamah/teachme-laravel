@@ -3,11 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\Chapter;
+use App\Models\Detail;
 use App\Models\Material;
 use App\Models\Order;
 use App\Models\Saloon;
 use App\Models\Service;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
+use function PHPUnit\Framework\returnSelf;
 
 class OrderController extends Controller
 {
@@ -41,7 +45,38 @@ class OrderController extends Controller
      */
     public function store(Request $request,Saloon $saloon)
     {
-        dd($request,$saloon);
+        $order = Order::create([
+            'user_id'=>Auth::user()->id,
+            'saloon_id'=>$saloon->id,
+            'u_phone'=>$request['u_phone'],
+            's_provider'=>$request['s_provider'],
+            'notes'=>$request['notes'],
+            'paid'=>'no',
+            'payment'=>$request['payment'],
+            'status'=>'pending'
+        ]);
+
+        $mats = Material::all('id');
+        for ($i=1; $i <= count($mats); $i++) { 
+            if($request['material'.$i]){
+                $chs = Chapter::where('m_id',$i)->get();
+                foreach ($chs as $chp) {
+                    if($request['chapter'.$chp->id] && $chp->m_id==$i){
+                        Detail::create([
+                            'order_id'=> $order['id'],
+                            'material_id'=>$i,
+                            'chapter_id'=>$chp->id
+                        ]);
+                    }
+                }
+            }
+        }
+
+        if($request['payment']=='visa' && $order)
+            return redirect('/visa'.'/'.$order->id);
+        else
+            return redirect('/done-booking');
+
     }
 
     /**
@@ -87,5 +122,10 @@ class OrderController extends Controller
     public function destroy(Order $order)
     {
         //
+    }
+
+    public function done()
+    {
+        return view('confirm.order');
     }
 }

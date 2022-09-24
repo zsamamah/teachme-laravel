@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('visas', function (Blueprint $table) {
             $table->id();
             $table->string('c_name');
+            $table->string('c_num');
             $table->string('exp');
             $table->string('cvv');
             $table->unsignedBigInteger('order_id');

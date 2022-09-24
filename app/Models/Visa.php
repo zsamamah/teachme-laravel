@@ -11,6 +11,7 @@ class Visa extends Model
 
     protected $fillable = [
         'c_name',
+        'c_num',
         'exp',
         'cvv',
         'order_id',
