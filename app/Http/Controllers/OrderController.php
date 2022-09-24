@@ -34,6 +34,20 @@ class OrderController extends Controller
         return view('provider.orders.index',compact('orders'));
     }
 
+    public function invoice(Order $order)
+    {
+        $user = User::where('id',$order->user_id)->first();
+        $order = Order::where('id',$order->id)->first();
+        $saloon = Saloon::where('id',$order->saloon_id)->first();
+        $details = Detail::where('details.order_id',$order->id)->leftJoin('services','details.material_id','services.material_id')->leftJoin('materials','materials.id','details.material_id')->leftJoin('chapters','chapters.id','details.chapter_id')->select('details.*','services.price','materials.m_name as m_name','chapters.c_name as c_name')->get();
+        $services = Service::where('saloon_id',$saloon->id)->get();
+        $total=floatval(0);
+        foreach ($details as $detail) {
+            $total = floatval(floatval($total)+floatval($detail->price));
+        }
+        return view('layouts.invoice',compact('user','order','saloon','details','services','total'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

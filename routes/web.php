@@ -51,6 +51,7 @@ Route::group(['middleware'=>['auth','isProvider']],function(){
 
 Route::group(['middleware'=>['auth']],function(){
     Route::post('/review/{saloon}',[ReviewController::class,'store'])->name('review.store');
+    Route::get('/invoice/{order}',[OrderController::class,'invoice'])->name('invoice');
 });
 
 Route::group(['middleware'=>['auth','isUser']],function(){

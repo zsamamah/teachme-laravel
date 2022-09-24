@@ -39,7 +39,7 @@
                         {{-- <td>{{$item->result}}</td> --}}
                         <td>
                             {{-- <a href="{{ route('done-booking',$item->id) }}" class="btn btn-danger">Done</a> --}}
-                            <a href="{{ url('result/'.$item->id) }}" class="btn btn-success">Invoice</a>
+                            <a href="{{ url('invoice/'.$item->id) }}" class="btn btn-success">Invoice</a>
                             <a href="{{ url('edit-booking/'.$item->id) }}" class="btn btn-primary">Edit</a>
                             <a href="{{ url('delete-booking/'.$item->id) }}" class="btn btn-danger">Delete</a>
                         </td>
