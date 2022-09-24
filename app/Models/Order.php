@@ -15,6 +15,7 @@ class Order extends Model
         'saloon_owner',
         'u_phone',
         's_provider',
+        'date',
         'notes',
         'paid',
         'payment',

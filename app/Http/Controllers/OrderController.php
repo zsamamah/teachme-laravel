@@ -9,6 +9,7 @@ use App\Models\Order;
 use App\Models\Saloon;
 use App\Models\Service;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -42,7 +43,8 @@ class OrderController extends Controller
     {
         $mats = Service::where('saloon_id',$saloon->id)->join('materials','materials.id','=','services.id')->get();
         $chapters = Chapter::all();
-        return view('order',compact('saloon','mats','chapters'));
+        $now = Carbon::now()->toDateTimeString();
+        return view('order',compact('saloon','mats','chapters','now'));
     }
 
     /**
@@ -60,6 +62,7 @@ class OrderController extends Controller
             'saloon_owner'=>$owner->id,
             'u_phone'=>$request['u_phone'],
             's_provider'=>$request['s_provider'],
+            'date'=>$request['date'],
             'notes'=>$request['notes'],
             'paid'=>'no',
             'payment'=>$request['payment'],

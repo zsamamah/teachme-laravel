@@ -23,6 +23,7 @@ return new class extends Migration
             $table->foreign('saloon_owner')->references('id')->on('users');
             $table->string('u_phone');
             $table->enum('s_provider',['male','female']);
+            $table->string('date');
             $table->text('notes')->nullable();
             $table->enum('paid',['yes','no']);
             $table->enum('payment',['cash','visa']);

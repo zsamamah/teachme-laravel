@@ -20,6 +20,10 @@
               <option value="female">Female</option>
             </select>
           </div>
+          <div class="form-group col-md-4">
+               <label for="date" class="text-warning h4">Date & Time</label>
+               <input type="datetime-local" class="form-control" id="date" name="date">
+          </div>
         </div>
           <div class="form-group">
             <label for="notes" class="text-warning h4">Your Notes</label>
@@ -68,7 +72,6 @@
 @endsection
 
 @section('scripts')
-
     <script>
         function check(ele,m_id){
             if(ele.checked)
