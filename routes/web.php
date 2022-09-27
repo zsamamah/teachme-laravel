@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
@@ -65,4 +66,12 @@ Route::group(['middleware'=>['auth','isUser']],function(){
     Route::post('/visa/{order}',[VisaController::class,'store'])->name('save-visa');
     Route::get('/done-booking',[OrderController::class,'done'])->name('order-done');
     Route::get('/profile',[UserProfileController::class,'index'])->name('profile');
+});
+
+Route::group(['middleware'=>['auth','isAdmin']],function(){
+    Route::get('/a_dashboard',[AdminController::class,'index'])->name('a_dashboard');
+    Route::get('/users',[AdminController::class,'users'])->name('users');
+    Route::get('/all_saloons',[AdminController::class,'all_saloons'])->name('all_saloons');
+    Route::get('/orders',[AdminController::class,'orders'])->name('orders');
+    Route::get('/contacts',[AdminController::class,'contacts'])->name('contacts');
 });

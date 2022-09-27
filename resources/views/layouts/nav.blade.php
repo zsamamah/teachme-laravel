@@ -74,7 +74,7 @@
 
                         @auth
                         @if (Auth::user()->role==='admin')
-                        <li class="nav-item"><a class="nav-link" href="#">Dashboard</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('a_dashboard') }}">Dashboard</a></li>
                         @endif
                         @if (Auth::user()->role==='provider')
                         <li class="nav-item"><a class="nav-link" href="{{ route('p_dashboard') }}">Dashboard</a></li>
