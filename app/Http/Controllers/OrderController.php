@@ -24,7 +24,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders= Order::where('saloon_owner',Auth::user()->id)->where('status','pending')->join('users','users.id','orders.user_id')->join('saloons','saloons.id','orders.saloon_id')->select('orders.*','users.name as name','saloons.name as s_name')->get();
+        $orders= Order::where('saloon_owner',Auth::user()->id)->where('status','!=','rejected')->where('status','!=','done')->join('users','users.id','orders.user_id')->join('saloons','saloons.id','orders.saloon_id')->select('orders.*','users.name as name','saloons.name as s_name')->get();
         return view('provider.orders.index',compact('orders'));
     }
 
@@ -36,7 +36,7 @@ class OrderController extends Controller
 
     public function invoice(Order $order)
     {
-        if($order->user_id!=Auth::user()->id)
+        if($order->user_id!=Auth::user()->id && Auth::user()->role!='admin' && $order->saloon_owner!=Auth::user()->id)
             return redirect('/');
         $user = User::where('id',$order->user_id)->first();
         $order = Order::where('id',$order->id)->first();
@@ -127,7 +127,17 @@ class OrderController extends Controller
      */
     public function edit(Order $order)
     {
-        //
+        if($order->saloon_owner!=Auth::user()->id)
+            return redirect('/p_dashboard');
+
+        $details = Detail::where('details.order_id',$order->id)->leftJoin('services','details.material_id','services.material_id')->leftJoin('materials','materials.id','details.material_id')->leftJoin('chapters','chapters.id','details.chapter_id')->select('details.*','services.price','materials.m_name as m_name','chapters.c_name as c_name')->get();
+        $total=floatval(0);
+        foreach ($details as $detail) {
+            $total = floatval(floatval($total)+floatval($detail->price));
+        }
+        // dd($order);
+        return view('provider.orders.edit',compact('order','details','total'));
+        
     }
 
     /**
@@ -139,7 +149,13 @@ class OrderController extends Controller
      */
     public function update(Request $request, Order $order)
     {
-        //
+        if($order->saloon_owner!=Auth::user()->id)
+            return redirect('/p_dashboard');
+        $order->update([
+            'paid'=>$request['paid'],
+            'status'=>$request['status']
+        ]);
+        return redirect('/edit-order'.'/'.$order->id);
     }
 
     /**
@@ -150,7 +166,12 @@ class OrderController extends Controller
      */
     public function destroy(Order $order)
     {
-        //
+        if($order->saloon_owner==Auth::user()->id || $order->user_id==Auth::user()->id){
+            $order->deleteOrFail();
+            return redirect('/new-orders');
+        }
+        else
+            return redirect('/p_dashboard');
     }
 
     public function done()

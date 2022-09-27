@@ -48,6 +48,9 @@ Route::group(['middleware'=>['auth','isProvider']],function(){
     Route::delete('delete-saloon/{saloon}',[SaloonController::class,'destroy'])->name('delete-saloon');
     Route::get('/new-orders',[OrderController::class,'index'])->name('new-orders');
     Route::get('/done-orders',[OrderController::class,'done_orders'])->name('done-orders');
+    Route::delete('/delete-order/{order}',[OrderController::class,'destroy'])->name('delete-order');
+    Route::get('/edit-order/{order}',[OrderController::class,'edit'])->name('edit-order');
+    Route::put('/edit-order/{order}',[OrderController::class,'update'])->name('update-order');
 });
 
 Route::group(['middleware'=>['auth']],function(){

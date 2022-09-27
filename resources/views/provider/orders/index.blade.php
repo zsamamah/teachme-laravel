@@ -22,7 +22,6 @@
                         <th>Phone</th>
                         <th>Paid</th>
                         <th>Username</th>
-                        {{-- <th>Result</th> --}}
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -36,12 +35,14 @@
                         <td><a href="tel:{{ $item->u_phone }}">{{ $item->u_phone }}</a></td>
                         <td>{{ $item->paid }} / {{$item->payment}}</td>
                         <td>{{ $item->name }}</td>
-                        {{-- <td>{{$item->result}}</td> --}}
                         <td>
-                            {{-- <a href="{{ route('done-booking',$item->id) }}" class="btn btn-danger">Done</a> --}}
                             <a href="{{ url('invoice/'.$item->id) }}" class="btn btn-success">Invoice</a>
-                            <a href="{{ url('edit-booking/'.$item->id) }}" class="btn btn-primary">Edit</a>
-                            <a href="{{ url('delete-booking/'.$item->id) }}" class="btn btn-danger">Delete</a>
+                            <a href="{{ url('edit-order/'.$item->id) }}" class="btn btn-primary">Edit</a>
+                            <form method="POST" style="display: inline;" action="{{route('delete-order',$item->id)}}">
+                                @csrf
+                                @method('delete')
+                                <button type="submit" style="display: inline;" class="btn btn-danger">Delete</button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach
