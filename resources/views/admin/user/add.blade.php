@@ -6,7 +6,7 @@
             <h4>Add User</h4>
         </div>
         <div class="card-body">
-            <form action="{{ url('insert-user') }}" method="POST">
+            <form action="{{ route('save-user') }}" method="POST">
                 @csrf
                 <div class="row">
                     <div class="col-md-6 mb-3" >
@@ -30,8 +30,12 @@
                         <hr>
                     </div>
                     <div class="col-md-12 mb-3" >
-                        <label for="">Admin</label>
-                        <input  type="checkbox" name="role_as">
+                        <label for="role">Role</label>
+                        <select name="role" id="role">
+                            <option value="user">User</option>
+                            <option value="provider">Provider</option>
+                            <option value="admin">Admin</option>
+                        </select>
                     </div>
                     <div class="col-mid-12">
                         <button type="submit" class="btn btn-primary">Add User</button>
