@@ -36,6 +36,8 @@ class OrderController extends Controller
 
     public function invoice(Order $order)
     {
+        if($order->user_id!=Auth::user()->id)
+            return redirect('/');
         $user = User::where('id',$order->user_id)->first();
         $order = Order::where('id',$order->id)->first();
         $saloon = Saloon::where('id',$order->saloon_id)->first();
@@ -99,7 +101,7 @@ class OrderController extends Controller
             }
         }
 
-        if($request['payment']=='visa' && $order)
+        if($request['payment']=='visa')
             return redirect('/visa'.'/'.$order->id);
         else
             return redirect('/done-booking');

@@ -123,7 +123,7 @@
           @if ($order->payment=='visa')
           <img src="{{ asset('./images/credit/visa.png') }}" alt="Visa">
           <p class="text-muted well well-sm shadow-none" style="margin-top: 10px;">
-            Pay with VISA
+            Paid with VISA
           </p>
           @else
           <img src="{{ asset('./images/credit/cash.png') }}" alt="Cash">

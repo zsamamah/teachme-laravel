@@ -6,6 +6,9 @@ use App\Models\Order;
 use App\Models\Saloon;
 use App\Models\Visa;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
+use function PHPUnit\Framework\returnSelf;
 
 class VisaController extends Controller
 {
@@ -16,6 +19,8 @@ class VisaController extends Controller
      */
     public function index(Order $order)
     {
+        if($order->paid=='yes' || $order->user_id!=Auth::user()->id)
+            return redirect('/');
         return view('visa',compact('order'));
     }
 
@@ -37,7 +42,20 @@ class VisaController extends Controller
      */
     public function store(Request $request,Order $order)
     {
-        //
+        if($order->user_id!=Auth::user()->id)
+            return redirect('/');
+        Visa::create([
+            'c_name'=>$request['c_name'],
+            'c_num'=>$request['c_num'],
+            'exp'=>$request['exp'],
+            'cvv'=>$request['cvv'],
+            'order_id'=>$order->id,
+            'user_id'=>Auth::user()->id
+        ]);
+        $order->update([
+            'paid'=>'yes'
+        ]);
+        return redirect('/done-booking');
     }
 
     /**
