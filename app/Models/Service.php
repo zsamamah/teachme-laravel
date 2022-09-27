@@ -25,4 +25,9 @@ class Service extends Model
         return $this->belongsTo(Saloon::class);
     }
 
+    public function Detail()
+    {
+        return $this->hasMany(Detail::class);
+    }
+
 }

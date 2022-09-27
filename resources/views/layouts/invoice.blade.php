@@ -96,16 +96,16 @@
               <th>#</th>
               <th>Material</th>
               <th>Chapter</th>
-              <th>Total</th>
+              {{-- <th>Total</th> --}}
             </tr>
             </thead>
             <tbody>
               @foreach ($details as $detail)
               <tr>
-                <td>{{$detail['id']}}</td>
-                <td>{{$detail['m_name']}}</td>
-                <td>{{$detail['c_name']}}</td>
-                <td>{{$detail['price']}} JD</td>
+                <td>{{ $detail->id }}</td>
+                <td>{{$detail->m_name}}</td>
+                <td>{{$detail->c_name}}</td>
+                {{-- <td>{{$detail['price']}} JD</td> --}}
               </tr>
               @endforeach
             </tbody>

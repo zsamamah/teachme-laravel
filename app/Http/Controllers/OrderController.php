@@ -12,6 +12,7 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 use function PHPUnit\Framework\returnSelf;
 
@@ -41,11 +42,19 @@ class OrderController extends Controller
         $user = User::where('id',$order->user_id)->first();
         $order = Order::where('id',$order->id)->first();
         $saloon = Saloon::where('id',$order->saloon_id)->first();
-        $details = Detail::where('details.order_id',$order->id)->leftJoin('services','details.material_id','services.material_id')->leftJoin('materials','materials.id','details.material_id')->leftJoin('chapters','chapters.id','details.chapter_id')->select('details.*','services.price','materials.m_name as m_name','chapters.c_name as c_name')->get();
+        /*
+        ->leftJoin('services','details.material_id','services.material_id')->leftJoin('materials','materials.id','details.material_id')->leftJoin('chapters','chapters.id','details.chapter_id')->select('details.*','services.price','materials.m_name as m_name','chapters.c_name as c_name')
+        */
+        $details = DB::table('details')->where('details.order_id',$order->id)->leftJoin('chapters','chapters.id','=','details.chapter_id')->leftJoin('materials','materials.id','=','details.material_id')->select('details.*','materials.m_name as m_name','chapters.c_name as c_name')->get();
+        // dd($details);
+        $servs = DB::table('services')->where('services.saloon_id','=',$saloon->id)->get();
         $services = Service::where('saloon_id',$saloon->id)->get();
         $total=floatval(0);
-        foreach ($details as $detail) {
-            $total = floatval(floatval($total)+floatval($detail->price));
+        foreach ($details as $det) {
+            foreach ($servs as $pric) {
+                if($det->material_id==$pric->material_id)
+                $total = floatval(floatval($total)+floatval($pric->price));
+            }
         }
         return view('layouts.invoice',compact('user','order','saloon','details','services','total'));
     }

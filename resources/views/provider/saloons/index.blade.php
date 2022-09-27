@@ -27,7 +27,7 @@
                     <td>{{ $item->id }}</td>
                     <td>{{ $item->name }}</td>
                     <td>
-                        <a href="#" class="btn btn-success">View</a>
+                        <a href="{{ url('saloons'.'/'.$item->id) }}" class="btn btn-success">View</a>
                         <a href="{{ route('edit-saloon',$item->id) }}" class="btn btn-primary">Edit</a>
                         <form method="POST" style="display: inline;" action="{{route('delete-saloon',$item->id)}}">
                             @csrf

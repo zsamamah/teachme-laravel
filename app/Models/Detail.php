@@ -30,4 +30,9 @@ class Detail extends Model
         return $this->hasOne(Chapter::class);
     }
 
+    public function service()
+    {
+        return $this->belongsTo(Service::class);
+    }
+
 }

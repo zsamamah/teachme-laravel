@@ -8,8 +8,8 @@
 @endif
 <div class="card">
     <div class="card-header">
-        <h1>Services Page</h1>
-        <a href="/services-dashboard/create" class="btn btn-primary">Add New Test!</a>
+        <h1>Saloons Page</h1>
+        {{-- <a href="#" class="btn btn-primary">Add New Saloon!</a> --}}
         <hr>
     </div>
     <div class="card-body">
@@ -17,30 +17,36 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Test Name</th>
-                    <th>Action</th>
+                    <th>Saloon Name</th>
+                    <th>Owner Name</th>
+                    <th>Phone</th>
+                    <th>Location</th>
+                    {{-- <th>Action</th> --}}
                 </tr>
             </thead>
             <tbody>
-                @foreach($services as $item)
+                @foreach($saloons as $item)
                 <tr class="border">
                     <td>{{ $item->id }}</td>
-                    <td>{{ $item->service }}</td>
+                    <td>{{ $item->name }}</td>
+                    <td>{{ $item->o_name }}</td>
+                    <td>{{ $item->phone }}</td>
+                    <td>{{ $item->location }}</td>
                     <td>
-                        <a href="{{ route('editService',$item->id) }}" class="btn btn-primary">Edit</a>
-                        <form method="POST" style="display: inline;" action="{{route('delete-service',$item->id)}}">
+                        {{-- <a href="{{ url('editService',$item->id) }}" class="btn btn-primary">Edit</a> --}}
+                        {{-- <form method="POST" style="display: inline;" action="{{route('delete-saloon-a',$item->id)}}">
                             @csrf
                             @method('delete')
                             <button type="submit" style="display: inline;" class="btn btn-danger">Delete</button>
-                        </form>
+                        </form> --}}
                     </td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
-        <div class="d-flex justify-content-center">
-            {{$services->links()}}
-        </div> 
+        {{-- <div class="d-flex justify-content-center">
+            {{$saloons->links()}}
+        </div>  --}}
     </div>
 </div>
 @endsection

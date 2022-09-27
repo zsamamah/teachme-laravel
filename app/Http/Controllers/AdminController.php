@@ -7,7 +7,6 @@ use App\Models\Order;
 use App\Models\Saloon;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
@@ -26,32 +25,19 @@ class AdminController extends Controller
         return view('admin.user.index',compact('users'));
     }
 
-    public function add_user()
-    {
-        return view('admin.user.add');
-    }
-
-    public function save_user(Request $request)
-    {
-        if($request['password']==$request['rpassword'] && $request['name'] && $request['email'] && $request['role']){
-            User::create([
-                'name'=>$request['name'],
-                'email'=>$request['email'],
-                'role'=>$request['role'],
-                'password'=>Hash::make($request['password'])
-            ]);
-            return redirect('/users');
-        }
-        else
-            return redirect('/add-user');
-    }
-
     public function delete_user(User $user)
     {
         if($user->role!='admin'){
             $user->deleteOrFail();
             return redirect('/users');
         }
-        return redirect('/a_dashboard');
+        return redirect('/users');
+    }
+
+    public function all_saloons()
+    {
+        $saloons = Saloon::join('users','users.id','saloons.owner_id')->select('saloons.*','users.name as o_name')->get();
+        // dd($saloons);
+        return view('admin.saloons.index',compact('saloons'));
     }
 }

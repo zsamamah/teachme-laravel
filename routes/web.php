@@ -73,6 +73,7 @@ Route::group(['middleware'=>['auth','isAdmin']],function(){
     Route::get('/users',[AdminController::class,'users'])->name('users');
     Route::delete('/delete-user/{user}',[AdminController::class,'delete_user'])->name('delete-user');
     Route::get('/all_saloons',[AdminController::class,'all_saloons'])->name('all_saloons');
+    Route::delete('delete-saloon-a',[AdminController::class,'delete_saloon_a'])->name('delete-saloon-a');
     Route::get('/orders',[AdminController::class,'orders'])->name('orders');
     Route::get('/contacts',[AdminController::class,'contacts'])->name('contacts');
 });
