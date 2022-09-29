@@ -45,16 +45,13 @@ class OrderController extends Controller
         /*
         ->leftJoin('services','details.material_id','services.material_id')->leftJoin('materials','materials.id','details.material_id')->leftJoin('chapters','chapters.id','details.chapter_id')->select('details.*','services.price','materials.m_name as m_name','chapters.c_name as c_name')
         */
-        $details = DB::table('details')->where('details.order_id',$order->id)->leftJoin('chapters','chapters.id','=','details.chapter_id')->leftJoin('materials','materials.id','=','details.material_id')->select('details.*','materials.m_name as m_name','chapters.c_name as c_name')->get();
-        // dd($details);
+        // $details = DB::table('details')->where('details.order_id',$order->id)->leftJoin('chapters','chapters.id','=','details.chapter_id')->leftJoin('materials','materials.id','=','details.material_id')->select('details.*','materials.m_name as m_name','chapters.c_name as c_name')->get();
+        $details = Detail::where('details.order_id',$order->id)->leftJoin('services','details.material_id','services.material_id')->leftJoin('materials','materials.id','details.material_id')->leftJoin('chapters','chapters.id','details.chapter_id')->select('details.*','services.price','materials.m_name as m_name','chapters.c_name as c_name')->get();
         $servs = DB::table('services')->where('services.saloon_id','=',$saloon->id)->get();
         $services = Service::where('saloon_id',$saloon->id)->get();
         $total=floatval(0);
-        foreach ($details as $det) {
-            foreach ($servs as $pric) {
-                if($det->material_id==$pric->material_id)
-                $total = floatval(floatval($total)+floatval($pric->price));
-            }
+        foreach ($details as $detail) {
+            $total = floatval(floatval($total)+floatval($detail->price));
         }
         return view('layouts.invoice',compact('user','order','saloon','details','services','total'));
     }
