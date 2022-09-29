@@ -40,4 +40,11 @@ class AdminController extends Controller
         // dd($saloons);
         return view('admin.saloons.index',compact('saloons'));
     }
+
+    public function orders()
+    {
+        $orders= Order::join('users','users.id','orders.user_id')->join('saloons','saloons.id','orders.saloon_id')->select('orders.*','users.name as name','saloons.name as s_name')->get();
+        // dd($orders);
+        return view('admin.orders.index',compact('orders'));
+    }
 }
