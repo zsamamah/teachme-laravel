@@ -47,4 +47,16 @@ class AdminController extends Controller
         // dd($orders);
         return view('admin.orders.index',compact('orders'));
     }
+
+    public function contacts()
+    {
+        $contacts = Contact::all();
+        return view('admin.contacts.index',compact('contacts'));
+    }
+
+    public function delete_contact(Contact $contact)
+    {
+        $contact->deleteOrFail();
+        return redirect('/contacts');
+    }
 }

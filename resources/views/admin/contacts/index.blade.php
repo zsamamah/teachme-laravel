@@ -18,8 +18,9 @@
                         <th>ID</th>
                         <th>Name</th>
                         <th>email</th>
-                        <th>Phone</th>
+                        <th>Subject</th>
                         <th>Message</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody >
@@ -28,10 +29,10 @@
                         <td>{{ $item->id }}</td>
                         <td >{{ $item->name }}</td>
                         <td ><a href="mailto:{{ $item->email }}">{{ $item->email }}</a></td>
-                        <td ><a href="tel:{{ $item->phone }}">{{ $item->phone }}</a></td>
+                        <td >{{ $item->subject }}</td>
                         <td >{{ $item->message }}</td>
                         <td>
-                            <form style="display:inline-block" action="{{ url('contacts-dashboard/delete/'.$item->id) }}" method="POST">
+                            <form style="display:inline-block" action="{{ route('delete-contact',$item->id) }}" method="POST">
                                 @csrf
                                 @method('delete')
                                 <button class="btn btn-primary" type="submit">Delete</button>

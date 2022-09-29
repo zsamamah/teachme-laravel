@@ -76,4 +76,5 @@ Route::group(['middleware'=>['auth','isAdmin']],function(){
     Route::delete('delete-saloon-a',[AdminController::class,'delete_saloon_a'])->name('delete-saloon-a');
     Route::get('/orders',[AdminController::class,'orders'])->name('orders');
     Route::get('/contacts',[AdminController::class,'contacts'])->name('contacts');
+    Route::delete('/delete-contact/{contact}',[AdminController::class,'delete_contact'])->name('delete-contact');
 });
