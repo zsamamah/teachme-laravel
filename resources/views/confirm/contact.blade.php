@@ -9,9 +9,8 @@
   
         <div class="col-12">
           <div class="error-page text-center">
-            <div class="error-code">
+            <div class="error-code mb-3">
                 <img src="./images/confirm.png" alt="confirm">
-              <h2><strong><i class="fa-solid fa-badge-check"></i></strong></h2>
             </div>
             <div class="error-message">
               <h3>Message Sent Successfully!</h3>
