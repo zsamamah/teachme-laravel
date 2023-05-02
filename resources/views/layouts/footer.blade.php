@@ -1,80 +1,71 @@
-<footer id="footer" class="footer bg-overlay">
-    <div class="footer-main">
-      <div class="container">
-        <div class="row justify-content-between">
-          <div class="col-lg-4 col-md-6 footer-widget footer-about">
-            <h3 class="widget-title">About Us</h3>
-            {{-- <img loading="lazy" width="200px" class="footer-logo" src="{{ asset('images/footer-logo.png') }}" alt="Constra"> --}}
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor inci done idunt ut
-              labore et dolore magna aliqua.</p>
-            <div class="footer-social">
-              <ul>
-                <li><a href="https://facebook.com" aria-label="Facebook"><i
-                      class="fab fa-facebook-f"></i></a></li>
-                <li><a href="https://twitter.com" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                </li>
-                <li><a href="https://instagram.com" aria-label="Instagram"><i
-                      class="fab fa-instagram"></i></a></li>
-                <li><a href="https://github.com" aria-label="Github"><i class="fab fa-github"></i></a></li>
-              </ul>
-            </div><!-- Footer social end -->
-          </div><!-- Col end -->
 
-          <div class="col-lg-4 col-md-6 footer-widget mt-5 mt-md-0">
-            <h3 class="widget-title">Working Hours</h3>
-            <div class="working-hours">
-              We work 7 days a week, every day excluding major holidays. Contact us if you have an emergency, with our
-              Hotline and Contact form.
-              <br><br> Monday - Friday: <span class="text-right">10:00 - 16:00 </span>
-              <br> Saturday: <span class="text-right">12:00 - 15:00</span>
-              <br> Sunday and holidays: <span class="text-right">09:00 - 12:00</span>
-            </div>
-          </div><!-- Col end -->
+<!--============================
+=            Footer            =
+=============================-->
 
-          <div class="col-lg-3 col-md-6 mt-5 mt-lg-0 footer-widget">
-            <h3 class="widget-title">Services</h3>
-            <ul class="list-arrow">
-              <li><a href="service-single.html">Pre-Construction</a></li>
-              <li><a href="service-single.html">General Contracting</a></li>
-              <li><a href="service-single.html">Construction Management</a></li>
-              <li><a href="service-single.html">Design and Build</a></li>
-              <li><a href="service-single.html">Self-Perform Construction</a></li>
-            </ul>
-          </div><!-- Col end -->
-        </div><!-- Row end -->
-      </div><!-- Container end -->
-    </div><!-- Footer main end -->
-
-    <div class="copyright">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-md-6">
-            <div class="copyright-info">
-              <span>Copyright &copy; <script>
-                  document.write(new Date().getFullYear())
-                </script>, Designed &amp; Developed by <a href="/">Tajmelna</a></span>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="footer-menu text-center text-md-right">
-              <ul class="list-unstyled">
-                <li><a href="#">About</a></li>
-                <li><a href="#">Our people</a></li>
-                <li><a href="#">Faq</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Pricing</a></li>
-              </ul>
-            </div>
-          </div>
-        </div><!-- Row end -->
-
-        <div id="back-to-top" data-spy="affix" data-offset-top="10" class="back-to-top position-fixed">
-          <button class="btn btn-primary" title="Back to Top">
-            <i class="fa fa-angle-double-up"></i>
-          </button>
+<footer class="footer section section-sm">
+  <!-- Container Start -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 col-md-7 offset-md-1 offset-lg-0 mb-4 mb-lg-0">
+        <!-- About -->
+        <div class="block about">
+          <!-- footer logo -->
+          <img src="{{ asset('images/logo-footer.png') }}" alt="logo">
+          <!-- description -->
+          <p class="alt-color">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+            laboris nisi ut aliquip ex ea commodo consequat.</p>
         </div>
+      </div>
+      <!-- Link list -->
+      <div class="col-lg-2 offset-lg-1 col-md-3 col-6 mb-4 mb-lg-0">
+        <div class="block">
+          <h4>Site Pages</h4>
+          <ul>
+            <li><a href="dashboard-my-ads.html">My Ads</a></li>
+            <li><a href="dashboard-favourite-ads.html">Favourite Ads</a></li>
+            <li><a href="dashboard-archived-ads.html">Archived Ads</a></li>
+            <li><a href="dashboard-pending-ads.html">Pending Ads</a></li>
+            <li><a href="terms-condition.html">Terms & Conditions</a></li>
+          </ul>
+        </div>
+      </div>
+      <!-- Link list -->
+      <div class="col-lg-2 col-md-3 offset-md-1 offset-lg-0 col-6 mb-4 mb-md-0">
+        <div class="block">
+          <h4>Admin Pages</h4>
+          <ul>
+            <li><a href="category.html">Category</a></li>
+            <li><a href="single.html">Single Page</a></li>
+            <li><a href="store.html">Store Single</a></li>
+            <li><a href="single-blog.html">Single Post</a>
+            </li>
+            <li><a href="blog.html">Blog</a></li>
 
-      </div><!-- Container end -->
-    </div><!-- Copyright end -->
-  </footer><!-- Footer end -->
+
+
+          </ul>
+        </div>
+      </div>
+      <!-- Promotion -->
+      <div class="col-lg-4 col-md-7">
+        <!-- App promotion -->
+        <div class="block-2 app-promotion">
+          <div class="mobile d-flex  align-items-center">
+            <a href="index.html">
+              <!-- Icon -->
+              <img src="{{ asset('images/footer/phone-icon.png') }}" alt="mobile-icon">
+            </a>
+            <p class="mb-0">Get the Dealsy Mobile App and Save more</p>
+          </div>
+          <div class="download-btn d-flex my-3">
+            <a href="index.html"><img src="{{ asset('images/apps/google-play-store.png') }}" class="img-fluid" alt=""></a>
+            <a href="index.html" class=" ml-3"><img src="{{ asset('images/apps/apple-app-store.png') }}" class="img-fluid" alt=""></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Container End -->
+</footer>
