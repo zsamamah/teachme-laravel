@@ -63,21 +63,10 @@
 
                         <div class="row mb-3">
                             <label for="role" class="col-md-4 col-form-label text-md-end">Role</label>
-                            <div class="col-md-6">
-                                <div>
-                                    <input class="form-check-input" type="radio" name="role" value="user" id="user" checked>
-                                <label class="form-check-label" for="user">
-                                User
-                                </label>
-                                </div>
-
-                                <div>
-                                    <input class="form-check-input" type="radio" name="role" value="provider" id="provider">
-                                    <label class="form-check-label" for="provider">
-                                      Provider
-                                    </label>
-                                </div>
-                          </div>
+                            <select class="form-control mb-3" required>
+                                <option value="student">Student</option>
+                                <option value="teacher">Teacher</option>
+                              </select>
                         </div>
 
                         <div class="row mb-0">

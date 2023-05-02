@@ -24,15 +24,15 @@ class UserSeeder extends Seeder
                 'password'=>Hash::make('123321')
             ],
             [
-                'name'=>'Mays Beauty',
-                'email'=>'mays@yahoo.com',
-                'role'=>'provider',
+                'name'=>'Zaid Samamah',
+                'email'=>'zaid@yahoo.com',
+                'role'=>'student',
                 'password'=>Hash::make('123321')
             ],
             [
-                'name'=>'Zaid Samamah',
-                'email'=>'zsamamah@yahoo.com',
-                'role'=>'user',
+                'name'=>'Yazan Dweik',
+                'email'=>'yazan@yahoo.com',
+                'role'=>'teacher',
                 'password'=>Hash::make('123321')
             ]
         ]);

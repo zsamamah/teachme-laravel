@@ -7,10 +7,15 @@ use Illuminate\Support\Facades\Auth;
 
 class UserProfileController extends Controller
 {
-    public function index()
+    public function student_profile()
     {
         $user = Auth::user();
-        $orders = Order::where('user_id',$user->id)->leftJoin('saloons','saloons.id','saloon_id')->select('orders.*','saloons.name as s_name','saloons.phone as s_phone')->get();
-        return view('profile',compact('user','orders'));
+        return view('student',compact('user'));
+    }
+
+    public function teacher_profile()
+    {
+        $user = Auth::user();
+        return view('teacher',compact('user'));
     }
 }
