@@ -23,11 +23,11 @@
         <div class="block">
           <h4>Site Pages</h4>
           <ul>
-            <li><a href="dashboard-my-ads.html">My Ads</a></li>
-            <li><a href="dashboard-favourite-ads.html">Favourite Ads</a></li>
-            <li><a href="dashboard-archived-ads.html">Archived Ads</a></li>
-            <li><a href="dashboard-pending-ads.html">Pending Ads</a></li>
-            <li><a href="terms-condition.html">Terms & Conditions</a></li>
+            <li><a href="#">My Ads</a></li>
+            <li><a href="#">Favourite Ads</a></li>
+            <li><a href="#">Archived Ads</a></li>
+            <li><a href="#">Pending Ads</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
           </ul>
         </div>
       </div>
@@ -36,12 +36,12 @@
         <div class="block">
           <h4>Admin Pages</h4>
           <ul>
-            <li><a href="category.html">Category</a></li>
-            <li><a href="single.html">Single Page</a></li>
-            <li><a href="store.html">Store Single</a></li>
-            <li><a href="single-blog.html">Single Post</a>
+            <li><a href="#">Category</a></li>
+            <li><a href="#">Single Page</a></li>
+            <li><a href="#">Store Single</a></li>
+            <li><a href="#">Single Post</a>
             </li>
-            <li><a href="blog.html">Blog</a></li>
+            <li><a href="#">Blog</a></li>
 
 
 
@@ -53,15 +53,15 @@
         <!-- App promotion -->
         <div class="block-2 app-promotion">
           <div class="mobile d-flex  align-items-center">
-            <a href="index.html">
+            <a href="{{ route('index') }}">
               <!-- Icon -->
               <img src="{{ asset('images/footer/phone-icon.png') }}" alt="mobile-icon">
             </a>
             <p class="mb-0">Get the Dealsy Mobile App and Save more</p>
           </div>
           <div class="download-btn d-flex my-3">
-            <a href="index.html"><img src="{{ asset('images/apps/google-play-store.png') }}" class="img-fluid" alt=""></a>
-            <a href="index.html" class=" ml-3"><img src="{{ asset('images/apps/apple-app-store.png') }}" class="img-fluid" alt=""></a>
+            <a href="{{ route('index') }}"><img src="{{ asset('images/apps/google-play-store.png') }}" class="img-fluid" alt=""></a>
+            <a href="{{ route('index') }}" class=" ml-3"><img src="{{ asset('images/apps/apple-app-store.png') }}" class="img-fluid" alt=""></a>
           </div>
         </div>
       </div>

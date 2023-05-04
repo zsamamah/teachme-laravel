@@ -9,30 +9,22 @@ class Detail extends Model
 {
     use HasFactory;
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
     protected $fillable = [
-        'order_id',
-        'material_id',
-        'chapter_id',
+        'user_id',
+        'university',
+        'major',
+        'gpa',
+        'phone',
+        'city'
     ];
 
-    public function order()
+    public function user()
     {
-        return $this->belongsTo(Order::class);
+        return $this->belongsTo(User::class);
     }
-
-    public function material()
-    {
-        return $this->hasOne(Material::class);
-    }
-
-    public function chapter()
-    {
-        return $this->hasOne(Chapter::class);
-    }
-
-    public function service()
-    {
-        return $this->belongsTo(Service::class);
-    }
-
 }

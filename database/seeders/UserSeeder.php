@@ -36,5 +36,19 @@ class UserSeeder extends Seeder
                 'password'=>Hash::make('123321')
             ]
         ]);
+        DB::table('details')->insert([
+            [
+                'user_id' => '1',
+                'city' => 'Amman'
+            ],
+            [
+                'user_id' => '2',
+                'city' => 'Amman'
+            ],
+            [
+                'user_id' => '3',
+                'city' => 'Amman'
+            ]
+        ]);
     }
 }

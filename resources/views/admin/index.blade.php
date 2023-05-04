@@ -18,7 +18,7 @@
             <div class="card">
                 <div class="card-head">
                     <h4>All Saloons</h4>
-                    <p>{{$saloons->count()}}</p>
+                    <p>$$$</p>
                 </div>
             </div>
         </a>
@@ -28,7 +28,7 @@
             <div class="card">
                 <div class="card-head">
                     <h4>All Orders</h4>
-                    <p>{{$orders->count()}}</p>
+                    <p>$$$</p>
                 </div>
             </div>
         </a>

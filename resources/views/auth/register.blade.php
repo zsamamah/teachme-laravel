@@ -1,5 +1,9 @@
 @extends('layouts.template')
 
+@section('title')
+    Register
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -67,6 +71,26 @@
                             <select class="form-control mb-3" name="role" required>
                                 <option value="student">Student</option>
                                 <option value="teacher">Teacher</option>
+                              </select>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="city" class="col-md-4 col-form-label text-md-end">City</label>
+                            <div class="col-md-6">
+                            <select class="form-control mb-3" name="city" required>
+                                <option value="Irbid">Irbid</option>
+                                <option value="Ajloun">Ajloun</option>
+                                <option value="Jerash">Jerash</option>
+                                <option value="Mafraq">Mafraq</option>
+                                <option value="Zarqa">Zarqa</option>
+                                <option value="Amman">Amman</option>
+                                <option value="Salt">Salt</option>
+                                <option value="Madaba">Madaba</option>
+                                <option value="Karak">Karak</option>
+                                <option value="Tafila">Tafila</option>
+                                <option value="Maan">Maan</option>
+                                <option value="Aqaba">Aqaba</option>
                               </select>
                             </div>
                         </div>

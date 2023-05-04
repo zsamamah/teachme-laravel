@@ -24,31 +24,6 @@ class User extends Authenticatable
         'password',
     ];
 
-    public function saloons()
-    {
-        return $this->hasMany(Saloon::class);
-    }
-
-    public function own()
-    {
-        return $this->hasMany(Saloon::class);
-    }
-
-    public function reviews()
-    {
-        return $this->hasMany(Review::class);
-    }
-
-    public function orders()
-    {
-        return $this->hasMany(Order::class);
-    }
-
-    public function visas()
-    {
-        return $this->hasMany(Visa::class);
-    }
-
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -67,4 +42,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function detail()
+    {
+        return $this->hasOne(Detail::class);
+    }
 }
