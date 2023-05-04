@@ -42,7 +42,7 @@
 					<div class="container">
 						<div class="row justify-content-center">
 							<div class="col-lg-12 col-md-12 align-content-center">
-								<form action="#" method="GET">
+								<form action="{{ route('search') }}" method="GET">
 									@csrf
 									<div class="form-row">
 										<div class="form-group col-xl-4 col-lg-3 col-md-6">
@@ -59,7 +59,7 @@
 											</select>
 										</div>
 										<div class="form-group col-lg-3 col-md-6">
-											<select class="w-100 form-control mt-lg-1 mt-md-2">
+											<select class="w-100 form-control mt-lg-1 mt-md-2" name="category" required>
 												<option>Category</option>
 												<option value="1">Top rated</option>
 												<option value="2">Lowest Price</option>
@@ -107,7 +107,7 @@
 		<div class="row">
 			<div class="col-lg-4 col-md-6 col-sm-6">
 				<div class="service-block mb-5">
-					<img src="images/blog/post-1.jpg" alt="" class="img-fluid">
+					<img src="{{ asset('images/blog/post-1.jpg') }}" alt="" class="img-fluid">
 					<div class="content">
 						<h4 class="mt-4 mb-2 title-color">Lorem Ipsum</h4>
 						<p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
@@ -117,7 +117,7 @@
 
 			<div class="col-lg-4 col-md-6 col-sm-6">
 				<div class="service-block mb-5">
-					<img src="images/blog/post-2.jpg" alt="" class="img-fluid">
+					<img src="{{ asset('images/blog/post-2.jpg') }}" alt="" class="img-fluid">
 					<div class="content">
 						<h4 class="mt-4 mb-2  title-color">Lorem Ipsum</h4>
 						<p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
@@ -127,7 +127,7 @@
 			
 			<div class="col-lg-4 col-md-6 col-sm-6">
 				<div class="service-block mb-5">
-					<img src="images/blog/post-3.jpg" alt="" class="img-fluid">
+					<img src="{{ asset('images/blog/post-3.jpg') }}" alt="" class="img-fluid">
 					<div class="content">
 						<h4 class="mt-4 mb-2 title-color">Lorem Ipsum</h4>
 						<p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
@@ -138,7 +138,7 @@
 
 			<div class="col-lg-4 col-md-6 col-sm-6">
 				<div class="service-block mb-5 mb-lg-0">
-					<img src="images/blog/post-4.jpg" alt="" class="img-fluid">
+					<img src="{{ asset('images/blog/post-4.jpg') }}" alt="" class="img-fluid">
 					<div class="content">
 						<h4 class="mt-4 mb-2 title-color">Lorem Ipsum</h4>
 						<p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
@@ -148,7 +148,7 @@
 
 			<div class="col-lg-4 col-md-6 col-sm-6">
 				<div class="service-block mb-5 mb-lg-0">
-					<img src="images/blog/post-5.jpg" alt="" class="img-fluid">
+					<img src="{{ asset('images/blog/post-5.jpg') }}" alt="" class="img-fluid">
 					<div class="content">
 						<h4 class="mt-4 mb-2 title-color">Lorem Ipsum</h4>
 						<p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
@@ -158,7 +158,7 @@
 			
 			<div class="col-lg-4 col-md-6 col-sm-6">
 				<div class="service-block mb-5 mb-lg-0">
-					<img src="images/blog/post-1.jpg" alt="" class="img-fluid">
+					<img src="{{ asset('images/blog/post-1.jpg') }}" alt="" class="img-fluid">
 					<div class="content">
 						<h4 class="mt-4 mb-2 title-color">Lorem Ipsum</h4>
 						<p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>

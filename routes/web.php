@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ReviewController;
@@ -32,6 +33,8 @@ Route::get('/about-us',[HomeController::class,'about'])->name('about-us');
 Route::get('/contact',[ContactController::class,'index'])->name('contact.index');
 Route::post('/contact',[ContactController::class,'store'])->name('contact.store');
 Route::get('/contact-done',[ContactController::class,'done'])->name('contact-done');
+
+Route::get('/search',[Controller::class, 'search'])->name('search');
 
 Route::group(['middleware'=>['auth','isTeacher']],function(){
     Route::get('teacher-profile',[UserProfileController::class,'teacher_profile'])->name('teacher_profile');
