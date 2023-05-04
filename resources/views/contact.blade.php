@@ -1,5 +1,9 @@
 @extends('layouts.template')
 
+@section('title')
+    Contact Us
+@endsection
+
 @section('content')
     <!-- page title -->
 <!--================================

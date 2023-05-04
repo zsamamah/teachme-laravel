@@ -18,7 +18,6 @@
                         <th>ID</th>
                         <th>Name</th>
                         <th>email</th>
-                        <th>Subject</th>
                         <th>Message</th>
                         <th>Action</th>
                     </tr>
@@ -29,7 +28,6 @@
                         <td>{{ $item->id }}</td>
                         <td >{{ $item->name }}</td>
                         <td ><a href="mailto:{{ $item->email }}">{{ $item->email }}</a></td>
-                        <td >{{ $item->subject }}</td>
                         <td >{{ $item->message }}</td>
                         <td>
                             <form style="display:inline-block" action="{{ route('delete-contact',$item->id) }}" method="POST">

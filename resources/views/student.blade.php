@@ -1,5 +1,9 @@
 @extends('layouts.template')
 
+@section('title')
+    Student Profile
+@endsection
+
 @section('content')
     
 <!--==================================

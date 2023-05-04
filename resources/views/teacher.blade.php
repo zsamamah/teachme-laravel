@@ -1,5 +1,9 @@
 @extends('layouts.template')
 
+@section('title')
+    Teacher Profile
+@endsection
+
 @section('content')
 <!--==================================
 =            User Profile            =

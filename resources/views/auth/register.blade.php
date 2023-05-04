@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form id="register_form" method="POST" action="{{ route('register') }}">
                         @csrf
 
                         <div class="row mb-3">
@@ -63,10 +63,19 @@
 
                         <div class="row mb-3">
                             <label for="role" class="col-md-4 col-form-label text-md-end">Role</label>
-                            <select class="form-control mb-3" required>
+                            <div class="col-md-6">
+                            <select class="form-control mb-3" name="role" required>
                                 <option value="student">Student</option>
                                 <option value="teacher">Teacher</option>
                               </select>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="role" class="col-md-4 col-form-label text-md-end">Verification</label>
+                            <div class="col-md-6">
+                            <div class="g-recaptcha" id="g-recaptcha" data-sitekey="6Le-Eq8lAAAAAEL_ZtZhdNG9hXbOMKUtfiU-V8lI"></div>
+                            </div>
                         </div>
 
                         <div class="row mb-0">
@@ -82,4 +91,22 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('scripts')
+    <!-- Google reCaptch js -->
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script type="text/javascript">
+  document.getElementById("register_form").addEventListener("submit",function(evt)
+  {
+  var response = grecaptcha.getResponse();
+  if(response.length == 0) 
+  { 
+    //reCaptcha not verified
+    alert("Please verify you are human!"); 
+    evt.preventDefault();
+    return false;
+}
+});
+</script>
 @endsection

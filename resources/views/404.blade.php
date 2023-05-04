@@ -1,5 +1,9 @@
 @extends('layouts.template')
 
+@section('title')
+    404
+@endsection
+
 @section('content')
 <section class="section bg-gray">
   <div class="container">
