@@ -73,6 +73,9 @@
                             value="{{$details->phone}}"
                       @endif>
                     </div>
+                    <div class="col-12 mt-2">
+                          <a class="text-primary" href="{{ route('change_password') }}">Change Password</a>
+                      </div>
                     <div class="col-12 mt-3">
                       <button type="submit" class="btn btn-primary">Change Data</button>
                     </div>

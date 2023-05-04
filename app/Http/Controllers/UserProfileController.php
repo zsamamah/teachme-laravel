@@ -6,6 +6,7 @@ use App\Models\Detail;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserProfileController extends Controller
 {
@@ -72,5 +73,31 @@ class UserProfileController extends Controller
         else{
             return redirect(route('index'));
         }
+    }
+
+    public function change_password()
+    {
+        $user_id = Auth::user()->id;
+        return view('change_password',compact('user_id'));
+    }
+
+    public function validate_new_password(Request $request, User $user)
+    {
+        if(Auth::user()->id == $user->id){
+            if(Hash::check($request['password'], $user->password)){
+                if($request['c_password'] == $request['n_password']){
+                    $user->update([
+                        'password' => Hash::make($request['n_password'])
+                    ]);
+                }
+                else{
+                    return redirect(route('change_password'));
+                }
+            }
+            else{
+                return redirect(route('change_password'));
+            }
+        }
+        return redirect(route('index'));
     }
 }

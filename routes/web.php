@@ -40,7 +40,8 @@ Route::group(['middleware'=>['auth','isTeacher']],function(){
 });
 
 Route::group(['middleware'=>['auth']],function(){
-    // 
+    Route::get("change-password",[UserProfileController::class,'change_password'])->name('change_password');
+    Route::post("change-password/{user}",[UserProfileController::class,'validate_new_password'])->name('validate_new_password');
 });
 
 Route::group(['middleware'=>['auth','isStudent']],function(){
