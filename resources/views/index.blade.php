@@ -42,11 +42,21 @@
 					<div class="container">
 						<div class="row justify-content-center">
 							<div class="col-lg-12 col-md-12 align-content-center">
-								<form>
+								<form action="#" method="GET">
+									@csrf
 									<div class="form-row">
 										<div class="form-group col-xl-4 col-lg-3 col-md-6">
-											<input type="text" class="form-control my-2 my-lg-1" id="inputtext4"
-												placeholder="What are you looking for">
+											<select class="w-100 form-control mt-lg-1 mt-md-2" name="major" required>
+												<option value="Math">Math</option>
+												<option value="English">English</option>
+												<option value="Arabic">Arabic</option>
+												<option value="Physics">Physics</option>
+												<option value="Biology">Biology</option>
+												<option value="Chemistry">Chemistry</option>
+												<option value="Computer">Computer</option>
+												<option value="History">History</option>
+												<option value="Geology">Geology</option>
+											</select>
 										</div>
 										<div class="form-group col-lg-3 col-md-6">
 											<select class="w-100 form-control mt-lg-1 mt-md-2">
@@ -57,7 +67,20 @@
 											</select>
 										</div>
 										<div class="form-group col-lg-3 col-md-6">
-											<input type="text" class="form-control my-2 my-lg-1" id="inputLocation4" placeholder="Location">
+											<select class="w-100 form-control mt-lg-1 mt-md-2" name="city" required>
+												<option value="Irbid">Irbid</option>
+												<option value="Ajloun">Ajloun</option>
+												<option value="Jerash">Jerash</option>
+												<option value="Mafraq">Mafraq</option>
+												<option value="Zarqa">Zarqa</option>
+												<option value="Amman">Amman</option>
+												<option value="Salt">Salt</option>
+												<option value="Madaba">Madaba</option>
+												<option value="Karak">Karak</option>
+												<option value="Tafila">Tafila</option>
+												<option value="Maan">Maan</option>
+												<option value="Aqaba">Aqaba</option>
+											</select>
 										</div>
 										<div class="form-group col-xl-2 col-lg-3 col-md-6 align-self-center">
 											<button type="submit" class="btn btn-primary active w-100">Search Now</button>

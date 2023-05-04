@@ -91,7 +91,7 @@
                                 <option value="Tafila">Tafila</option>
                                 <option value="Maan">Maan</option>
                                 <option value="Aqaba">Aqaba</option>
-                              </select>
+                            </select>
                             </div>
                         </div>
 

@@ -19,12 +19,31 @@
           <div class="widget user-dashboard-profile">
             <!-- User Image -->
             <div class="profile-thumb">
-              <img src="images/user/user.png" alt="" class="rounded-circle">
+              <img src="{{ asset('images/user/user.png') }}" alt="" class="rounded-circle">
             </div>
             <!-- User Name -->
-            <h5 class="text-center">Teacher - Samanta Doe</h5>
-            <p><i class="fa-solid fa-location-dot"></i> Amman</p>
-            <!-- <a href="user-profile.html" class="btn btn-main-sm">Edit Profile</a> -->
+            <h5 class="text-center">Teacher - {{$user->name}}</h5>
+            <p><i class="fa-solid fa-location-dot"></i> @if ($details->city)
+              {{$details->city}}
+            @else
+                ---
+            @endif</p>
+            <p><i class="fa-solid fa-building-columns"></i> @if ($details->university)
+              {{$details->university}}
+            @else
+                ---
+            @endif {{$details->nuiversity}}</p>
+            <p><i class="fa-solid fa-graduation-cap"></i> @if ($details->major)
+              {{$details->major}}
+            @else
+                ---
+            @endif</p>
+            <p><i class="fa-solid fa-percent"></i> @if ($details->gpa)
+              {{$details->gpa}}
+            @else
+                ---
+            @endif</p>
+            <a href="{{ route('edit_teacher') }}" class="btn btn-main-sm">Edit Profile</a>
           </div>
           <!-- Map Widget -->
           <div class="widget map">
@@ -40,7 +59,7 @@
                   <span>12</span></a></li>
               <li><a href="dashboard-pending-ads.html"><i class="fa fa-bolt"></i> Pending Approval<span>23</span></a>
               </li>
-              <li><a href="index.html"><i class="fa fa-power-off"></i> Logout</a></li>
+              <li><a href="{{ route('index') }}"><i class="fa fa-power-off"></i> Logout</a></li>
             </ul>
           </div>
         </div>

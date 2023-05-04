@@ -39,15 +39,18 @@ class UserSeeder extends Seeder
         DB::table('details')->insert([
             [
                 'user_id' => '1',
-                'city' => 'Amman'
+                'city' => 'Amman',
+                'major' => null
             ],
             [
                 'user_id' => '2',
-                'city' => 'Amman'
+                'city' => 'Amman',
+                'major' => null
             ],
             [
                 'user_id' => '3',
-                'city' => 'Amman'
+                'city' => 'Amman',
+                'major' => 'Math'
             ]
         ]);
     }

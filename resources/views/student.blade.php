@@ -54,9 +54,28 @@
               <img src="images/user/user.png" alt="" class="rounded-circle">
             </div>
             <!-- User Name -->
-            <h5 class="text-center">Student - Samanta Doe</h5>
-            <p><i class="fa-solid fa-location-dot"></i> Amman</p>
-            <!-- <a href="user-profile.html" class="btn btn-main-sm">Edit Profile</a> -->
+            <h5 class="text-center">Student - {{$user->name}}</h5>
+            <p><i class="fa-solid fa-location-dot"></i> @if ($details->city)
+              {{$details->city}}
+            @else
+                ---
+            @endif</p>
+            <p><i class="fa-solid fa-building-columns"></i> @if ($details->university)
+              {{$details->university}}
+            @else
+                ---
+            @endif {{$details->nuiversity}}</p>
+            <p><i class="fa-solid fa-graduation-cap"></i> @if ($details->major)
+              {{$details->major}}
+            @else
+                ---
+            @endif</p>
+            <p><i class="fa-solid fa-percent"></i> @if ($details->gpa)
+              {{$details->gpa}}
+            @else
+                ---
+            @endif</p>
+            <a href="{{ route('edit_student') }}" class="btn btn-main-sm">Edit Profile</a>
           </div>
             <!-- Map Widget -->
             <div class="widget map">
