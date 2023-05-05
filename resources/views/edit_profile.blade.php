@@ -33,7 +33,7 @@
                       </select>
                     </div> 
                     @if ($user->role == 'teacher')   
-                    <div class="col-12">
+                    <div class="col-6">
                         <label for="major" class="form-label">Major</label>
                         <select class="form-control mb-3 w-100" name="major" required>
                             @if ($details->major)
@@ -54,6 +54,12 @@
                             @endif
                         </select>
                     </div>
+                    <div class="col-md-6">
+                        <label for="price" class="form-label">Price</label>
+                        <input type="number" min="0" class="form-control" name="price" id="price" @if ($details->price)
+                              value="{{$details->price}}"
+                        @endif>
+                      </div>
                     @endif
                     <div class="col-12">
                       <label for="university" class="form-label">University</label>

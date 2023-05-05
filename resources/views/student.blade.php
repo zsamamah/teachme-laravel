@@ -13,36 +13,6 @@
 <section class="dashboard section">
   <!-- Container Start -->
   <div class="container">
-    <div class="advance-search">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-12 col-md-12 align-content-center">
-                    <form>
-                        <div class="form-row">
-                            <div class="form-group col-xl-4 col-lg-3 col-md-6">
-                                <input type="text" class="form-control my-2 my-lg-1" id="inputtext4"
-                                    placeholder="What are you looking for">
-                            </div>
-                            <div class="form-group col-lg-3 col-md-6">
-                                <select class="w-100 form-control mt-lg-1 mt-md-2">
-                                    <option>Category</option>
-                                    <option value="1">Top rated</option>
-                                    <option value="2">Lowest Price</option>
-                                    <option value="4">Highest Price</option>
-                                </select>
-                            </div>
-                            <div class="form-group col-lg-3 col-md-6">
-                                <input type="text" class="form-control my-2 my-lg-1" id="inputLocation4" placeholder="Location">
-                            </div>
-                            <div class="form-group col-xl-2 col-lg-3 col-md-6 align-self-center">
-                                <button type="submit" class="btn btn-primary active w-100">Search Now</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
     <!-- Row Start -->
     <div class="row">
       <div class="col-lg-4">
@@ -51,7 +21,7 @@
           <div class="widget user-dashboard-profile">
             <!-- User Image -->
             <div class="profile-thumb">
-              <img src="images/user/user.png" alt="" class="rounded-circle">
+              <img src="{{ asset('images/user/user.png') }}" alt="user_image" class="rounded-circle">
             </div>
             <!-- User Name -->
             <h5 class="text-center">Student - {{$user->name}}</h5>
@@ -104,12 +74,12 @@
       <div class="col-lg-8">
         <!-- Recently Favorited -->
         <div class="widget dashboard-container my-adslist">
-          <h3 class="widget-header">My Ads</h3>
+          <h3 class="widget-header">Results</h3>
           <table class="table table-responsive product-dashboard-table">
             <thead>
               <tr>
-                <th>Order Title</th>
-                <th class="text-center">Category</th>
+                <th>Teacher Data</th>
+                <th class="text-center">Major</th>
                 <th class="text-center">Action</th>
               </tr>
             </thead>

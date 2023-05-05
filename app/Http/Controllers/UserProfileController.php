@@ -41,7 +41,8 @@ class UserProfileController extends Controller
                 'city' => $request['city'],
                 'university' => $request['university'],
                 'gpa' => $request['gpa'],
-                'phone' => $request['phone']
+                'phone' => $request['phone'],
+                'price' => $request['price']
             ]);
             return redirect(route('teacher_profile'));
         }
@@ -99,5 +100,13 @@ class UserProfileController extends Controller
             }
         }
         return redirect(route('index'));
+    }
+
+    public function show_profile(Request $request, User $user)
+    {
+        if(Auth::user()->role==$user->role)
+            return redirect(route('index'));
+        $details = Detail::where('user_id',$user->id)->first();
+        return view('show_profile',compact('user','details'));
     }
 }

@@ -45,12 +45,15 @@ Route::group(['middleware'=>['auth','isTeacher']],function(){
 Route::group(['middleware'=>['auth']],function(){
     Route::get("change-password",[UserProfileController::class,'change_password'])->name('change_password');
     Route::post("change-password/{user}",[UserProfileController::class,'validate_new_password'])->name('validate_new_password');
+    Route::get('profile/{user}',[UserProfileController::class,'show_profile'])->name('show_profile');
 });
 
 Route::group(['middleware'=>['auth','isStudent']],function(){
     Route::get('/student-profile',[UserProfileController::class,'student_profile'])->name('student_profile');
     Route::get('edit-student',[UserProfileController::class, 'edit_student'])->name('edit_student');
     Route::post('edit-student/{details}',[UserProfileController::class, 'change_student_data'])->name('change_student_data');
+    Route::get('book/{user}',[OrderController::class,'index'])->name('booking_page');
+    Route::post('book/{user}',[OrderController::class,'store'])->name('booking_submit');
 });
 
 Route::group(['middleware'=>['auth','isAdmin']],function(){

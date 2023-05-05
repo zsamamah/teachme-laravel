@@ -8,46 +8,10 @@
 <section class="dashboard section">
     <!-- Container Start -->
     <div class="container">
-      <div class="advance-search">
-          <div class="container">
-              <div class="row justify-content-center">
-                  <div class="col-lg-12 col-md-12 align-content-center">
-                      <form>
-                          <div class="form-row">
-                              <div class="form-group col-xl-4 col-lg-3 col-md-6">
-                                  <input type="text" class="form-control my-2 my-lg-1" id="inputtext4"
-                                      placeholder="What are you looking for">
-                              </div>
-                              <div class="form-group col-lg-3 col-md-6">
-                                  <select class="w-100 form-control mt-lg-1 mt-md-2">
-                                      <option>Category</option>
-                                      <option value="1">Top rated</option>
-                                      <option value="2">Lowest Price</option>
-                                      <option value="4">Highest Price</option>
-                                  </select>
-                              </div>
-                              <div class="form-group col-lg-3 col-md-6">
-                                  <input type="text" class="form-control my-2 my-lg-1" id="inputLocation4" placeholder="Location">
-                              </div>
-                              <div class="form-group col-xl-2 col-lg-3 col-md-6 align-self-center">
-                                  <button type="submit" class="btn btn-primary active w-100">Search Now</button>
-                              </div>
-                          </div>
-                      </form>
-                  </div>
-              </div>
-          </div>
-      </div>
       <!-- Row Start -->
       <div class="row">
         <div class="col-lg-4">
           <div class="sidebar">
-              <!-- Map Widget -->
-              <div class="widget map">
-                  <div class="map">
-                      <div id="map" data-latitude="31.8769389" data-longitude="35.9421834"></div>
-                  </div>
-              </div>
             <!-- Dashboard Links -->
             <div class="widget user-dashboard-menu">
               <ul>
@@ -100,18 +64,18 @@ async function fetch_data(){
   const major = params.get('major');
   const category = params.get('category');
   const city = params.get('city');
+  var table = document.getElementById('table_body');
   let x = await fetch(`http://127.0.0.1:8000/api/search_fetch?major=${major}`);
   let y = await x.json();
-//   console.log(y)
   var data = []
-  y.forEach(ele => {
+  console.log(y.length)
+    y.forEach(ele => {
       if(ele['city'] == city)
-      data.unshift(ele)
-      else
       data.push(ele)
-    });
-//   console.log(data)
-var table = document.getElementById('table_body');
+      // data.unshift(ele)
+      // else
+      // data.push(ele)
+});
 data.forEach(ele => {
     table.innerHTML +=`
     <tr>
@@ -122,23 +86,18 @@ data.forEach(ele => {
                     <span class="status"><strong>Email: </strong>${ele['email']?ele['email']:null}</span>
                     <span class="location"><strong>Location</strong>${ele['city']?ele['city']:null}, Jordan</span>
                   </td>
-                  <td class="product-category"><span class="categories">Math</span></td>
+                  <td class="product-category"><span class="categories">${ele['major']?ele['major']:null}</span></td>
                   <td class="action" data-title="Action">
-                    <div class="">
-                      <ul class="list-inline justify-content-center">
-                        <li class="list-inline-item">
-                          <a class="edit" data-toggle="tooltip" data-placement="top" title="Accept" href="dashboard.html">
-                            <i class="fa-solid fa-check"></i>
-                          </a>
-                        </li>
-                        <li class="list-inline-item">
-                          <a class="delete" data-toggle="tooltip" data-placement="top" title="Delete" href="dashboard.html">
-                            <i class="fa fa-trash"></i>
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </td>
+                  <div class="">
+                    <ul class="list-inline justify-content-center">
+                      <li class="list-inline-item">
+                        <a class="edit" data-toggle="tooltip" data-placement="top" title="Contact" href="/profile/${ele['id']}">
+                          <i class="fa-regular fa-address-card"></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </td>
                 </tr>
     `
 });

@@ -22,7 +22,7 @@ class Controller extends BaseController
     {
         $data='none';
         if($request['major']){
-            $data = User::where('role','teacher')->join('details','users.id','details.user_id')->get();
+            $data = User::where('role','teacher')->join('details','users.id','details.user_id')->where('major',$request['major'])->get();
             // dd($data);
         }
         return response($data);

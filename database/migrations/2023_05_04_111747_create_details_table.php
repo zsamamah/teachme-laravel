@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('major')->nullable();
             $table->string('gpa')->nullable();
             $table->string('phone')->nullable();
+            $table->string('price')->nullable();
             $table->string('city')->nullable();
             $table->timestamps();
         });

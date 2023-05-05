@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Detail extends Model
+class Order extends Model
 {
     use HasFactory;
 
@@ -15,17 +15,22 @@ class Detail extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'user_id',
-        'university',
-        'major',
-        'gpa',
-        'phone',
-        'city',
-        'price'
+        'teacher_id',
+        'date',
+        'start_time',
+        'end_time',
+        'students_num',
+        'staus'
     ];
 
-    public function user()
+    public function own()
     {
         return $this->belongsTo(User::class);
     }
+
+    public function books()
+    {
+        return $this->hasOne(Book::class);
+    }
+    
 }
