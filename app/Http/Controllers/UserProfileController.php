@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Book;
 use App\Models\Detail;
+use App\Models\Order;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -14,7 +16,9 @@ class UserProfileController extends Controller
     {
         $user = Auth::user();
         $details = Detail::where('user_id',$user['id'])->first();
-        return view('student',compact('user','details'));
+        $bookings = Book::where('student_id',$user->id)->join('orders','orders.id','books.order_id')->join('users','users.id','orders.teacher_id')->join('details','details.user_id','orders.teacher_id')->get();
+        // dd($bookings);
+        return view('student',compact('user','details','bookings'));
     }
 
     public function teacher_profile()
@@ -107,6 +111,8 @@ class UserProfileController extends Controller
         if(Auth::user()->role==$user->role)
             return redirect(route('index'));
         $details = Detail::where('user_id',$user->id)->first();
-        return view('show_profile',compact('user','details'));
+        $pending = Order::where('teacher_id',$user->id)->where('status','Pending')->count();
+        $approved = Order::where('teacher_id',$user->id)->where('status','Approved')->count();
+        return view('show_profile',compact('user','details','pending','approved'));
     }
 }

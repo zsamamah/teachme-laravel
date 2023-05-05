@@ -59,8 +59,8 @@
             <ul>
               <li class="active"><a><i class="fa fa-user"></i> Orders</a></li>
               <li><a><i class="fa fa-file-archive-o"></i>Finished Orders
-                  <span>##</span></a></li>
-              <li><a><i class="fa fa-bolt"></i> Pending Orders<span>##</span></a>
+                  <span>{{$approved}}</span></a></li>
+              <li><a><i class="fa fa-bolt"></i> Pending Orders<span>{{$pending}}</span></a>
               </li>
             </ul>
           </div>

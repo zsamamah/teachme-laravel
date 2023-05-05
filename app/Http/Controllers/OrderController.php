@@ -97,6 +97,13 @@ class OrderController extends Controller
      */
     public function destroy(Order $order)
     {
-        //
+        // dd($order,'delete');
+        $book = Book::where('order_id',$order->id)->first();
+        if($book->student_id==Auth::user()->id){
+            $order->deleteOrFail();
+            return redirect(route('student_profile'));
+        }
+        else
+            return redirect(route('index'));
     }
 }

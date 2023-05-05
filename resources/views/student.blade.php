@@ -84,110 +84,41 @@
               </tr>
             </thead>
             <tbody>
+              @foreach ($bookings as $booking)
               <tr>
                 <td class="product-details">
-                  <h3 class="title">Teacher - Lorem Ipsum</h3>
-                  <span class="add-id"><strong>Ad ID:</strong> ng3D5hAMHPajQrM</span>
-                  <span><strong>Posted on: </strong><time>Jun 27, 2017</time> </span>
-                  <span class="status active"><strong>Status</strong>Active</span>
-                  <span class="location"><strong>Location</strong>Amman,Jordan</span>
+                  <h3 class="title">Teacher - {{$booking->name}}</h3>
+                  <span class="add-id"><strong>University:</strong> {{$booking->university}}, {{$booking->major}}</span>
+                  <span><strong>Date: </strong><time>{{$booking->date}}</time> </span>
+                  <span @if ($booking->status=='Approved')
+                    class="status active"
+                  @else
+                      @if ($booking->status=='Pending')
+                      class="status text-primary"
+                      @else
+                      class="status text-danger"
+                      @endif
+                  @endif><strong>Status</strong>{{$booking->status}}</span>
+                  {{-- <span class="location"><strong>Location</strong>Amman,Jordan</span> --}}
                 </td>
-                <td class="product-category"><span class="categories">Math</span></td>
+                <td class="product-category"><span class="categories">{{$booking->major}}</span></td>
                 <td class="action" data-title="Action">
                   <div class="">
                     <ul class="list-inline justify-content-center">
                       <li class="list-inline-item">
-                        <a class="edit" data-toggle="tooltip" data-placement="top" title="Accept" href="dashboard.html">
-                          <i class="fa-solid fa-check"></i>
-                        </a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a class="delete" data-toggle="tooltip" data-placement="top" title="Delete" href="dashboard.html">
+                        <a class="delete" title="Delete" onclick="event.preventDefault(); document.getElementById('delete_order_form{{$booking->order_id}}').submit();">
                           <i class="fa fa-trash"></i>
                         </a>
+                      <form id="delete_order_form{{$booking->order_id}}" action="books/{{$booking->order_id}}" method="POST" class="d-none">
+                        @csrf
+                        @method('DELETE')
+                    </form>
                       </li>
                     </ul>
                   </div>
                 </td>
               </tr>
-              <tr>
-                <td class="product-details">
-                  <h3 class="title">Teacher - Lorem Ipsum</h3>
-                  <span class="add-id"><strong>Ad ID:</strong> ng3D5hAMHPajQrM</span>
-                  <span><strong>Posted on: </strong><time>Jun 27, 2017</time> </span>
-                  <span class="status active"><strong>Status</strong>Active</span>
-                  <span class="location"><strong>Location</strong>Amman,Jordan</span>
-                </td>
-                <td class="product-category"><span class="categories">Physics</span></td>
-                <td class="action" data-title="Action">
-                  <div class="">
-                    <ul class="list-inline justify-content-center">
-                      <li class="list-inline-item">
-                        <a class="edit" data-toggle="tooltip" data-placement="top" title="Accept" href="dashboard.html">
-                          <i class="fa-solid fa-check"></i>
-                        </a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a class="delete" data-toggle="tooltip" data-placement="top" title="Delete" href="dashboard.html">
-                          <i class="fa fa-trash"></i>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td class="product-details">
-                  <h3 class="title">Teacher - Lorem Ipsum</h3>
-                  <span class="add-id"><strong>Ad ID:</strong> ng3D5hAMHPajQrM</span>
-                  <span><strong>Posted on: </strong><time>Jun 27, 2017</time> </span>
-                  <span class="status active"><strong>Status</strong>Active</span>
-                  <span class="location"><strong>Location</strong>Amman,Jordan</span>
-                </td>
-                <td class="product-category"><span class="categories">English</span></td>
-                <td class="action" data-title="Action">
-                  <div class="">
-                    <ul class="list-inline justify-content-center">
-                      <li class="list-inline-item">
-                        <a class="edit" data-toggle="tooltip" data-placement="top" title="Accept" href="dashboard.html">
-                          <i class="fa-solid fa-check"></i>
-                        </a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a class="delete" data-toggle="tooltip" data-placement="top" title="Delete" href="dashboard.html">
-                          <i class="fa fa-trash"></i>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td class="product-details">
-                  <h3 class="title">Teacher - Lorem Ipsum</h3>
-                  <span class="add-id"><strong>Ad ID:</strong> ng3D5hAMHPajQrM</span>
-                  <span><strong>Posted on: </strong><time>Jun 27, 2017</time> </span>
-                  <span class="status active"><strong>Status</strong>Active</span>
-                  <span class="location"><strong>Location</strong>Amman,Jordan</span>
-                </td>
-                <td class="product-category"><span class="categories">Arabic</span></td>
-                <td class="action" data-title="Action">
-                  <div class="">
-                    <ul class="list-inline justify-content-center">
-                      <li class="list-inline-item">
-                        <a class="edit" data-toggle="tooltip" data-placement="top" title="Accept" href="dashboard.html">
-                          <i class="fa-solid fa-check"></i>
-                        </a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a class="delete" data-toggle="tooltip" data-placement="top" title="Delete" href="dashboard.html">
-                          <i class="fa fa-trash"></i>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </td>
-              </tr>
+              @endforeach
             </tbody>
           </table>
 

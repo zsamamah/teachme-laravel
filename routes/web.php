@@ -54,6 +54,7 @@ Route::group(['middleware'=>['auth','isStudent']],function(){
     Route::post('edit-student/{details}',[UserProfileController::class, 'change_student_data'])->name('change_student_data');
     Route::get('book/{user}',[OrderController::class,'index'])->name('booking_page');
     Route::post('book/{user}',[OrderController::class,'store'])->name('booking_submit');
+    Route::delete('books/{order}',[OrderController::class,'destroy'])->name('delete_order');
 });
 
 Route::group(['middleware'=>['auth','isAdmin']],function(){
