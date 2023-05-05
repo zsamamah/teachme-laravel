@@ -106,4 +106,20 @@ class OrderController extends Controller
         else
             return redirect(route('index'));
     }
+
+    public function approve(Order $order)
+    {
+        $order->update([
+            'status' => 'Approved'
+        ]);
+        return redirect(route('teacher_profile'));
+    }
+    
+    public function reject(Order $order)
+    {
+        $order->update([
+            'status' => 'Rejected'
+        ]);
+        return redirect(route('teacher_profile'));
+    }
 }

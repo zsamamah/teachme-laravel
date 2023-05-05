@@ -20,7 +20,7 @@ class Order extends Model
         'start_time',
         'end_time',
         'students_num',
-        'staus'
+        'status'
     ];
 
     public function own()

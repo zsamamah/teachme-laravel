@@ -82,110 +82,45 @@
               </tr>
             </thead>
             <tbody>
+              @foreach ($bookings as $booking)
               <tr>
                 <td class="product-details">
-                  <h3 class="title">Order form Lorem Ipsum</h3>
-                  <span class="add-id"><strong>Ad ID:</strong> ng3D5hAMHPajQrM</span>
-                  <span><strong>Posted on: </strong><time>Jun 27, 2017</time> </span>
-                  <span class="status active"><strong>Status</strong>Active</span>
-                  <span class="location"><strong>Location</strong>Amman,Jordan</span>
+                  <h3 class="title">Order form {{$booking->name}}</h3>
+                  <span class="add-id"><strong>University:</strong> {{$booking->university}}, {{$booking->major}}</span>
+                  <span><strong>Date: </strong><time>{{$booking->date}}</time> </span>
+                  <span class="location"><strong>Location</strong>{{$booking->city}},Jordan</span>
                 </td>
-                <td class="product-category"><span class="categories">Online instructor</span></td>
+                <td class="product-category">
+                  <span class="categories">{{$booking->date}}</span> From:
+                  <span class="categories">{{$booking->start_time}}</span> to
+                  <span class="categories">{{$booking->end_time}}</span>
+                </td>
                 <td class="action" data-title="Action">
                   <div class="">
                     <ul class="list-inline justify-content-center">
                       <li class="list-inline-item">
-                        <a class="edit" data-toggle="tooltip" data-placement="top" title="Accept" href="dashboard.html">
+                        <a class="edit" title="Accept" onclick="event.preventDefault(); document.getElementById('approve_order_form{{$booking->order_id}}').submit();">
                           <i class="fa-solid fa-check"></i>
                         </a>
+                        <form id="approve_order_form{{$booking->order_id}}" action="{{ route('approve_order', $booking->order_id) }}" method="POST" class="d-none">
+                          @csrf
+                          @method('PUT')
+                      </form>
                       </li>
                       <li class="list-inline-item">
-                        <a class="delete" data-toggle="tooltip" data-placement="top" title="Delete" href="dashboard.html">
+                        <a class="delete" title="Delete" onclick="event.preventDefault(); document.getElementById('reject_order_form{{$booking->order_id}}').submit();">
                           <i class="fa fa-trash"></i>
                         </a>
+                        <form id="reject_order_form{{$booking->order_id}}" action="{{ route('reject_order', $booking->order_id) }}" method="POST" class="d-none">
+                          @csrf
+                          @method('PUT')
+                      </form>
                       </li>
                     </ul>
                   </div>
                 </td>
               </tr>
-              <tr>
-                <td class="product-details">
-                  <h3 class="title">Order form Lorem Ipsum</h3>
-                  <span class="add-id"><strong>Ad ID:</strong> ng3D5hAMHPajQrM</span>
-                  <span><strong>Posted on: </strong><time>Jun 27, 2017</time> </span>
-                  <span class="status active"><strong>Status</strong>Active</span>
-                  <span class="location"><strong>Location</strong>Amman,Jordan</span>
-                </td>
-                <td class="product-category"><span class="categories">Online instructor</span></td>
-                <td class="action" data-title="Action">
-                  <div class="">
-                    <ul class="list-inline justify-content-center">
-                      <li class="list-inline-item">
-                        <a class="edit" data-toggle="tooltip" data-placement="top" title="Accept" href="dashboard.html">
-                          <i class="fa-solid fa-check"></i>
-                        </a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a class="delete" data-toggle="tooltip" data-placement="top" title="Delete" href="dashboard.html">
-                          <i class="fa fa-trash"></i>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td class="product-details">
-                  <h3 class="title">Order form Lorem Ipsum</h3>
-                  <span class="add-id"><strong>Ad ID:</strong> ng3D5hAMHPajQrM</span>
-                  <span><strong>Posted on: </strong><time>Jun 27, 2017</time> </span>
-                  <span class="status active"><strong>Status</strong>Active</span>
-                  <span class="location"><strong>Location</strong>Amman,Jordan</span>
-                </td>
-                <td class="product-category"><span class="categories">Online instructor</span></td>
-                <td class="action" data-title="Action">
-                  <div class="">
-                    <ul class="list-inline justify-content-center">
-                      <li class="list-inline-item">
-                        <a class="edit" data-toggle="tooltip" data-placement="top" title="Accept" href="dashboard.html">
-                          <i class="fa-solid fa-check"></i>
-                        </a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a class="delete" data-toggle="tooltip" data-placement="top" title="Delete" href="dashboard.html">
-                          <i class="fa fa-trash"></i>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td class="product-details">
-                  <h3 class="title">Order form Lorem Ipsum</h3>
-                  <span class="add-id"><strong>Ad ID:</strong> ng3D5hAMHPajQrM</span>
-                  <span><strong>Posted on: </strong><time>Jun 27, 2017</time> </span>
-                  <span class="status active"><strong>Status</strong>Active</span>
-                  <span class="location"><strong>Location</strong>Amman,Jordan</span>
-                </td>
-                <td class="product-category"><span class="categories">Online instructor</span></td>
-                <td class="action" data-title="Action">
-                  <div class="">
-                    <ul class="list-inline justify-content-center">
-                      <li class="list-inline-item">
-                        <a class="edit" data-toggle="tooltip" data-placement="top" title="Accept" href="dashboard.html">
-                          <i class="fa-solid fa-check"></i>
-                        </a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a class="delete" data-toggle="tooltip" data-placement="top" title="Delete" href="dashboard.html">
-                          <i class="fa fa-trash"></i>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </td>
-              </tr>
+              @endforeach
             </tbody>
           </table>
 

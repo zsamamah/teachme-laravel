@@ -25,7 +25,9 @@ class UserProfileController extends Controller
     {
         $user = Auth::user();
         $details = Detail::where('user_id',$user['id'])->first();
-        return view('teacher',compact('user','details'));
+        $bookings = Order::where('teacher_id',$user->id)->join('books','books.order_id','orders.id')->join('users','users.id','books.student_id')->join('details','details.user_id','books.student_id')->get();
+        // dd($bookings);
+        return view('teacher',compact('user','details','bookings'));
     }
     
     public function edit_teacher()

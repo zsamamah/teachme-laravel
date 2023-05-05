@@ -40,6 +40,8 @@ Route::group(['middleware'=>['auth','isTeacher']],function(){
     Route::get('teacher-profile',[UserProfileController::class,'teacher_profile'])->name('teacher_profile');
     Route::get('edit-teacher',[UserProfileController::class, 'edit_teacher'])->name('edit_teacher');
     Route::post('edit-teacher/{details}',[UserProfileController::class, 'change_teacher_data'])->name('change_teacher_data');
+    Route::put('approve/{order}',[OrderController::class,'approve'])->name('approve_order');
+    Route::put('reject/{order}',[OrderController::class,'reject'])->name('reject_order');
 });
 
 Route::group(['middleware'=>['auth']],function(){
