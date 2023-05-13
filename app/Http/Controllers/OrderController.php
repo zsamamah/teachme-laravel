@@ -107,6 +107,12 @@ class OrderController extends Controller
             return redirect(route('index'));
     }
 
+    public function delete(Order $order)
+    {
+        $order->deleteOrFail();
+        return redirect(route('orders'));
+    }
+
     public function approve(Order $order)
     {
         $order->update([

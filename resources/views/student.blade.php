@@ -56,12 +56,12 @@
           <!-- Dashboard Links -->
           <div class="widget user-dashboard-menu">
             <ul>
-              <li class="active"><a href="dashboard-my-ads.html"><i class="fa fa-user"></i> My Orders</a></li>
-              <li><a href="dashboard-archived-ads.html"><i class="fa fa-file-archive-o"></i>Archived Ads
-                  <span>12</span></a></li>
-              <li><a href="dashboard-pending-ads.html"><i class="fa fa-bolt"></i> Pending Approval<span>23</span></a>
+              <li class="active"><a href="{{ route('student_profile') }}"><i class="fa fa-user"></i> My Orders</a></li>
+              <li><a href="{{ route('student_approved') }}"><i class="fa fa-file-archive-o"></i>Approved
+                  <span>{{$approved->count()}}</span></a></li>
+              <li><a href="{{ route('student_rejected') }}"><i class="fa fa-bolt"></i> Rejected<span>{{$rejected->count()}}</span></a>
               </li>
-              <li><a href="index.html"><i class="fa fa-power-off"></i> Logout</a></li>
+              <li><a href="{{ route('index') }}"><i class="fa fa-power-off"></i> Logout</a></li>
             </ul>
           </div>
         </div>
@@ -84,7 +84,7 @@
               </tr>
             </thead>
             <tbody>
-              @foreach ($bookings as $booking)
+              @foreach ($pending as $booking)
               <tr>
                 <td class="product-details">
                   <h3 class="title">Teacher - {{$booking->name}}</h3>

@@ -25,14 +25,14 @@
           <span class="nav-link-text ms-1">Users</span>
         </a>
       </li>
-      <li class="nav-item">
+      {{-- <li class="nav-item">
         <a class="nav-link text-white {{ Request::is('all_saloons') ? 'active' : ''; }}"  href="{{ url('all_saloons') }}">
           <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
             <i class="material-icons opacity-10">table_view</i>
           </div>
           <span class="nav-link-text ms-1">All Saloons</span>
         </a>
-      </li>
+      </li> --}}
         <li class="nav-item">
           <a class="nav-link text-white {{ Request::is('orders') ? 'active' : ''; }}"  href="{{ url('orders') }}">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">

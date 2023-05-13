@@ -16,11 +16,11 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Saloon Name</th>
-                        <th>User Name</th>
+                        <th>Teacher Name</th>
+                        <th>City</th>
                         <th>Date</th>
-                        <th>Phone</th>
-                        <th>Paid</th>
+                        <th>Time</th>
+                        <th>Students #</th>
                         <th>Status</th>
                         {{-- <th>Result</th> --}}
                         <th>Actions</th>
@@ -30,18 +30,21 @@
                     @foreach($orders as $item)
                     <tr class="border">
                         <td>{{ $item->id }}</td>
-                        <td >{{ $item->s_name }}</td>
                         <td >{{ $item->name }}</td>
+                        <td >{{ $item->city }}</td>
                         <td >{{ $item->date }}</td>
-                        <td>{{ $item->u_phone }}</td>
-                        <td>{{ $item->paid }} / {{$item->payment}}</td>
+                        <td>{{ $item->start_time }} - {{$item->end_time}}</td>
+                        <td>{{ $item->students_num }}</td>
                         <td>{{ $item->status }}</td>
-                        {{-- <td>{{$item->result}}</td> --}}
                         <td>
                             {{-- <a href="{{ route('done-booking',$item->id) }}" class="btn btn-danger">Done</a> --}}
-                            <a href="{{ url('invoice/'.$item->id) }}" class="btn btn-success">Invoice</a>
+                            {{-- <a href="{{ url('invoice/'.$item->id) }}" class="btn btn-success">Invoice</a> --}}
                             {{-- <a href="{{ url('edit-booking/'.$item->id) }}" class="btn btn-primary">Edit</a> --}}
-                            {{-- <a href="{{ url('delete-booking/'.$item->id) }}" class="btn btn-danger">Delete</a> --}}
+                            <form style="display:inline-block" action="{{ route('delete_order_admin',$item->id) }}" method="POST">
+                                @csrf
+                                @method('delete')
+                                <button class="btn btn-danger" type="submit">Delete</button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach

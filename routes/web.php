@@ -38,6 +38,8 @@ Route::get('/search',[Controller::class, 'search'])->name('search');
 
 Route::group(['middleware'=>['auth','isTeacher']],function(){
     Route::get('teacher-profile',[UserProfileController::class,'teacher_profile'])->name('teacher_profile');
+    Route::get('teacher-approved',[UserProfileController::class,'teacher_approved'])->name('teacher_approved');
+    Route::get('teacher-rejected',[UserProfileController::class,'teacher_rejected'])->name('teacher_rejected');
     Route::get('edit-teacher',[UserProfileController::class, 'edit_teacher'])->name('edit_teacher');
     Route::post('edit-teacher/{details}',[UserProfileController::class, 'change_teacher_data'])->name('change_teacher_data');
     Route::put('approve/{order}',[OrderController::class,'approve'])->name('approve_order');
@@ -52,6 +54,8 @@ Route::group(['middleware'=>['auth']],function(){
 
 Route::group(['middleware'=>['auth','isStudent']],function(){
     Route::get('/student-profile',[UserProfileController::class,'student_profile'])->name('student_profile');
+    Route::get('student-approved',[UserProfileController::class,'student_approved'])->name('student_approved');
+    Route::get('student-rejected',[UserProfileController::class,'student_rejected'])->name('student_rejected');
     Route::get('edit-student',[UserProfileController::class, 'edit_student'])->name('edit_student');
     Route::post('edit-student/{details}',[UserProfileController::class, 'change_student_data'])->name('change_student_data');
     Route::get('book/{user}',[OrderController::class,'index'])->name('booking_page');
@@ -65,6 +69,8 @@ Route::group(['middleware'=>['auth','isAdmin']],function(){
     Route::delete('/delete-user/{user}',[AdminController::class,'delete_user'])->name('delete-user');
     Route::get('/contacts',[AdminController::class,'contacts'])->name('contacts');
     Route::delete('/delete-contact/{contact}',[AdminController::class,'delete_contact'])->name('delete-contact');
+    Route::get('/orders',[AdminController::class,'orders'])->name('orders');
+    Route::delete('delete-order/{order}',[OrderController::class,'delete'])->name('delete_order_admin');
 });
 
 Route::fallback(function () {

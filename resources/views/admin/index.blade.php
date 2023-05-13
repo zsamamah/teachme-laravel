@@ -12,7 +12,7 @@
                 </div>
             </div>
         </a>
-        <hr>
+        {{-- <hr>
         <br>
         <a href="{{ url('all_saloons') }}">
             <div class="card">
@@ -21,14 +21,14 @@
                     <p>$$$</p>
                 </div>
             </div>
-        </a>
+        </a> --}}
         <hr>
         <br>
         <a href="{{ url('orders') }}">
             <div class="card">
                 <div class="card-head">
                     <h4>All Orders</h4>
-                    <p>$$$</p>
+                    <p>{{$orders->count()}}</p>
                 </div>
             </div>
         </a>

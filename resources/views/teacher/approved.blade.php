@@ -1,7 +1,7 @@
 @extends('layouts.template')
 
 @section('title')
-    Teacher Profile
+    Approved Orders
 @endsection
 
 @section('content')
@@ -54,8 +54,8 @@
           <!-- Dashboard Links -->
           <div class="widget user-dashboard-menu">
             <ul>
-              <li class="active"><a href="{{ route('teacher_profile') }}"><i class="fa fa-user"></i> My Orders</a></li>
-              <li><a href="{{ route('teacher_approved') }}"><i class="fa fa-file-archive-o"></i>Approved
+              <li><a href="{{ route('teacher_profile') }}"><i class="fa fa-user"></i> My Orders</a></li>
+              <li class="active"><a href="{{ route('teacher_approved') }}"><i class="fa fa-file-archive-o"></i>Approved
                   <span>{{$approved->count()}}</span></a></li>
               <li><a href="{{ route('teacher_rejected') }}"><i class="fa fa-bolt"></i> Rejected<span>{{$rejected->count()}}</span></a>
               </li>
@@ -78,11 +78,11 @@
               <tr>
                 <th>Order Title</th>
                 <th class="text-center">Category</th>
-                <th class="text-center">Action</th>
+                <th class="text-center">Phone</th>
               </tr>
             </thead>
             <tbody>
-              @foreach ($pending as $booking)
+              @foreach ($approved as $booking)
               <tr>
                 <td class="product-details">
                   <h3 class="title">Order form {{$booking->name}}</h3>
@@ -96,28 +96,9 @@
                   <span class="categories">{{$booking->end_time}}</span>
                 </td>
                 <td class="action" data-title="Action">
-                  <div class="">
-                    <ul class="list-inline justify-content-center">
-                      <li class="list-inline-item">
-                        <a class="edit" title="Accept" onclick="event.preventDefault(); document.getElementById('approve_order_form{{$booking->order_id}}').submit();">
-                          <i class="fa-solid fa-check"></i>
-                        </a>
-                        <form id="approve_order_form{{$booking->order_id}}" action="{{ route('approve_order', $booking->order_id) }}" method="POST" class="d-none">
-                          @csrf
-                          @method('PUT')
-                      </form>
-                      </li>
-                      <li class="list-inline-item">
-                        <a class="delete" title="Reject" onclick="event.preventDefault(); document.getElementById('reject_order_form{{$booking->order_id}}').submit();">
-                          <i class="fa fa-trash"></i>
-                        </a>
-                        <form id="reject_order_form{{$booking->order_id}}" action="{{ route('reject_order', $booking->order_id) }}" method="POST" class="d-none">
-                          @csrf
-                          @method('PUT')
-                      </form>
-                      </li>
-                    </ul>
-                  </div>
+                  <a href="tel:{{$booking->phone}}" class="text-primary">
+                    {{$booking->phone}}
+                  </a>
                 </td>
               </tr>
               @endforeach

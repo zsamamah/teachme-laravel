@@ -33,7 +33,7 @@
                             <form style="display:inline-block" action="{{ route('delete-contact',$item->id) }}" method="POST">
                                 @csrf
                                 @method('delete')
-                                <button class="btn btn-primary" type="submit">Delete</button>
+                                <button class="btn btn-danger" type="submit">Delete</button>
                             </form>
 
                         </td>

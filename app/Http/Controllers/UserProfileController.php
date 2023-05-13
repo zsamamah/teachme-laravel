@@ -16,18 +16,60 @@ class UserProfileController extends Controller
     {
         $user = Auth::user();
         $details = Detail::where('user_id',$user['id'])->first();
-        $bookings = Book::where('student_id',$user->id)->join('orders','orders.id','books.order_id')->join('users','users.id','orders.teacher_id')->join('details','details.user_id','orders.teacher_id')->get();
+        $pending = Book::where('student_id',$user->id)->join('orders','orders.id','books.order_id')->join('users','users.id','orders.teacher_id')->join('details','details.user_id','orders.teacher_id')->where('orders.status','Pending')->get();
+        $approved = Book::where('student_id',$user->id)->join('orders','orders.id','books.order_id')->where('orders.status','Approved')->get();
+        $rejected = Book::where('student_id',$user->id)->join('orders','orders.id','books.order_id')->where('orders.status','Rejected')->get();
         // dd($bookings);
-        return view('student',compact('user','details','bookings'));
+        return view('student',compact('user','details','pending','approved','rejected'));
+    }
+
+    public function student_approved()
+    {
+        $user = Auth::user();
+        $details = Detail::where('user_id',$user['id'])->first();
+        $approved = Book::where('student_id',$user->id)->join('orders','orders.id','books.order_id')->join('users','users.id','orders.teacher_id')->join('details','details.user_id','orders.teacher_id')->where('orders.status','Approved')->get();
+        $rejected = Book::where('student_id',$user->id)->join('orders','orders.id','books.order_id')->where('orders.status','Rejected')->get();
+        return view('student.approved',compact('user','details','approved','rejected'));
+    }
+
+    public function student_rejected()
+    {
+        $user = Auth::user();
+        $details = Detail::where('user_id',$user['id'])->first();
+        $approved = Book::where('student_id',$user->id)->join('orders','orders.id','books.order_id')->where('orders.status','Approved')->get();
+        $rejected = Book::where('student_id',$user->id)->join('orders','orders.id','books.order_id')->join('users','users.id','orders.teacher_id')->join('details','details.user_id','orders.teacher_id')->where('orders.status','Rejected')->get();
+        return view('student.rejected',compact('user','details','approved','rejected'));
     }
 
     public function teacher_profile()
     {
         $user = Auth::user();
         $details = Detail::where('user_id',$user['id'])->first();
-        $bookings = Order::where('teacher_id',$user->id)->join('books','books.order_id','orders.id')->join('users','users.id','books.student_id')->join('details','details.user_id','books.student_id')->get();
+        $pending = Order::where('teacher_id',$user->id)->where('status','Pending')->join('books','books.order_id','orders.id')->join('users','users.id','books.student_id')->join('details','details.user_id','books.student_id')->get();
+        $approved = Order::where('teacher_id',$user->id)->where('status','Approved')->get();
+        $rejected = Order::where('teacher_id',$user->id)->where('status','Rejected')->get();
         // dd($bookings);
-        return view('teacher',compact('user','details','bookings'));
+        return view('teacher',compact('user','details','pending','approved','rejected'));
+    }
+
+    public function teacher_approved()
+    {
+        $user = Auth::user();
+        $details = Detail::where('user_id',$user['id'])->first();
+        $approved = Order::where('teacher_id',$user->id)->where('status','Approved')->join('books','books.order_id','orders.id')->join('users','users.id','books.student_id')->join('details','details.user_id','books.student_id')->get();
+        $rejected = Order::where('teacher_id',$user->id)->where('status','Rejected')->get();
+        // dd($bookings);
+        return view('teacher.approved',compact('user','details','approved','rejected'));
+    }
+
+    public function teacher_rejected()
+    {
+        $user = Auth::user();
+        $details = Detail::where('user_id',$user['id'])->first();
+        $approved = Order::where('teacher_id',$user->id)->where('status','Approved')->get();
+        $rejected = Order::where('teacher_id',$user->id)->where('status','Rejected')->join('books','books.order_id','orders.id')->join('users','users.id','books.student_id')->join('details','details.user_id','books.student_id')->get();
+        // dd($rejected);
+        return view('teacher.rejected',compact('user','details','approved','rejected'));
     }
     
     public function edit_teacher()
