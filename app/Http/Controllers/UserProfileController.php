@@ -6,9 +6,12 @@ use App\Models\Book;
 use App\Models\Detail;
 use App\Models\Order;
 use App\Models\User;
+use Illuminate\Http\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class UserProfileController extends Controller
 {
@@ -19,7 +22,7 @@ class UserProfileController extends Controller
         $pending = Book::where('student_id',$user->id)->join('orders','orders.id','books.order_id')->join('users','users.id','orders.teacher_id')->join('details','details.user_id','orders.teacher_id')->where('orders.status','Pending')->get();
         $approved = Book::where('student_id',$user->id)->join('orders','orders.id','books.order_id')->where('orders.status','Approved')->get();
         $rejected = Book::where('student_id',$user->id)->join('orders','orders.id','books.order_id')->where('orders.status','Rejected')->get();
-        // dd($bookings);
+        // dd($details);
         return view('student',compact('user','details','pending','approved','rejected'));
     }
 
@@ -84,13 +87,19 @@ class UserProfileController extends Controller
     public function change_teacher_data(Request $request, Detail $details)
     {
         if($details->user_id == Auth::user()->id){
+            $filename = time().'.pdf';
+            Storage::putFileAs('/assets',$request->file,$filename);
             $details->update([
                 'major' => $request['major'],
                 'city' => $request['city'],
                 'university' => $request['university'],
                 'gpa' => $request['gpa'],
                 'phone' => $request['phone'],
-                'price' => $request['price']
+                'price' => $request['price'],
+                'facebook' => $request['facebook'],
+                'linkedin' => $request['linkedin'],
+                'instagram' => $request['instagram'],
+                'file'=>$filename
             ]);
             return redirect(route('teacher_profile'));
         }
@@ -110,12 +119,19 @@ class UserProfileController extends Controller
     public function change_student_data(Request $request, Detail $details)
     {
         if($details->user_id == Auth::user()->id){
+        $name = Str::random(10);
+        $extension = $request->file('photo')->getClientOriginalExtension();
+        Storage::putFileAs('public',$request->file("photo"),$name.".".$extension);
             $details->update([
                 'major' => $request['major'],
                 'city' => $request['city'],
                 'university' => $request['university'],
                 'gpa' => $request['gpa'],
-                'phone' => $request['phone']
+                'phone' => $request['phone'],
+                'facebook' => $request['facebook'],
+                'linkedin' => $request['linkedin'],
+                'instagram' => $request['instagram'],
+                'photo'=> $name . '.' . $extension
             ]);
             return redirect(route('student_profile'));
         }

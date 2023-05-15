@@ -78,7 +78,7 @@
               <tr>
                 <th>Order Title</th>
                 <th class="text-center">Category</th>
-                <th class="text-center">Phone</th>
+                <th class="text-center">View</th>
               </tr>
             </thead>
             <tbody>
@@ -105,8 +105,8 @@
                   <span class="categories">{{$booking->end_time}}</span>
                 </td>
                 <td class="action" data-title="Action">
-                  <a class="text-primary" href="tel:{{$booking->phone}}">
-                    {{$booking->phone}}
+                  <a class="text-primary" href="{{ route('show_order', $booking->order_id) }}">
+                    Details
                   </a>
                 </td>
               </tr>

@@ -11,7 +11,7 @@
         <!-- About -->
         <div class="block about">
           <!-- footer logo -->
-          <img src="{{ asset('images/logo-footer.pnggg') }}" alt="logo">
+          <img src="{{ asset('images/logo2.png') }}" alt="logo">
           <!-- description -->
           <p class="alt-color">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
             incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco

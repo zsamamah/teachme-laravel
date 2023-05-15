@@ -61,6 +61,8 @@ Route::group(['middleware'=>['auth','isStudent']],function(){
     Route::get('book/{user}',[OrderController::class,'index'])->name('booking_page');
     Route::post('book/{user}',[OrderController::class,'store'])->name('booking_submit');
     Route::delete('books/{order}',[OrderController::class,'destroy'])->name('delete_order');
+    Route::get('/show-booking/{order}',[OrderController::class,'show'])->name('show_order');
+    Route::post('rate',[ReviewController::class,'store'])->name('rate');
 });
 
 Route::group(['middleware'=>['auth','isAdmin']],function(){
@@ -71,6 +73,7 @@ Route::group(['middleware'=>['auth','isAdmin']],function(){
     Route::delete('/delete-contact/{contact}',[AdminController::class,'delete_contact'])->name('delete-contact');
     Route::get('/orders',[AdminController::class,'orders'])->name('orders');
     Route::delete('delete-order/{order}',[OrderController::class,'delete'])->name('delete_order_admin');
+    Route::get('order-details/{order}',[AdminController::class,'details'])->name('show-details');
 });
 
 Route::fallback(function () {

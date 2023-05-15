@@ -39,7 +39,7 @@
                         <td>
                             {{-- <a href="{{ route('done-booking',$item->id) }}" class="btn btn-danger">Done</a> --}}
                             {{-- <a href="{{ url('invoice/'.$item->id) }}" class="btn btn-success">Invoice</a> --}}
-                            {{-- <a href="{{ url('edit-booking/'.$item->id) }}" class="btn btn-primary">Edit</a> --}}
+                            <a href="{{ route('show-details',$item->id) }}" class="btn btn-success">Details</a>
                             <form style="display:inline-block" action="{{ route('delete_order_admin',$item->id) }}" method="POST">
                                 @csrf
                                 @method('delete')

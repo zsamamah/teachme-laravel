@@ -89,6 +89,7 @@
                   <span class="add-id"><strong>University:</strong> {{$booking->university}}, {{$booking->major}}</span>
                   <span><strong>Date: </strong><time>{{$booking->date}}</time> </span>
                   <span class="location"><strong>Location</strong>{{$booking->city}},Jordan</span>
+                  <span class="location"><strong>Students #</strong>{{$booking->students_num}}</span>
                 </td>
                 <td class="product-category">
                   <span class="categories">{{$booking->date}}</span> From:
@@ -97,7 +98,16 @@
                 </td>
                 <td class="action" data-title="Action">
                   <a href="tel:{{$booking->phone}}" class="text-primary">
-                    {{$booking->phone}}
+                    <i class="fa-solid fa-square-phone fa-2x text-success"></i>
+                  </a>
+                  <a href="tel:{{$booking->facebook}}" class="text-primary">
+                    <i class="fa-brands fa-square-facebook fa-2x text-primary"></i>
+                  </a>
+                  <a href="tel:{{$booking->instagram}}" class="text-primary">
+                    <i class="fa-brands fa-square-instagram fa-2x text-warning"></i>
+                  </a>
+                  <a href="tel:{{$booking->linkedin}}" class="text-primary">
+                    <i class="fa-brands fa-linkedin fa-2x text-primary"></i>
                   </a>
                 </td>
               </tr>

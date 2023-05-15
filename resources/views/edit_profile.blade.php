@@ -14,7 +14,7 @@
                     action="{{ route('change_teacher_data',$details->id) }}"
                 @else
                     action="{{ route('change_student_data',$details->id) }}"
-                @endif method="POST">
+                @endif method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="col-md-6">
                       <label for="email" class="form-label">Email ( Can`t change email )</label>
@@ -61,12 +61,20 @@
                         @endif>
                       </div>
                     @endif
-                    <div class="col-12">
+                    <div class="col-6">
                       <label for="university" class="form-label">University</label>
                       <input type="text" class="form-control" id="university" name="university" placeholder="Jordan University of Science and Technology" @if ($details->university)
                           value="{{$details->university}}"
                       @endif>
                     </div>
+                    @if ($user->role == 'student')
+                    <div class="col-6">
+                      <label for="major" class="form-label">Major</label>
+                      <input type="text" class="form-control" id="major" name="major" placeholder="Computer Information Systems" @if ($details->major)
+                          value="{{$details->major}}"
+                      @endif>
+                    </div>
+                    @endif
                     <div class="col-md-6">
                       <label for="gpa" class="form-label">GPA</label>
                       <input type="text" class="form-control" name="gpa" id="gpa" @if ($details->gpa)
@@ -78,6 +86,28 @@
                       <input type="tel" class="form-control" name="phone" id="phone" @if ($details->phone)
                             value="{{$details->phone}}"
                       @endif>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="facebook" class="form-label">Facebook Link</label>
+                      <input type="text" class="form-control" name="facebook" id="facebook" placeholder="https://www.facebook.com/USERNAME" @if ($details->facebook)
+                            value="{{$details->facebook}}"
+                      @endif>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="instagram" class="form-label">Instagram Link</label>
+                      <input type="text" class="form-control" name="instagram" id="instagram" placeholder="https://www.instagram.com/USERNAME/" @if ($details->instagram)
+                            value="{{$details->instagram}}"
+                      @endif>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="linkedin" class="form-label">Linkedin Link</label>
+                      <input type="text" class="form-control" name="linkedin" id="linkedin" placeholder="https://www.linkedin.com/in/USERNAME" @if ($details->linkedin)
+                            value="{{$details->linkedin}}"
+                      @endif>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="photo" class="form-label">Change Profile Photo</label>
+                      <input type="file" class="form-control" name="photo" id="photo">
                     </div>
                     <div class="col-12 mt-2">
                           <a class="text-primary" href="{{ route('change_password') }}">Change Password</a>

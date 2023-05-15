@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Detail extends Model
+class Review extends Model
 {
     use HasFactory;
 
@@ -15,20 +15,12 @@ class Detail extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'user_id',
-        'university',
-        'major',
-        'gpa',
-        'phone',
-        'city',
-        'price',
-        'facebook',
-        'linkedin',
-        'instagram',
-        'photo'
+        'student_id',
+        'order_id',
+        'range'
     ];
 
-    public function user()
+    public function teacher()
     {
         return $this->belongsTo(User::class);
     }

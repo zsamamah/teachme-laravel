@@ -68,7 +68,7 @@
                         <div class="row mb-3">
                             <label for="role" class="col-md-4 col-form-label text-md-end">Role</label>
                             <div class="col-md-6">
-                            <select class="form-control mb-3" name="role" required>
+                            <select class="form-control mb-3 w-100" name="role" required>
                                 <option value="student">Student</option>
                                 <option value="teacher">Teacher</option>
                               </select>
@@ -78,7 +78,7 @@
                         <div class="row mb-3">
                             <label for="city" class="col-md-4 col-form-label text-md-end">City</label>
                             <div class="col-md-6">
-                            <select class="form-control mb-3" name="city" required>
+                            <select class="form-control mb-3 w-100" name="city" required>
                                 <option value="Irbid">Irbid</option>
                                 <option value="Ajloun">Ajloun</option>
                                 <option value="Jerash">Jerash</option>

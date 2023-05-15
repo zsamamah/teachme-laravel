@@ -23,6 +23,10 @@ return new class extends Migration
             $table->string('phone')->nullable();
             $table->string('price')->nullable();
             $table->string('city')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('linkedin')->nullable();
+            $table->string('instagram')->nullable();
+            $table->string('photo')->nullable();
             $table->timestamps();
         });
     }

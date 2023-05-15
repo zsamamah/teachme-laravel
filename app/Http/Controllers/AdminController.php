@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Book;
 use App\Models\Contact;
 use App\Models\Order;
 use App\Models\User;
@@ -48,5 +49,12 @@ class AdminController extends Controller
     {
         $orders = Order::join('users','orders.teacher_id','users.id')->join('details','orders.teacher_id','details.user_id')->select('orders.*','users.name','details.city')->get();
         return view('admin.orders.index',compact('orders'));
+    }
+
+    public function details(Order $order)
+    {
+        $order = Order::where('orders.id',$order->id)->join('users','users.id','orders.teacher_id')->join('details','details.user_id','orders.teacher_id')->select('orders.*','users.name','details.phone','details.city')->first();
+        $booking = Book::where('books.order_id',$order->id)->join('users','books.student_id','users.id')->join('details','details.user_id','books.student_id')->select('users.name','details.phone','details.university','details.major')->first();
+        return view('admin.orders.edit',compact('order','booking'));
     }
 }

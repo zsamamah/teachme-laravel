@@ -3,35 +3,55 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            <h4>Edit Result</h4>
+            <h4>Order: {{$order->id}}</h4>
         </div>
         <div class="card-body">
-            <form action="{{ url('update-booking/'.$booking->id) }}" method="POST" enctype="multipart/form-data">
-                @csrf
-                @method('PUT')
-                <div class="row">
-                    <div class="col-md-6">
-                    <label for="paid">Paid for this test ?</label>
-                    <br>
-                    <input type="radio" name="paid" id="ypaid" value='yes' @if ($booking['paid']=='yes') @checked(true) @endif>
-                    <label for="ypaid">Yes</label>
-                    <br>
-                    <input type="radio" name="paid" id="npaid" value='no' @if ($booking['paid']=='no') @checked(true) @endif>
-                    <label for="npaid">No</label>
-                    </div>
-
+            <div class="row">
+                <div class="col-md-4">
+                    <label>Teacher Name</label>
+                    <input class="form-control" type="text" value="{{$order->name}}" disabled readonly>
                 </div>
-                <div class="row">
-                    <div class="col-md-6 mb-3" >
-                        <label for="">Result</label>
-                       <textarea name="result" class="form-control w-100" cols="20" rows="3" >{{$booking->result}}</textarea>
-                        <hr>
-                    </div>
-                    <div class="col-mid-12">
-                        <button type="submit" class="btn btn-primary">Edit Booking</button>
-                    </div>
+                <div class="col-md-4">
+                    <label>Student Name</label>
+                    <input class="form-control" type="text" value="{{$booking->name}}" disabled readonly>
                 </div>
-            </form>
+                <div class="col-md-4">
+                    <label>Status</label>
+                    <input class="form-control" type="text" value="{{$order->status}}" disabled readonly>
+                </div>
+                <div class="col-md-4">
+                    <label>Students #</label>
+                    <input class="form-control" type="text" value="{{$order->students_num}}" disabled readonly>
+                </div>
+                <div class="col-md-4">
+                    <label>Date</label>
+                    <input class="form-control" type="text" value="{{$order->date}}" disabled readonly>
+                </div>
+                <div class="col-md-4">
+                    <label>Time</label>
+                    <input class="form-control" type="text" value="{{$order->start_time}} - {{$order->end_time}}" disabled readonly>
+                </div>
+                <div class="col-md-4">
+                    <label>Teacher City</label>
+                    <input class="form-control" type="text" value="{{$order->city}}" disabled readonly>
+                </div>
+                <div class="col-md-4">
+                    <label>Teacher Phone</label>
+                    <input class="form-control" type="text" value="{{$order->phone}}" disabled readonly>
+                </div>
+                <div class="col-md-4">
+                    <label>Student City</label>
+                    <input class="form-control" type="text" value="{{$order->city}}" disabled readonly>
+                </div>
+                <div class="col-md-4">
+                    <label>Student Phone</label>
+                    <input class="form-control" type="text" value="{{$booking->phone}}" disabled readonly>
+                </div>
+                <div class="col-md-4">
+                    <label>Student University</label>
+                    <input class="form-control" type="text" value="{{$booking->university}} / {{$booking->major}}" disabled readonly>
+                </div>
+            </div>
         </div>
     </div>
 @endsection

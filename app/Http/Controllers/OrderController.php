@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Book;
 use App\Models\Detail;
 use App\Models\Order;
+use App\Models\Review;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -63,7 +64,16 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
-        //
+        $user = Auth::user();
+        $details = Detail::where('user_id', $user->id)->first();
+        $order = Order::where('orders.id',$order->id)->join('users','users.id','orders.teacher_id')->join('details','orders.teacher_id','details.user_id')->select('users.name','orders.*','details.phone')->first();
+        $book = Book::where('order_id',$order->id)->first();
+        $approved = Book::where('books.student_id',$user->id)->join('orders','orders.id','books.order_id')->join('users','users.id','orders.teacher_id')->where('orders.status','Approved')->get();
+        $rejected = Book::where('student_id',$user->id)->join('orders','orders.id','books.order_id')->where('orders.status','Rejected')->get();
+        if($book->student_id == $user->id)
+            return view('show_order',compact('user','order','details','approved','rejected'));
+        else
+            return redirect('/');
     }
 
     /**

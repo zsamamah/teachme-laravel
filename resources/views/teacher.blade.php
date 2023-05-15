@@ -89,6 +89,7 @@
                   <span class="add-id"><strong>University:</strong> {{$booking->university}}, {{$booking->major}}</span>
                   <span><strong>Date: </strong><time>{{$booking->date}}</time> </span>
                   <span class="location"><strong>Location</strong>{{$booking->city}},Jordan</span>
+                  <span class="location"><strong>students #</strong>{{$booking->students_num}}</span>
                 </td>
                 <td class="product-category">
                   <span class="categories">{{$booking->date}}</span> From:
