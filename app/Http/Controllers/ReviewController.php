@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use App\Models\Review;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -35,24 +36,23 @@ class ReviewController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, User $user)
+    public function store(Request $request,Order $order)
     {
-        dd($request);
-        // $reviews = Review::where('saloon_id',$saloon->id)->where('user_id',Auth::user()->id)->first();
-        // // dd($reviews);
-        // if($reviews && $request['range']!=$reviews['range']){
-        //     $reviews->update([
-        //         'range'=>$request['range'],
-        //     ]);
-        // }
-        // else if(!$reviews){
-        //     Review::create([
-        //         'range'=>$request['range'],
-        //         'saloon_id'=>$saloon->id,
-        //         'user_id'=>Auth::user()->id,
-        //     ]);
-        // }
-        // return redirect('/saloons'.'/'.$saloon->id);
+        $reviews = Review::where('order_id',$order->id)->where('student_id',Auth::user()->id)->first();
+        // dd($reviews);
+        if($reviews && $request['range']!=$reviews['range']){
+            $reviews->update([
+                'range'=>$request['range'],
+            ]);
+        }
+        else if(!$reviews){
+            Review::create([
+                'range'=>$request['range'],
+                'order_id'=>$order->id,
+                'student_id'=>Auth::user()->id
+            ]);
+        }
+        return redirect(route('show_order',$order->id));
     }
 
     /**

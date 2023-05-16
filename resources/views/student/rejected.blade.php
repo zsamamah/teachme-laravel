@@ -19,7 +19,11 @@
           <div class="widget user-dashboard-profile">
             <!-- User Image -->
             <div class="profile-thumb">
-              <img src="{{ asset('images/user/user.png') }}" alt="" class="rounded-circle">
+              <img @if ($details->photo)
+              src="{{asset('storage/'.$details->photo)}}"
+              @else
+                src="{{ asset('images/user/user.png') }}"
+              @endif alt="" class="rounded-circle">
             </div>
             <!-- User Name -->
             <h5 class="text-center">Student - {{$user->name}}</h5>

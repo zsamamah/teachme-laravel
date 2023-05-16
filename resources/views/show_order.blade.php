@@ -66,7 +66,11 @@ h1 { font-size: 1.5em; margin: 10px; }
           <div class="widget user-dashboard-profile">
             <!-- User Image -->
             <div class="profile-thumb">
-              <img src="{{ asset('images/user/user.png') }}" alt="" class="rounded-circle">
+              <img @if ($details->photo)
+              src="{{asset('storage/'.$details->photo)}}"
+              @else
+                src="{{ asset('images/user/user.png') }}"
+              @endif alt="" class="rounded-circle">
             </div>
             <!-- User Name -->
             <h5 class="text-center">Student - {{$user->name}}</h5>
@@ -117,17 +121,9 @@ h1 { font-size: 1.5em; margin: 10px; }
 ===================================-->
 
       <div class="col-lg-8">
-        <!-- Recently Favorited -->
         <div class="widget dashboard-container my-adslist">
           <h3 class="widget-header">My Ads</h3>
           <table class="table table-responsive product-dashboard-table">
-            {{-- <thead>
-              <tr>
-                <th>Order Title</th>
-                <th class="text-center">Category</th>
-                <th class="text-center">View</th>
-              </tr>
-            </thead> --}}
             <tbody>
               <tr>
                 <td class="product-details">
@@ -154,31 +150,35 @@ h1 { font-size: 1.5em; margin: 10px; }
                   <a href="tel:{{$order->phone}}" class="text-primary">
                     <i class="fa-solid fa-square-phone fa-2x text-success"></i>
                   </a>
-                  <a href="tel:{{$order->facebook}}" class="text-primary">
+                  <a href="https://{{$order->facebook}}" class="text-primary">
                     <i class="fa-brands fa-square-facebook fa-2x text-primary"></i>
                   </a>
-                  <a href="tel:{{$order->instagram}}" class="text-primary">
+                  <a href="https://{{$order->instagram}}" class="text-primary">
                     <i class="fa-brands fa-square-instagram fa-2x text-warning"></i>
                   </a>
-                  <a href="tel:{{$order->linkedin}}" class="text-primary">
+                  <a href="https://{{$order->linkedin}}" class="text-primary">
                     <i class="fa-brands fa-linkedin fa-2x text-primary"></i>
                   </a>
                 </td>
               </tr>
             </tbody>
           </table>
-
-          <form action="{{ route('rate') }}" method="POST">
+          @if (!$rate)
+          <form action="{{ route('rate',$order->id) }}" method="POST">
             @csrf
             <fieldset class="rating">
-                <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
-                <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
-                <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
-                <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
-                <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+                <input type="radio" id="star5" name="range" value="5" /><label class = "full" for="star5" title="5 stars"></label>
+                <input type="radio" id="star4" name="range" value="4" /><label class = "full" for="star4" title="4 stars"></label>
+                <input type="radio" id="star3" name="range" value="3" /><label class = "full" for="star3" title="3 stars"></label>
+                <input type="radio" id="star2" name="range" value="2" /><label class = "full" for="star2" title="2 stars"></label>
+                <input type="radio" id="star1" name="range" value="1" /><label class = "full" for="star1" title="1 star"></label>
             </fieldset>
-            <button class="btn-sm" type="submit">Rate!</button>
+            <br><br>
+            <button class="btn-sm btn-primary" type="submit">Rate!</button>
           </form>
+          @else
+          <button class="btn-sm btn-secondary" disabled>Rated!</button>
+          @endif
 
         </div>
 

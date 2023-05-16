@@ -66,12 +66,14 @@ class OrderController extends Controller
     {
         $user = Auth::user();
         $details = Detail::where('user_id', $user->id)->first();
-        $order = Order::where('orders.id',$order->id)->join('users','users.id','orders.teacher_id')->join('details','orders.teacher_id','details.user_id')->select('users.name','orders.*','details.phone')->first();
+        $order = Order::where('orders.id',$order->id)->join('users','users.id','orders.teacher_id')->join('details','orders.teacher_id','details.user_id')->select('users.name','details.*','orders.*')->first();
         $book = Book::where('order_id',$order->id)->first();
         $approved = Book::where('books.student_id',$user->id)->join('orders','orders.id','books.order_id')->join('users','users.id','orders.teacher_id')->where('orders.status','Approved')->get();
         $rejected = Book::where('student_id',$user->id)->join('orders','orders.id','books.order_id')->where('orders.status','Rejected')->get();
+        $rate = Review::where('order_id',$order->id)->where('student_id',$user->id)->first();
+        // dd($rate);
         if($book->student_id == $user->id)
-            return view('show_order',compact('user','order','details','approved','rejected'));
+            return view('show_order',compact('user','order','details','approved','rejected','rate'));
         else
             return redirect('/');
     }

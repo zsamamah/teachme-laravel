@@ -19,7 +19,11 @@
           <div class="widget user-dashboard-profile">
             <!-- User Image -->
             <div class="profile-thumb">
-              <img src="{{ asset('images/user/user.png') }}" alt="" class="rounded-circle">
+              <img @if ($details->photo)
+              src="{{asset('storage/'.$details->photo)}}"
+              @else
+                src="{{ asset('images/user/user.png') }}"
+              @endif alt="" class="rounded-circle">
             </div>
             <!-- User Name -->
             <h5 class="text-center">Teacher - {{$user->name}}</h5>
@@ -32,7 +36,7 @@
               {{$details->university}}
             @else
                 ---
-            @endif {{$details->nuiversity}}</p>
+            @endif</p>
             <p><i class="fa-solid fa-graduation-cap"></i> @if ($details->major)
               {{$details->major}}
             @else
@@ -100,13 +104,13 @@
                   <a href="tel:{{$booking->phone}}" class="text-primary">
                     <i class="fa-solid fa-square-phone fa-2x text-success"></i>
                   </a>
-                  <a href="tel:{{$booking->facebook}}" class="text-primary">
+                  <a href="https://{{$booking->facebook}}" class="text-primary">
                     <i class="fa-brands fa-square-facebook fa-2x text-primary"></i>
                   </a>
-                  <a href="tel:{{$booking->instagram}}" class="text-primary">
+                  <a href="https://{{$booking->instagram}}" class="text-primary">
                     <i class="fa-brands fa-square-instagram fa-2x text-warning"></i>
                   </a>
-                  <a href="tel:{{$booking->linkedin}}" class="text-primary">
+                  <a href="https://{{$booking->linkedin}}" class="text-primary">
                     <i class="fa-brands fa-linkedin fa-2x text-primary"></i>
                   </a>
                 </td>

@@ -22,7 +22,6 @@ class UserProfileController extends Controller
         $pending = Book::where('student_id',$user->id)->join('orders','orders.id','books.order_id')->join('users','users.id','orders.teacher_id')->join('details','details.user_id','orders.teacher_id')->where('orders.status','Pending')->get();
         $approved = Book::where('student_id',$user->id)->join('orders','orders.id','books.order_id')->where('orders.status','Approved')->get();
         $rejected = Book::where('student_id',$user->id)->join('orders','orders.id','books.order_id')->where('orders.status','Rejected')->get();
-        // dd($details);
         return view('student',compact('user','details','pending','approved','rejected'));
     }
 
@@ -51,7 +50,6 @@ class UserProfileController extends Controller
         $pending = Order::where('teacher_id',$user->id)->where('status','Pending')->join('books','books.order_id','orders.id')->join('users','users.id','books.student_id')->join('details','details.user_id','books.student_id')->get();
         $approved = Order::where('teacher_id',$user->id)->where('status','Approved')->get();
         $rejected = Order::where('teacher_id',$user->id)->where('status','Rejected')->get();
-        // dd($bookings);
         return view('teacher',compact('user','details','pending','approved','rejected'));
     }
 
@@ -61,7 +59,6 @@ class UserProfileController extends Controller
         $details = Detail::where('user_id',$user['id'])->first();
         $approved = Order::where('teacher_id',$user->id)->where('status','Approved')->join('books','books.order_id','orders.id')->join('users','users.id','books.student_id')->join('details','details.user_id','books.student_id')->get();
         $rejected = Order::where('teacher_id',$user->id)->where('status','Rejected')->get();
-        // dd($bookings);
         return view('teacher.approved',compact('user','details','approved','rejected'));
     }
 
@@ -71,7 +68,6 @@ class UserProfileController extends Controller
         $details = Detail::where('user_id',$user['id'])->first();
         $approved = Order::where('teacher_id',$user->id)->where('status','Approved')->get();
         $rejected = Order::where('teacher_id',$user->id)->where('status','Rejected')->join('books','books.order_id','orders.id')->join('users','users.id','books.student_id')->join('details','details.user_id','books.student_id')->get();
-        // dd($rejected);
         return view('teacher.rejected',compact('user','details','approved','rejected'));
     }
     
@@ -87,8 +83,6 @@ class UserProfileController extends Controller
     public function change_teacher_data(Request $request, Detail $details)
     {
         if($details->user_id == Auth::user()->id){
-            $filename = time().'.pdf';
-            Storage::putFileAs('/assets',$request->file,$filename);
             $details->update([
                 'major' => $request['major'],
                 'city' => $request['city'],
@@ -98,9 +92,16 @@ class UserProfileController extends Controller
                 'price' => $request['price'],
                 'facebook' => $request['facebook'],
                 'linkedin' => $request['linkedin'],
-                'instagram' => $request['instagram'],
-                'file'=>$filename
+                'instagram' => $request['instagram']
             ]);
+            if($request->file('photo')){
+                $name = Str::random(10);
+                $extension = $request->file('photo')->getClientOriginalExtension();
+                Storage::putFileAs('public',$request->file("photo"),$name.".".$extension);
+                $details->update([
+                    'photo'=> $name . '.' . $extension
+                ]);
+            }
             return redirect(route('teacher_profile'));
         }
         else{
@@ -119,9 +120,6 @@ class UserProfileController extends Controller
     public function change_student_data(Request $request, Detail $details)
     {
         if($details->user_id == Auth::user()->id){
-        $name = Str::random(10);
-        $extension = $request->file('photo')->getClientOriginalExtension();
-        Storage::putFileAs('public',$request->file("photo"),$name.".".$extension);
             $details->update([
                 'major' => $request['major'],
                 'city' => $request['city'],
@@ -130,9 +128,16 @@ class UserProfileController extends Controller
                 'phone' => $request['phone'],
                 'facebook' => $request['facebook'],
                 'linkedin' => $request['linkedin'],
-                'instagram' => $request['instagram'],
-                'photo'=> $name . '.' . $extension
+                'instagram' => $request['instagram']
             ]);
+            if($request->file('photo')){
+                $name = Str::random(10);
+                $extension = $request->file('photo')->getClientOriginalExtension();
+                Storage::putFileAs('public',$request->file("photo"),$name.".".$extension);
+                $details->update([
+                    'photo'=> $name . '.' . $extension
+                ]);
+            }
             return redirect(route('student_profile'));
         }
         else{

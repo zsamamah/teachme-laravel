@@ -62,7 +62,7 @@ Route::group(['middleware'=>['auth','isStudent']],function(){
     Route::post('book/{user}',[OrderController::class,'store'])->name('booking_submit');
     Route::delete('books/{order}',[OrderController::class,'destroy'])->name('delete_order');
     Route::get('/show-booking/{order}',[OrderController::class,'show'])->name('show_order');
-    Route::post('rate',[ReviewController::class,'store'])->name('rate');
+    Route::post('rate/{order}',[ReviewController::class,'store'])->name('rate');
 });
 
 Route::group(['middleware'=>['auth','isAdmin']],function(){
