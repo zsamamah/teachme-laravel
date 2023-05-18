@@ -35,6 +35,7 @@ Route::post('/contact',[ContactController::class,'store'])->name('contact.store'
 Route::get('/contact-done',[ContactController::class,'done'])->name('contact-done');
 
 Route::get('/search',[Controller::class, 'search'])->name('search');
+Route::get('search-name',[Controller::class,'search_name'])->name('search_name');
 
 Route::group(['middleware'=>['auth','isTeacher']],function(){
     Route::get('teacher-profile',[UserProfileController::class,'teacher_profile'])->name('teacher_profile');

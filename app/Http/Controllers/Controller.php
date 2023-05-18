@@ -19,9 +19,17 @@ class Controller extends BaseController
         return view('search');
     }
 
+    public function search_name(Request $request)
+    {
+        return view('search_name');
+    }
+
     public function fetch_data(Request $request)
     {
         $data='none';
+        if($request['name']){
+            $data = User::where('role','teacher')->join('details','users.id','details.user_id')->where('users.name', 'like', '%'.$request['name'].'%')->get();
+        }
         if($request['major'] && $request['city'] && $request['category']=='Category'){
             $data = User::where('role','teacher')->join('details','users.id','details.user_id')->where('major',$request['major'])->where('city',$request['city'])->get();
         }

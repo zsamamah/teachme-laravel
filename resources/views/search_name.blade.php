@@ -1,7 +1,7 @@
 @extends('layouts.template')
 
 @section('title')
-    Search
+    Search Name
 @endsection
 
 @section('content')
@@ -15,10 +15,10 @@
             <!-- Dashboard Links -->
             <div class="widget user-dashboard-menu">
               <ul>
-                <li @if (request()->input('category') == 'category') class="active" @endif><a href="#"><i class="fa fa-user"></i> My Orders</a></li>
-                <li @if (request()->input('category') == '1') class="active" @endif><a href="search?major={{request()->input('major')}}&category=1&city={{request()->input('city')}}"><i class="fa-solid fa-star"></i> Top Rated</a></li>
-                <li @if (request()->input('category') == '4') class="active" @endif><a href="search?major={{request()->input('major')}}&category=4&city={{request()->input('city')}}"><i class="fa-solid fa-arrow-up"></i> Highest Price</a></li>
-                <li @if (request()->input('category') == '2') class="active" @endif><a href="search?major={{request()->input('major')}}&category=2&city={{request()->input('city')}}"><i class="fa-solid fa-arrow-down"></i> Lowest Price</a></li>
+                <li class="active"><a href="#"><i class="fa fa-user"></i> My Orders</a></li>
+                <li><i class="fa-solid fa-star"></i> Top Rated</a></li>
+                <li><i class="fa-solid fa-arrow-up"></i> Highest Price</a></li>
+                <li><i class="fa-solid fa-arrow-down"></i> Lowest Price</a></li>
               </ul>
             </div>
           </div>
@@ -26,7 +26,7 @@
             <!-- Dashboard Links -->
             <div class="widget user-dashboard-menu">
               <h5>Search By Name:</h5>
-              <form action="{{ route('search_name') }}" method="GET">
+              <form action="search" method="GET">
                 @csrf
               <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1">@</span>
@@ -73,16 +73,13 @@
 <script>
 async function fetch_data(){
   const params = new URLSearchParams(window.location.search);
-  const major = params.get('major');
-  const category = params.get('category');
-  const city = params.get('city');
+  const name = params.get('name');
   var table = document.getElementById('table_body');
-  let x = await fetch(`http://127.0.0.1:8000/api/search_fetch?major=${major}&city=${city}&category=${category}`);
+  let x = await fetch(`http://127.0.0.1:8000/api/search_fetch?name=${name}`);
   let y = await x.json();
   var data = []
   console.log(y.length)
     y.forEach(ele => {
-      if(ele['city'] == city)
       data.push(ele)
 });
 data.forEach(ele => {
