@@ -113,66 +113,66 @@
 <section class="section service-2">
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-4 col-md-6 col-sm-6">
+			<a href="search?major=Math&city=Amman" class="col-lg-4 col-md-6 col-sm-6">
 				<div class="service-block mb-5">
-					<img src="{{ asset('images/blog/post-1.jpg') }}" alt="" class="img-fluid">
+					<img src="{{ asset('images/majors/math.jpg') }}" alt="" class="img-fluid">
 					<div class="content">
-						<h4 class="mt-4 mb-2 title-color">Lorem Ipsum</h4>
+						<h4 class="mt-4 mb-2 title-color">Mathmetics</h4>
 						<p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
 					</div>
 				</div>
-			</div>
+			</a>
 
-			<div class="col-lg-4 col-md-6 col-sm-6">
+			<a href="search?major=English&city=Amman" class="col-lg-4 col-md-6 col-sm-6">
 				<div class="service-block mb-5">
-					<img src="{{ asset('images/blog/post-2.jpg') }}" alt="" class="img-fluid">
+					<img src="{{ asset('images/majors/english.jpg') }}" alt="" class="img-fluid">
 					<div class="content">
-						<h4 class="mt-4 mb-2  title-color">Lorem Ipsum</h4>
+						<h4 class="mt-4 mb-2  title-color">English Language</h4>
 						<p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
 					</div>
 				</div>
-			</div>
+			</a>
 			
-			<div class="col-lg-4 col-md-6 col-sm-6">
+			<a href="search?major=Arabic&city=Amman" class="col-lg-4 col-md-6 col-sm-6">
 				<div class="service-block mb-5">
-					<img src="{{ asset('images/blog/post-3.jpg') }}" alt="" class="img-fluid">
+					<img src="{{ asset('images/majors/arabic.jpg') }}" alt="" class="img-fluid">
 					<div class="content">
-						<h4 class="mt-4 mb-2 title-color">Lorem Ipsum</h4>
+						<h4 class="mt-4 mb-2 title-color">Arabic Language</h4>
 						<p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
 					</div>
 				</div>
-			</div>
+			</a>
 
 
-			<div class="col-lg-4 col-md-6 col-sm-6">
+			<a href="search?major=Physics&city=Amman" class="col-lg-4 col-md-6 col-sm-6">
 				<div class="service-block mb-5 mb-lg-0">
-					<img src="{{ asset('images/blog/post-4.jpg') }}" alt="" class="img-fluid">
+					<img src="{{ asset('images/majors/physics.jpg') }}" alt="" class="img-fluid">
 					<div class="content">
-						<h4 class="mt-4 mb-2 title-color">Lorem Ipsum</h4>
+						<h4 class="mt-4 mb-2 title-color">Physics</h4>
 						<p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
 					</div>
 				</div>
-			</div>
+			</a>
 
-			<div class="col-lg-4 col-md-6 col-sm-6">
+			<a href="search?major=Chemistry&city=Amman" class="col-lg-4 col-md-6 col-sm-6">
 				<div class="service-block mb-5 mb-lg-0">
-					<img src="{{ asset('images/blog/post-5.jpg') }}" alt="" class="img-fluid">
+					<img src="{{ asset('images/majors/chemistry.png') }}" alt="" class="img-fluid">
 					<div class="content">
-						<h4 class="mt-4 mb-2 title-color">Lorem Ipsum</h4>
+						<h4 class="mt-4 mb-2 title-color">Chemistry</h4>
 						<p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
 					</div>
 				</div>
-			</div>
+			</a>
 			
-			<div class="col-lg-4 col-md-6 col-sm-6">
+			<a href="search?major=Computer&city=Amman" class="col-lg-4 col-md-6 col-sm-6">
 				<div class="service-block mb-5 mb-lg-0">
-					<img src="{{ asset('images/blog/post-1.jpg') }}" alt="" class="img-fluid">
+					<img src="{{ asset('images/majors/computer.jpg') }}" alt="" class="img-fluid">
 					<div class="content">
-						<h4 class="mt-4 mb-2 title-color">Lorem Ipsum</h4>
+						<h4 class="mt-4 mb-2 title-color">Computer</h4>
 						<p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
 					</div>
 				</div>
-			</div>
+			</a>
 		</div>
 	</div>
 </section>

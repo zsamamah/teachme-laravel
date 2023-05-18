@@ -15,12 +15,10 @@
             <!-- Dashboard Links -->
             <div class="widget user-dashboard-menu">
               <ul>
-                <li class="active"><a href="dashboard-my-ads.html"><i class="fa fa-user"></i> My Orders</a></li>
-                <li><a href="dashboard-archived-ads.html"><i class="fa fa-file-archive-o"></i>Archived Ads
-                    <span>12</span></a></li>
-                <li><a href="dashboard-pending-ads.html"><i class="fa fa-bolt"></i> Pending Approval<span>23</span></a>
-                </li>
-                <li><a href="index.html"><i class="fa fa-power-off"></i> Logout</a></li>
+                <li @if (request()->input('category') == 'category') class="active" @endif><a href="#"><i class="fa fa-user"></i> My Orders</a></li>
+                <li @if (request()->input('category') == '1') class="active" @endif><a href="search?major={{request()->input('major')}}&category=1&city={{request()->input('city')}}"><i class="fa-solid fa-star"></i> Top Rated</a></li>
+                <li @if (request()->input('category') == '4') class="active" @endif><a href="search?major={{request()->input('major')}}&category=4&city={{request()->input('city')}}"><i class="fa-solid fa-arrow-up"></i> Highest Price</a></li>
+                <li @if (request()->input('category') == '2') class="active" @endif><a href="search?major={{request()->input('major')}}&category=2&city={{request()->input('city')}}"><i class="fa-solid fa-arrow-down"></i> Lowest Price</a></li>
               </ul>
             </div>
           </div>
@@ -65,16 +63,13 @@ async function fetch_data(){
   const category = params.get('category');
   const city = params.get('city');
   var table = document.getElementById('table_body');
-  let x = await fetch(`http://127.0.0.1:8000/api/search_fetch?major=${major}`);
+  let x = await fetch(`http://127.0.0.1:8000/api/search_fetch?major=${major}&city=${city}&category=${category}`);
   let y = await x.json();
   var data = []
   console.log(y.length)
     y.forEach(ele => {
       if(ele['city'] == city)
       data.push(ele)
-      // data.unshift(ele)
-      // else
-      // data.push(ele)
 });
 data.forEach(ele => {
     table.innerHTML +=`

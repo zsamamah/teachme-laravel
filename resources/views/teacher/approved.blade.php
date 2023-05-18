@@ -101,18 +101,26 @@
                   <span class="categories">{{$booking->end_time}}</span>
                 </td>
                 <td class="action" data-title="Action">
+                  @if ($booking->phone)
                   <a href="tel:{{$booking->phone}}" class="text-primary">
                     <i class="fa-solid fa-square-phone fa-2x text-success"></i>
                   </a>
+                  @endif
+                  @if ($booking->facebook)
                   <a href="https://{{$booking->facebook}}" class="text-primary">
                     <i class="fa-brands fa-square-facebook fa-2x text-primary"></i>
                   </a>
+                  @endif
+                  @if ($booking->instagram)
                   <a href="https://{{$booking->instagram}}" class="text-primary">
                     <i class="fa-brands fa-square-instagram fa-2x text-warning"></i>
                   </a>
+                  @endif
+                  @if ($booking->linkedin)
                   <a href="https://{{$booking->linkedin}}" class="text-primary">
                     <i class="fa-brands fa-linkedin fa-2x text-primary"></i>
                   </a>
+                  @endif
                 </td>
               </tr>
               @endforeach

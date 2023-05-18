@@ -94,7 +94,7 @@
     </div>
   </div>
 </section>
-
+{{--
 <section class="section bg-gray">
   <div class="container">
     <div class="row">
@@ -129,4 +129,5 @@
     </div>
   </div>
 </section>
+--}}
 @endsection

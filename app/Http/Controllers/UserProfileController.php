@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Book;
 use App\Models\Detail;
 use App\Models\Order;
+use App\Models\Review;
 use App\Models\User;
 use Illuminate\Http\File;
 use Illuminate\Http\Request;
@@ -176,8 +177,19 @@ class UserProfileController extends Controller
         if(Auth::user()->role==$user->role)
             return redirect(route('index'));
         $details = Detail::where('user_id',$user->id)->first();
+        $reviews = Review::join('orders','orders.id','reviews.order_id')->where('orders.teacher_id',$user->id)->select('reviews.range')->get();
+        $sum=0;
+        $length = 0;
+        if(count($reviews)>=1){
+            $sum = 0;
+            $length = count($reviews);
+            foreach ($reviews as $key) {
+                $sum+=$key['range'];
+            }
+            $sum/=$length;
+        }
         $pending = Order::where('teacher_id',$user->id)->where('status','Pending')->count();
         $approved = Order::where('teacher_id',$user->id)->where('status','Approved')->count();
-        return view('show_profile',compact('user','details','pending','approved'));
+        return view('show_profile',compact('user','details','reviews','sum','length','pending','approved'));
     }
 }

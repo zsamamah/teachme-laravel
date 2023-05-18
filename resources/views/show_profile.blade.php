@@ -54,6 +54,10 @@
             @else
                 ---
             @endif</p>
+            @if (count($reviews)>=1)
+              <p><i class="fa-solid fa-star"></i>
+                {{$sum}}/5 ({{$length}} rates)</p>
+            @endif
             @if ($user->role=='teacher')
             <a href="{{ route('booking_page',$user->id) }}" class="btn btn-main-sm">Book Session</a>
             @endif

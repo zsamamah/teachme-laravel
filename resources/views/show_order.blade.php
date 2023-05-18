@@ -147,18 +147,26 @@ h1 { font-size: 1.5em; margin: 10px; }
                   <span class="categories">{{$order->end_time}}</span>
                 </td>
                 <td class="action" data-title="Action">
+                  @if ($order->phone)
                   <a href="tel:{{$order->phone}}" class="text-primary">
                     <i class="fa-solid fa-square-phone fa-2x text-success"></i>
                   </a>
+                  @endif
+                  @if ($order->facebook)
                   <a href="https://{{$order->facebook}}" class="text-primary">
                     <i class="fa-brands fa-square-facebook fa-2x text-primary"></i>
                   </a>
+                  @endif
+                  @if ($order->instagram)
                   <a href="https://{{$order->instagram}}" class="text-primary">
                     <i class="fa-brands fa-square-instagram fa-2x text-warning"></i>
                   </a>
+                  @endif
+                  @if ($order->linkedin)
                   <a href="https://{{$order->linkedin}}" class="text-primary">
                     <i class="fa-brands fa-linkedin fa-2x text-primary"></i>
                   </a>
+                  @endif
                 </td>
               </tr>
             </tbody>
