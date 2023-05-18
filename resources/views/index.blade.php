@@ -113,7 +113,7 @@
 <section class="section service-2">
 	<div class="container">
 		<div class="row">
-			<a href="search?major=Math&city=Amman" class="col-lg-4 col-md-6 col-sm-6">
+			<a href="/search?major=Math&city=Amman&category=Category" class="col-lg-4 col-md-6 col-sm-6">
 				<div class="service-block mb-5">
 					<img src="{{ asset('images/majors/math.jpg') }}" alt="" class="img-fluid">
 					<div class="content">
@@ -123,17 +123,17 @@
 				</div>
 			</a>
 
-			<a href="search?major=English&city=Amman" class="col-lg-4 col-md-6 col-sm-6">
+			<a href="/search?major=English&city=Amman&category=Category" class="col-lg-4 col-md-6 col-sm-6">
 				<div class="service-block mb-5">
 					<img src="{{ asset('images/majors/english.jpg') }}" alt="" class="img-fluid">
 					<div class="content">
-						<h4 class="mt-4 mb-2  title-color">English Language</h4>
+						<h4 class="mt-4 mb-2 title-color">English Language</h4>
 						<p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
 					</div>
 				</div>
 			</a>
 			
-			<a href="search?major=Arabic&city=Amman" class="col-lg-4 col-md-6 col-sm-6">
+			<a href="/search?major=Arabic&city=Amman&category=Category" class="col-lg-4 col-md-6 col-sm-6">
 				<div class="service-block mb-5">
 					<img src="{{ asset('images/majors/arabic.jpg') }}" alt="" class="img-fluid">
 					<div class="content">
@@ -144,7 +144,7 @@
 			</a>
 
 
-			<a href="search?major=Physics&city=Amman" class="col-lg-4 col-md-6 col-sm-6">
+			<a href="/search?major=Physics&city=Amman&category=Category" class="col-lg-4 col-md-6 col-sm-6">
 				<div class="service-block mb-5 mb-lg-0">
 					<img src="{{ asset('images/majors/physics.jpg') }}" alt="" class="img-fluid">
 					<div class="content">
@@ -154,7 +154,7 @@
 				</div>
 			</a>
 
-			<a href="search?major=Chemistry&city=Amman" class="col-lg-4 col-md-6 col-sm-6">
+			<a href="/search?major=Chemistry&city=Amman&category=Category" class="col-lg-4 col-md-6 col-sm-6">
 				<div class="service-block mb-5 mb-lg-0">
 					<img src="{{ asset('images/majors/chemistry.png') }}" alt="" class="img-fluid">
 					<div class="content">
@@ -164,7 +164,7 @@
 				</div>
 			</a>
 			
-			<a href="search?major=Computer&city=Amman" class="col-lg-4 col-md-6 col-sm-6">
+			<a href="/search?major=Computer&city=Amman&category=Category" class="col-lg-4 col-md-6 col-sm-6">
 				<div class="service-block mb-5 mb-lg-0">
 					<img src="{{ asset('images/majors/computer.jpg') }}" alt="" class="img-fluid">
 					<div class="content">
