@@ -22,22 +22,22 @@
 						<h2>Popular Category</h2>
 						<ul class="list-inline">
 							<li class="list-inline-item">
-								<a href="{{ route('search', ['major'=>'Math','city'=>'Amman']) }}">
+								<a href="{{ route('search', ['major'=>'Math','city'=>'Amman','category'=>'Category']) }}">
 								<i class="fa-solid fa-school"></i> Math
 								</a>
 							</li>
 							<li class="list-inline-item">
-								<a href="{{ route('search', ['major'=>'English','city'=>'Amman']) }}">
+								<a href="{{ route('search', ['major'=>'English','city'=>'Amman','category'=>'Category']) }}">
 								<i class="fa-solid fa-graduation-cap"></i> English
 								</a>
 							</li>
 							<li class="list-inline-item">
-								<a href="{{ route('search', ['major'=>'Computer','city'=>'Amman']) }}">
+								<a href="{{ route('search', ['major'=>'Computer','city'=>'Amman','category'=>'Category']) }}">
 								<i class="fa-solid fa-book"></i> Computer
 								</a>
 							</li>
 							<li class="list-inline-item">
-								<a href="{{ route('search', ['major'=>'Physics','city'=>'Amman']) }}">
+								<a href="{{ route('search', ['major'=>'Physics','city'=>'Amman','category'=>'Category']) }}">
 								<i class="fa-solid fa-comment"></i> Physics
 								</a>
 							</li>
